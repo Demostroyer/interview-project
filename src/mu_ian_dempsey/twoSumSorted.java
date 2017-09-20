@@ -6,12 +6,10 @@ package mu_ian_dempsey;
  * And also that this will be working on sorted arrays. 
  * @author Ian Dempsey
  * @date 19/09/17
- *
  */
 public class twoSumSorted {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		//a basic example
 		int[] array= {1,2,3,4};
 		int target=5;
