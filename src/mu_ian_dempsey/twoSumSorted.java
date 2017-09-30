@@ -1,11 +1,14 @@
 package mu_ian_dempsey;
 /**
- * This is the twoSumSSorted Q on leetcode.com
+ * This is the twoSumSSorted Q on leetcode.com, number 167
  * This is very similar to the previously answered twoSum Q, 
  * main difference is that this one is not using zero-based indexing.
  * And also that this will be working on sorted arrays. 
  * @author Ian Dempsey
  * @date 19/09/17
+ * Time analysis is: O(n) -> because this depends on the size of the String given
+ * Space analysis is: O(n/2) ->because I am working on two elements at a given time. 
+ * The pattern that I found in this question is the PALINDROME pattern. 
  */
 public class twoSumSorted {
 

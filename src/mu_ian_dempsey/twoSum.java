@@ -2,7 +2,7 @@ package mu_ian_dempsey;
 
 import java.util.Arrays;
 /*
- * This is the twoSum problem on leetCode.
+ * This is the twoSum problem on leetCode. it is leetcode Q1
  * I have planned out the following approach:
  * given an array and a sum target, find a pair of digits which will equal that sum
  * ie [1,2,3,4] sum = 6. We can't assume they are in order, so must take that into account.
@@ -16,6 +16,9 @@ import java.util.Arrays;
  * @author Ian Dempsey
  * @date 19/09/2017
  * @version 1.1
+ * The pattern that I found in this question is the PALINDROME pattern. 
+ * Time analysis is: O(n) -> because this depends on the size of the String given
+ * Space analysis is: O(n/2) ->because I am working on two elements at a given time. 
  * I realise that i could use a simple hashmap and do this quicker, but this was my logical way. 
  */
 public class twoSum {
