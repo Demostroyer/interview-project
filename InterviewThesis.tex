@@ -1,0 +1,31 @@
+\documentclass[twocolumn]{article}
+
+\usepackage{algorithm2e}
+
+\title{Analyzing Algorithmic Patterns Based on Real Coding Interview Questions}
+\author{Ian Dempsey}
+
+
+\begin{document}
+
+\maketitle
+\pagenumbering{gobble}
+
+\newpage
+\pagenumbering{arabic}
+
+\section{General Patterns for Analysis}
+\subsection{Palindrome}
+\paragraph{General Structure of a Palindrome Algorithm}
+The following description is a general algorithm for solving the palindrome problem which is a common problem in Java and other languages. This approach can be used to solve numerous other problems by altering the inside of the loop.
+Set the left to index the leftmost/first character.\\
+Set right to index the rightmost or last character\\
+while left is less than right\\
+\hspace*{0.5in}	compare the left and right characters\\
+\hspace*{0.5in}	if they are not equal then return false\\
+\hspace*{0.5in}	increment left\\
+\hspace*{0.5in}	decrement right\\
+end of the while loop\\
+return true 
+
+\end{document}
