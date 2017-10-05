@@ -18,7 +18,7 @@ package mu_ian_dempsey;
 public class ReverseString {
 
 	public static void main(String[] args) {
-		System.out.println(reverseString("hello"));
+		System.out.println(reverseString("hello how are you today?"));
 	}
 
 	

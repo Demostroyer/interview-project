@@ -10,7 +10,6 @@
 
 \maketitle
 \pagenumbering{gobble}
-
 \newpage
 \pagenumbering{arabic}
 
@@ -28,5 +27,23 @@ while left is less than right\\
 \hspace*{0.5in}	decrement right\\
 end of the while loop\\
 return true 
+
+\subsection{Merge Sort}
+\paragraph{General Structure of a Merge Sort Algorithm}
+Merge Sort uses the idea of divide and conquer, this means the list to be sorted should be divided up into equal parts first, then these new smaller parts should be sorted individually first before recreating the full list.\\
+The following is a general algorithm for solving a sorting problem using the merge sort approach. \\
+Algorithm:\\
+If there is only one element in the list to be sorted, it is already sorted, return.\\
+Else, divide the list recursively into two halves until it can no longer be divided.\\
+Then merge the smaller lists into new list in sorted order.\\
+
+\\
+Pseudocode:\\
+mergeSort(A):
+\hspace*{0.5in} if length of A is 1: return 1\\
+\hspace*{0.5in} Split A into two halves , L and R. Repeat until size of part =1.
+\hspace*{0.5in} Sort each part individually. Merge with another subdivided section into B, the sorted list. 
+\hspace*{0.5} Return B, the sorted structure.\\
+
 
 \end{document}
