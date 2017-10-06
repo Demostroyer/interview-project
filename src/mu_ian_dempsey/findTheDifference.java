@@ -1,21 +1,23 @@
 package mu_ian_dempsey;
 /**
+ * Leetcode Q:389
  Idea:
  convert both into charArrays. 
  Then create an int array which is going to be of size 25, this relates to the letters of the alphabet, including 0 index
  In this array i will increase the frequency of each character in the first string, by casting from the char in the first charArray to
  int. Then do the same for the second charArray. 
- All I have to do is then check for the odd one out in the second list by comparison.
+ All I have to do is then check for the odd one out in the second list by comparison of frequency.
  Then cast this int back to it's equivalent char!
  @author Ian Dempsey
  @date 5/10/17
- Time analysis: 
+ Time analysis: O(n) -> because I am only every traversing along the strings/charArrays. 
+ Space Analysis: O(n) -> I have multiple arrays, but still remains as n
 */
 public class findTheDifference {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		char answer = findTheDifference("abc","abcd");
+		char answer = findTheDifference("abcd","abcda");
 		System.out.println("The added char is: " + answer);
 	}
 	 public static char findTheDifference(String s, String t) {
@@ -38,7 +40,7 @@ public class findTheDifference {
 	        for(int i =0; i< firstArray.length;i++){
 	        	//this if stmt currently doesnt work for any case where string s has multiple of the same char, and
 	        	//string t has even more chars of the same that was in s
-	            if(firstArray[i]== 0 && secondArray[i]>= 1 || firstArray[i] ==1 && secondArray[i] >1){//the firstArray has 0 for a frequency, 2nd has 1 or more freq,Found the odd one out
+	            if(firstArray[i] < secondArray[i]){//the firstArray has less frequency, 2nd has more freq,Found the odd one out
 	                answer=(char)i;//so set the answer var to the char casted version of this i value of the secondArray
 	            }
 	        }
