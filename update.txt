@@ -1,0 +1,1 @@
+I have tried to style the two algorithms in the correct way using Algorithm2e packaging. I need to look over the IEE though to check the general styling of the document
