@@ -1,3 +1,0 @@
-I now have the basic description of what a palindrome algorithm is. I must add in the 2/3 algorithms using the Algorithm2e package to showcase the code itself, and show how there is a general pattern in these(even if they are slightly different, due to them having different goals naturally) that is found in the palindrome pattern described above. 
- 
-What to do next: Look into binary search and see what the general pattern is, break it down and describe it in english. Then find a few questions from Leetcode that can match this, Show how thye have a similar structure to the generic algorithm previously described. Also, revise Tree/Graph structures
