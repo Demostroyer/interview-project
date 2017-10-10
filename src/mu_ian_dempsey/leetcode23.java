@@ -16,7 +16,7 @@ package mu_ian_dempsey;
 	Then continue like normal for mergeSort! 
 	@author Ian Dempsey
 	@date 10/10/2017	
-	Time Analysis: O(nlogn) -> Using mergesort so it is this. 
+	Time Analysis: O(nlogn) -> Using mergesort so it is going to be this complexity. 
 	Space Analysis: O(n) -> Depends on the size of the list given.  
 */
 public class leetcode23 {
