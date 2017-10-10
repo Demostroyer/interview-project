@@ -6,12 +6,12 @@ import java.util.Arrays;
  * This is a problem on leetcode, number 136.. 
  * Given an array of integers, every element appears twice, EXCEPT for one. Find this single integer. 
  * Idea: Sort the array first, as this will allow me to quickly check. The paired nums will be next to eachother then
- * Then go through this new sorted array, comparing adjacent values. Ifthe adjacent elements are the same, skip.
- * Skip is done by somply performing a second i++; 
+ * Then go through this new sorted array, comparing adjacent values. If the adjacent elements are the same, skip.
+ * Skip is done by simply performing a second i++; 
  * Else,the two adjacent values are not equal, so we have found the single number! Return this number!
  * Time analysis is: O(n) -> because I am simply searching the array once.
  * Space analysis is: O(n) -> I believe because it is only storing the contents of the array once.
- * @author demps
+ * @author Ian Dempsey
  * The pattern in this is: 	
  */
 public class singleNumber {

@@ -17,7 +17,7 @@ public class findTheDifference {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		char answer = findTheDifference("abcd","abcda");
+		char answer = findTheDifference("aba","aabccccc");
 		System.out.println("The added char is: " + answer);
 	}
 	 public static char findTheDifference(String s, String t) {

@@ -10,6 +10,7 @@ package mu_ian_dempsey;
  * @author Ian Dempsey
  *Time Complexity: O(logn) ->Number of divisions is given by the log 
   Space Complexity: O(1) -> no extra memory needed
+  Pattern in this Q is: 
  */
 public class leetcode326 {
 	public static void main(String [] args) {
@@ -20,11 +21,6 @@ public class leetcode326 {
 		}
 	}
 	
-	/**
-	 * 
-	 * @param n
-	 * @return
-	 */
 	 public static boolean isPowerOfThree(int n) {
 	        if(n<1){return false;}//negative numbers are not allowed
 	        //want to check if n is actually a number that has 3 as a factor, ie: 1,3,9,27,81 are correct answers as 3^0,3^1,3^2,3^3,3^4 are these

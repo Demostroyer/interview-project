@@ -19,31 +19,14 @@ public class uniqueChar {
 		// TODO Auto-generated method stub
 		String leetcode="iiaannp";
 		System.out.println("The unique character first found was : "+ (char)firstUniqueChar(leetcode));
-
+		String c = "c";
+		char[] first=c.toCharArray();
+		for(char ch: first) {
+			System.out.println((int)ch);
+			}
 	}
 	
 	public static int firstUniqueChar(String s) {
-		/*char[] letters = s.toCharArray();//change the string to a chararray, easy to parse
-		char unique =letters[0];//set the unique var to be the first letter
-		int j=1;//set j to be 1 more than unique, so it is always ahead of it.	
-		for(int i = 1; i <letters.length;i++) {//go through the array, start off ahead of unique 
-			int count=0;//need this to check if the current letter has been found more than once.
-			if(unique==letters[i]) {//if the char c is equivalent to unique, then it is not unique!
-				count++;//increment the count var, so I know that it is not unique!
-			}
-			if(count>1){//if there has been more than 1 occurrence of the char we are currently looking at
-				j++;//move j up by one, this will allow me to set unique to the next var after current position.
-				unique=letters[j];//move on unique!
-			}else if(i<letters.length){//else count is not bigger than 1, so we either have not found a unique char, OR not finished
-				continue;
-			}else{//else we have reached the end of the search and not found it! So return -1
-				return -1;
-			}			
-			//finally:we have reached the end, and we have found any unique char and we found a second copy of a char where 
-			 //i moved the search forward , return unique at the current position!
-			//need a way to check if it has gone the entire way through and not found it. set unique to -1. 
-		} return unique;
-		*/
 	     if(s.length() == 0) {return -1;}
 	        int index = 0;
 	        char[] arrChar = s.toCharArray();//an array of characters

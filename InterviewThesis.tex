@@ -1,6 +1,6 @@
 \documentclass[twocolumn]{article}
 
-\usepackage{algorithm2e}
+\usepackage[linesnumbered,lined,boxed,commentsnumbered]{algorithm2e}
 
 \title{Analyzing Algorithmic Patterns Based on Real Coding Interview Questions}
 \author{Ian Dempsey}
@@ -15,35 +15,45 @@
 
 \section{General Patterns for Analysis}
 \subsection{Palindrome}
-\paragraph{General Structure of a Palindrome Algorithm}
-The following description is a general algorithm for solving the palindrome problem which is a common problem in Java and other languages. This approach can be used to solve numerous other problems by altering the inside of the loop.\\
-Algorithm:\\
-Set the left to index the leftmost/first character\\
-Set right to index the rightmost/last character\\
-while left is less than right\\
-\hspace*{0.5in}	compare the left and right characters\\
-\hspace*{0.5in}	if they are not equal then return false\\
-\hspace*{0.5in}	increment left\\
-\hspace*{0.5in}	decrement right\\
-end of the while loop\\
-return true 
-
+The following description is a general algorithm for solving the palindrome problem which is a common problem in Java and other languages. This approach can be used to solve numerous other problems by altering the inside of the loop.
+\IncMargin{1em}
+\begin{algorithm}
+	\SetAlgoLined
+	\KwData{Given input of characters, S}
+	\KwResult{Boolean}
+	initialization\;
+	$leftIndex  \longleftarrow $S[0]\;
+	$rightIndex \longleftarrow $S.length-1\;
+	\While{leftIndex < rightIndex}{
+	compare leftIndex with rightIndex\;
+	\eIf{leftIndex !=rightIndex}{
+		return false\;
+	}
+	 leftIndex++\;
+	rightIndex\;
+}
+return true\;
+\caption{The Palindrome Algorithm}
+\end{algorithm}\DecMargin{1em}
 \subsection{Merge Sort}
-\paragraph{General Structure of a Merge Sort Algorithm}
 Merge Sort uses the idea of divide and conquer, this means the list to be sorted should be divided up into equal parts first, then these new smaller parts should be sorted individually first before recreating the full list.\\
 The following is a general algorithm for solving a sorting problem using the merge sort approach. \\
-Algorithm:\\
-If there is only one element in the list to be sorted, it is already sorted, return.\\
-Else, divide the list recursively into two halves until it can no longer be divided.\\
-Then merge the smaller lists into new list in sorted order.\\
+Pseudocode:
+\IncMargin{1em}
+\begin{algorithm}
+	\SetAlgoLined
+	\KwData{List of unsorted data}
+	\KwResult{Sorted List}
+ 	\eIf{ length of A is 1}{ return 1}
+  	{Split A into two halves , L and R. Repeat until size of part =1\\
+  	Sort each part individually \\
+  	Merge with another subdivided section into B, the sorted list\\ 
+  	Return B, the sorted structure}
+\caption{The Merge Sort Algorithm through Recursion}
+\end{algorithm}\DecMargin{1em}
 
-\\
-Pseudocode:\\
-mergeSort(A):
-\hspace*{0.5in} if length of A is 1: return 1\\
-\hspace*{0.5in} Split A into two halves , L and R. Repeat until size of part =1.
-\hspace*{0.5in} Sort each part individually. Merge with another subdivided section into B, the sorted list. 
-\hspace*{0.5} Return B, the sorted structure.\\
+
+
 
 
 \end{document}
