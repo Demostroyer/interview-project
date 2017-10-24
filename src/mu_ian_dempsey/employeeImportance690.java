@@ -1,6 +1,8 @@
 package mu_ian_dempsey;
 
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 /**
  * This is leetcode Q 690. 
  * I believe it can be solved with some form of BFS. Where I must check the subordinates, which are just on
@@ -22,7 +24,11 @@ import java.util.List;
  *
  */
 public class employeeImportance690 {
-	
+	/**
+	 * Supplied by user on leetcode.com
+	 * @author fallcreek 
+	 *
+	 */
 	private class Employee{
 	    // It's the unique id of each node;
 	    // unique id of this employee
@@ -37,6 +43,18 @@ public class employeeImportance690 {
         int total=0;
         //Base cases to terminate
         if(employees==null  || id<0) { return 0;}
+        //the queue for the system of FIFO
+        Queue<Integer> q = new LinkedList<Integer>();
+        q.add(id);//start off with something in the queue.
+        while(!q.isEmpty()) {
+        	//get the Id that is at the head of the queue. This is the one given as input: leader we work down from
+        	int getCurrId = q.poll();
+        	//to access the correct Employee. Must use a method in List class.
+        	//best would be a getter. 
+        	//get the corresponding employee at the relevant index supplied. 
+        	Employee e = employees.get(getCurrId);//the temp Employee to hold the current employee off of the queue q
+        	
+        }
         return total;
     }
 
