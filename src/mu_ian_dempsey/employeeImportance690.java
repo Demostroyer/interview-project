@@ -13,10 +13,11 @@ import java.util.Queue;
  * Create a queue q system as in BFS. Add in the id we are given( this is not the actual employee yet though!)
  * Them whilst q is not empty:
  * 		remove the head of q, put into temp. 
- * 		Next get the relevant employee. (Will need to look into this!)
+ * 		Next get the relevant employee. (Will need to look into this!-> done)
  * 		Then enqueue all the relevant subordinates underneath the leader onto the q. 
  * 		Add the importance val to the total of the current employee in temp to the answer
  *  	Then start again, BUT do not add in the subordinates of the subordinates. (As far as I understand anyways!, will figure this out when I have built it for one level only.)
+ *  	(To only add in the subordinates for the given leader, just use the list of subordinates that is part of each leader. use e.subordinates)
  *  	Finally once q is empty, return answer. 
  * Pattern here is BFS
  * 
@@ -50,10 +51,17 @@ public class employeeImportance690 {
         	//get the Id that is at the head of the queue. This is the one given as input: leader we work down from
         	int getCurrId = q.poll();
         	//to access the correct Employee. Must use a method in List class.
-        	//best would be a getter. 
+        	//best would be a getter. so simply a get() call will work. Can use get(getCurrId). 
+        	//this getCurrId is popped off of the q
         	//get the corresponding employee at the relevant index supplied. 
         	Employee e = employees.get(getCurrId);//the temp Employee to hold the current employee off of the queue q
-        	
+        	//adding the current importance value to the total so far
+        	total+=e.importance;
+        	//now to try and get the subordinates ONLY of e added to the queue q. 
+        	//this can easily be done by accessing the subordinates list that is part of the node for the leader
+        	for(int newSubs : e.subordinates) {
+        		q.add(newSubs);
+        	}
         }
         return total;
     }
