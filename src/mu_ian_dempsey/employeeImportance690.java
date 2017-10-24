@@ -8,7 +8,7 @@ import java.util.Queue;
  * I believe it can be solved with some form of BFS. Where I must check the subordinates, which are just on
  * the lower level than the leader. This is exactly like a BFS problem. As I work down and across the tree 
  * Issue here is how to use the List data type itself, so I can access the correct information. 
- * Idea: Check if the List is empty, if id < 0 
+ * Idea: Check if the List is empty, if id < 0 , NEW cases: if id> employees.size(), if employees.size()==0
  * Otherwise all good. So main part:
  * Create a queue q system as in BFS. Add in the id we are given( this is not the actual employee yet though!)
  * Them whilst q is not empty:
@@ -43,7 +43,7 @@ public class employeeImportance690 {
     public int getImportance(List<Employee> employees, int id) {
         int total=0;
         //Base cases to terminate
-        if(employees==null  || id<0) { return 0;}
+        if(employees==null  || id<0 || id> employees.size()||employees.size()==0) { return 0;}
         //the queue for the system of FIFO
         Queue<Integer> q = new LinkedList<Integer>();
         q.add(id);//start off with something in the queue.
@@ -54,7 +54,8 @@ public class employeeImportance690 {
         	//best would be a getter. so simply a get() call will work. Can use get(getCurrId). 
         	//this getCurrId is popped off of the q
         	//get the corresponding employee at the relevant index supplied. 
-        	Employee e = employees.get(getCurrId);//the temp Employee to hold the current employee off of the queue q
+        	//this has to be -1 for index, as remember index starts at 0
+        	Employee e = employees.get(getCurrId-1);//the temp Employee to hold the current employee off of the queue q
         	//adding the current importance value to the total so far
         	total+=e.importance;
         	//now to try and get the subordinates ONLY of e added to the queue q. 
@@ -65,5 +66,4 @@ public class employeeImportance690 {
         }
         return total;
     }
-
 }
