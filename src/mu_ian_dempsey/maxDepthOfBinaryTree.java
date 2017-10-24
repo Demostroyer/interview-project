@@ -18,20 +18,30 @@ public class maxDepthOfBinaryTree {
 
 	public static void main(String[] args) {
 		TreeNode tree = new TreeNode();
-		depth(tree);
+		tree.insert(10);
+		tree.insert(12);
+		tree.insert(2);
+		int depth =depth(tree.root);//must give the tree.root when calling this method or else will only be a value of 1
+		System.out.println(depth);
 	}
 	/* Compute the "depth" of a tree -- the number of
     nodes along the longest path from the root node
     down to the farthest leaf node.*/
-    static int depth(TreeNode root)
+    static int depth(TreeNode focusNode)
     {
-        if (root == null)
+        if (focusNode == null)
            return 0;
         else
         {
+        	/*This works by going as far left, until you find a node with no left child. 
+        	 * then seeing if this parent node has a right child. 
+        	 * If so it again tries to go left from this right child, then right when it has no left child etc 
+        	 * until it returns a 0 for a node having no children. 
+        	 * This then moves onto the right subtree and performs the same task but it in the opposite style.
+        	 * */
             /* compute  depth of each subtree */
-            int ldepth = depth(root.left);
-            int rdepth = depth(root.right);
+            int ldepth = depth(focusNode.left);
+            int rdepth = depth(focusNode.right);
             
             /* use the larger one */
             if (ldepth > rdepth)
@@ -39,6 +49,4 @@ public class maxDepthOfBinaryTree {
             else return(rdepth+1); 
         }
     }
-
 }
-
