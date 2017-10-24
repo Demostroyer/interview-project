@@ -21,7 +21,7 @@ import java.util.Arrays;
  * Space analysis is: O(n/2) ->because I am working on two elements at a given time. 
  * I realise that i could use a simple hashmap and do this quicker, but this was my logical way. 
  */
-public class twoSum {
+public class twoSum1 {
 	public static void main(String [] args) {
 		//example input
 		int[] numArray= {1,2,3,4,5};

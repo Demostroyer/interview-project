@@ -13,7 +13,7 @@ package mu_ian_dempsey;
  * @author demps
  *Pattern found in this Question: 
  */
-public class uniqueChar {
+public class uniqueChar387 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

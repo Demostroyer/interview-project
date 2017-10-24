@@ -15,7 +15,7 @@ package mu_ian_dempsey;
  * @author Ian Dempsey
  * @date 30/09/2017
  */
-public class ReverseString {
+public class ReverseString344 {
 
 	public static void main(String[] args) {
 		System.out.println(reverseString("hello how are you today?"));

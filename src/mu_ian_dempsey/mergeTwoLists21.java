@@ -12,7 +12,7 @@ package mu_ian_dempsey;
  * @date 5/10/17
  * Time analysis: O(n) because this is only dependant on how many elements are in the lists.
  */
-public class mergeTwoLists {
+public class mergeTwoLists21 {
 
 	public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode head = new ListNode(0);//create a new head node

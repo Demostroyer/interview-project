@@ -14,7 +14,7 @@ import java.util.Arrays;
  * @author Ian Dempsey
  * The pattern in this is: 	
  */
-public class singleNumber {
+public class singleNumber136 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

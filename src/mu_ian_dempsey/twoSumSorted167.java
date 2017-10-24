@@ -10,7 +10,7 @@ package mu_ian_dempsey;
  * Space analysis is: O(n/2) ->because I am working on two elements at a given time. 
  * The pattern that I found in this question is the PALINDROME pattern. 
  */
-public class twoSumSorted {
+public class twoSumSorted167 {
 
 	public static void main(String[] args) {
 		//a basic example
