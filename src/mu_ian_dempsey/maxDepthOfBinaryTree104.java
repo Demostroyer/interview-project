@@ -14,7 +14,7 @@ package mu_ian_dempsey;
  *  @date: 23/10/17
  */
 
-public class maxDepthOfBinaryTree {
+public class maxDepthOfBinaryTree104 {
 
 	public static void main(String[] args) {
 		TreeNode tree = new TreeNode();

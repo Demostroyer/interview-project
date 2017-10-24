@@ -22,7 +22,7 @@ package mu_ian_dempsey;
  *Time analysis: O(logn) 
  *Space analysis: O(n) -> because I am storing the entire tree regardless. 
  */
-public class sumLeftLeaves {
+public class sumLeftLeaves404 {
 	
 	public static void main(String...args) {
 		TreeNode tree = new TreeNode();
@@ -49,9 +49,9 @@ public class sumLeftLeaves {
         int ans = 0;
         //if the current node has a left child
         if(root.left != null) {
-            //the current node's left child has no children. This mean's the child of the current node is a leaf node
-            if(root.left.left == null && root.left.right == null) {ans += root.left.val;}//add this value to the calue of ans
-            //Else it's not a leaf node. So ans is added witha  recursive call on the current node's left child, going deeper into the tree
+            //the current node's left child has no children. This means the child of the current node is a leaf node
+            if(root.left.left == null && root.left.right == null) {ans += root.left.val;}//add this value to the value of ans
+            //Else it's not a leaf node. So ans is added with a recursive call on the current node's left child, going deeper into the tree
             //We know that it has a left child from the code above.
             else {ans += sumOfLeftLeaves(root.left);}
         }
