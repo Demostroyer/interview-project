@@ -28,7 +28,7 @@ import java.util.Queue;
 /*
  * Solution done by Hao Wu
  * This one is straightforward enough. 1 stack + 1 table.
- * Worst case: each employee has m number of subordinates and has n employees in total. O(m*n) = O(N)
+ * Worst case: each employee has m number of subordinates and has n employees in total. O(m*n) = O(N^2)
  *   
  public int getImportance(List<Employee> employees, int id) {
         HashMap<Integer, Employee> table = new HashMap<Integer, Employee>();
