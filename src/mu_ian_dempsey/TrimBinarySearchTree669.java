@@ -11,6 +11,10 @@ package mu_ian_dempsey;
  *R and right of it in the case of L. Just need to keep on calling the function recursively when this happens. With the root being passed in 
  *as the updated root which is either moved left(if it voilated R) and vice versa. 
  *If neither of these happen, then just move onwards via a recursive call. This is odd, and must ask Hao about it
+ *author: Ian Dempsey
+ *date: 25/10/17
+ *Time analysis: O(n)-> this completely depends on the size of the tree given
+ *SPace Analysis: O(n) -> dependent on the size of the tree given
  */
 public class TrimBinarySearchTree669 {
 
