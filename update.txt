@@ -1,1 +1,1 @@
-I have tried to style the two algorithms in the correct way using Algorithm2e packaging. I need to look over the IEE though to check the general styling of the document
+I have uploaded a new version of my thesis, which has the longer descriptions of the 3patterns so far covered. I have also completed a good portion of tree Qs on leetcode, namely:414,104,111,102 & 669. I have attempts on a few others: 107, 654 and 690. The latter being very close to completion I feel.
