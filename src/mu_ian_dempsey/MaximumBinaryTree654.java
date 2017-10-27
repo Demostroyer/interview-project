@@ -24,6 +24,30 @@ import java.util.Arrays;
  *Time Analysis:
  *Space Analysis: 
  */
+
+/**
+ * Solution done by Hao Wu
+ * This is straightforward, 1 stack + 1 table.
+ */
+    /*public int getImportance(List<Employee> employees, int id) {
+        HashMap<Integer, Employee> table = new HashMap<Integer, Employee>();
+        Stack<Integer> stack = new Stack<Integer>();
+        for (Employee e : employees) table.put(e.id,e);
+        int total = 0;
+        stack.push(id);
+        
+        while (!stack.empty()){
+            int key = stack.pop();
+            Employee e = table.get(key);
+            total += e.importance;
+            for (Integer sub : e.subordinates) stack.push(sub);
+        }
+        
+        return total;
+        
+    }*/
+
+
 public class MaximumBinaryTree654 {
 	    public TreeNode constructMaximumBinaryTree(int[] nums) {
 	        int rootIndex=findRoot(nums,0,nums.length);
@@ -63,4 +87,5 @@ public class MaximumBinaryTree654 {
 	        }//once it has looped through return currentMax. This should work in the case that the first position of the array is the biggest num
 	        return index;
 	    }
+	
 }
