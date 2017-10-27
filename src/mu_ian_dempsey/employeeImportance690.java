@@ -24,6 +24,34 @@ import java.util.Queue;
  * @author Ian Dempsey
  *
  */
+
+/*
+ * Solution done by Hao Wu
+ * This one is straightforward enough. 1 stack + 1 table.
+ * Worst case: each employee has m number of subordinates and has n employees in total. O(m*n) = O(N)
+ *   
+ public int getImportance(List<Employee> employees, int id) {
+        HashMap<Integer, Employee> table = new HashMap<Integer, Employee>();
+        Stack<Integer> stack = new Stack<Integer>();
+        for (Employee e : employees) table.put(e.id,e);
+        int total = 0;
+        stack.push(id);
+        
+        while (!stack.empty()){
+            int key = stack.pop();
+            Employee e = table.get(key);
+            total += e.importance;
+            for (Integer sub : e.subordinates) stack.push(sub);
+        }
+        
+        return total;
+        
+    }
+ *
+ */
+
+
+
 public class employeeImportance690 {
 	/**
 	 * Supplied by user on leetcode.com
