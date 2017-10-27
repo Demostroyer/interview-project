@@ -27,23 +27,29 @@ import java.util.Arrays;
 
 /**
  * Solution done by Hao Wu
- * This is straightforward, 1 stack + 1 table.
+ * Recursively solve each subproblem. I find this is quite similar to merge sort pattern. Note the key point I made.
+ * This is a little bit tricky: you need make sure the arrary shrinks every time go into the recursive call.
+ * The rest should be starightforward, just take advantage of post-order traversal.
  */
-    /*public int getImportance(List<Employee> employees, int id) {
-        HashMap<Integer, Employee> table = new HashMap<Integer, Employee>();
-        Stack<Integer> stack = new Stack<Integer>();
-        for (Employee e : employees) table.put(e.id,e);
-        int total = 0;
-        stack.push(id);
-        
-        while (!stack.empty()){
-            int key = stack.pop();
-            Employee e = table.get(key);
-            total += e.importance;
-            for (Integer sub : e.subordinates) stack.push(sub);
+    /*
+     public TreeNode constructMaximumBinaryTree(int[] nums) {    
+    	if (nums.length==0) return null;
+        int max = nums[0];
+        int j=0;
+        for (int i=1;i<nums.length;i++){
+            if (nums[i]>max) {max = nums[i];j=i;}
         }
         
-        return total;
+        TreeNode node = new TreeNode(max);
+        
+        int[] left = Arrays.copyOfRange(nums,0,j);
+        node.left = constructMaximumBinaryTree(left);
+
+        int[] right = Arrays.copyOfRange(nums,j+1,nums.length); //key point, keep array shrinks everytime.
+		node.right = constructMaximumBinaryTree(right);
+        
+     	return node;
+    }
         
     }*/
 
