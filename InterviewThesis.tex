@@ -1,6 +1,7 @@
 \documentclass[10pt,twocolumn]{IEEEtran}
 
 \usepackage[linesnumbered,lined,boxed,commentsnumbered]{algorithm2e}
+\usepackage{graphicx}
 
 \title{Analyzing Algorithmic Patterns Based on Real Coding Interview Questions}
 \author{Ian Dempsey}
@@ -26,9 +27,9 @@ Pseudocode:
 	initialization\;
 	$leftIndex  \longleftarrow $S[0]\;
 	$rightIndex \longleftarrow $S.length-1\;
-	\While{leftIndex < rightIndex}{
+	\While{leftIndex $<$ rightIndex}{
 	compare leftIndex with rightIndex\;
-	\eIf{leftIndex !=rightIndex}{
+	\If{leftIndex !=rightIndex}{
 		return false\;
 	}
 	 leftIndex++\;
@@ -55,8 +56,10 @@ Pseudocode:
 \caption{The Merge Sort Algorithm through Recursion}
 \end{algorithm}\DecMargin{1em}
 
-\subsection{Trees}
-Trees are one of the most powerful styles of data structures for processing data, this is because they allow rapid searching and also fast insetion/deletion of a node. Trees are made up of Nodes, these are just basic Objects which hold some data and have a key . This key allows one to determine where this Node should be in the tree. The important distinction here with these Nodes in comparison to other Nodes used in various data structures, is that these Nodes contain references to children instead of just the next Link. Each Node has exactly one parent, but can many children of their own. There is a special style of Trees known as a Binary Tree. This is a Tree which has between 0 and 2 children. The first Node in a tree is the Root, and it is possible to traverse to any Node in the Tree from this Root Node.
+\subsection{Graphs}
+Graphs are common in our lives. News media use them to help us visualize certain statistics. Though these are not the graphs that are studied by Computer Scientists. Graphs studied by Computer Scientists and Mathematicians are usally based on the tree structure, and the relationships among data elements. A tree is just one of the special types of graphs that can be studied, where the parent-child relationship is used to organise data. In this section I have focused on the Tree Abstract Data Type, Breadth-First Traversal, Depth-First Traversal and Graphs in general.  \\
+\subsubsection{Trees}
+Trees are one of the most powerful styles of data structures for processing data, this is because they allow rapid searching and fast insetion/deletion of a node. Trees are made up of Nodes, these are just basic Objects which hold some data and have a key. This key allows one to determine where this Node should be in the tree. The important distinction here with these Nodes in comparison to other Nodes used in various data structures, is that these Nodes contain references to children instead of just the next Link. Each Node has exactly one parent, but can many children. There is a special style of Trees known as a Binary Tree. This is a Tree which has between 0 and 2 children. The first Node in a tree is the Root, and it is possible to traverse to any Node in the Tree from this Root Node.
 With Trees the main function one must take care of is how to traverse them. There are three basic styles of traversal: inorder, preorder and postorder. Inorder visits every Node in ascending order based on their key values. Preorder is where the root is visited first, followed by it's left subtree and then it's right subtree. Finally, postorder is where the left subtree is followed by the right subtree and then the root. \\
 The following is an example of how one might search for a particular Node in a Tree.
 Pseudocode:
@@ -80,5 +83,29 @@ return current\;
 \caption{Finding a specific Node in a tree based on the key}
 \end{algorithm}\DecMargin{1em}
 
+\IncMargin{1em}
+\begin{algorithm}
+	\SetAlgoLined
+	\KwData{Tree}
+	\KwResult{Print out in PreOrder}
+		\If{localRoot $!=$ null}{Print(localRoot data)\\
+		preOrder(localRoot leftChild)\\
+		preOrder(localRoot rightChild)\;}
+		
+\caption{Basic Tree Traversal using PreOrder Traversal}
+\end{algorithm}\DecMargin{1em}
 
+\subsubsection{Breadth-First Traversal}
+This is a special way to visit the nodes in a tree, the ordering in this traversal pattern is to visit the root node, then move onto the children of the root node, printing each child in turn. It then will repeat this for each child of these nodes. The following image shows the nodes in numerical order of visitation when using Breadth-First Traversal. 
+\begin{figure}[h]
+\includegraphics[width=0.6\textwidth]{bfs.png}
+\caption{Breadth-First Traversal}
+\end{figure}
+ 
+\subsubsection{Depth-First Traversal}
+This is a second way of visiting nodes in a tree. This pattern involves starting at the root node, then going to the left most child, then repeating this movement until the traversal reaches a leaf node (a node which has no children), then it will move back up one node and try to visit the next child node of this current node. It repeats this until the traversal finds no univisited node. The following image shows the nodes in numerical order of visitation when using Depth-First Traversal. 
+\begin{figure}[h]
+\includegraphics[width=0.6\textwidth]{dfs.png}
+\caption{Depth-First Traversal}
+\end{figure}
 \end{document}
