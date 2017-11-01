@@ -1,8 +1,10 @@
 package mu_ian_dempsey;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Stack;
 /**
  * This is leetcode Q 690. 
  * I believe it can be solved with some form of BFS. Where I must check the subordinates, which are just on
@@ -20,34 +22,18 @@ import java.util.Queue;
  *  	(To only add in the subordinates for the given leader, just use the list of subordinates that is part of each leader. use e.subordinates)
  *  	Finally once q is empty, return answer. 
  * Pattern here is BFS
- * 
+ * -- this pattern does not work for when the list of employees is not continuous. So it has to be adapted!
  * @author Ian Dempsey
  *
  */
 
 /*
- * Solution done by Hao Wu
+ * Solution done by Hao Wu, commented by Ian Dempsey
  * This one is straightforward enough. 1 stack + 1 table.
  * Worst case: each employee has m number of subordinates and has n employees in total. O(m*n) = O(N^2)
- *   
- public int getImportance(List<Employee> employees, int id) {
-        HashMap<Integer, Employee> table = new HashMap<Integer, Employee>();
-        Stack<Integer> stack = new Stack<Integer>();
-        for (Employee e : employees) table.put(e.id,e);
-        int total = 0;
-        stack.push(id);
-        
-        while (!stack.empty()){
-            int key = stack.pop();
-            Employee e = table.get(key);
-            total += e.importance;
-            for (Integer sub : e.subordinates) stack.push(sub);
-        }
-        
-        return total;
-        
-    }
- *
+ * Pattern here is:
+ * Time Analysis: O(1) -> HashMaps are O(1) for searching
+ * Space Analysis:O(n) -> Depends on the size of the List given as input.
  */
 
 
@@ -67,8 +53,35 @@ public class employeeImportance690 {
 	    // the id of direct subordinates
 	    public List<Integer> subordinates;
 	}
+	//Note: Solution created by Hao Wu. Commented by Ian Dempsey
+	 public int getImportance(List<Employee> employees, int id) {
+		 //Using a Map, where the employees id is the key , and then the employee is the value. 
+	        HashMap<Integer, Employee> table = new HashMap<Integer, Employee>();
+	        //use a Stack which holds all the subordinates of the current employee.
+	        Stack<Integer> stack = new Stack<Integer>();
+	        //Adding in all the employees and their ids into the table
+	        for (Employee e : employees) table.put(e.id,e);
+	        int total = 0;//used to store the total importance value
+	        stack.push(id);//initially put the id of the Employee onto the stack 
+	        
+	        while (!stack.empty()){//whilst there are still employees on the stack from additions
+	            int key = stack.pop();//get current head of the stack
+	            Employee e = table.get(key);//get this particular employee
+	            total += e.importance;//add their importance to the total
+	          //for every subordinate of this employee, add to the stack, this will allow every subordinate 
+	          //to be added in and then processed
+	            for (Integer sub : e.subordinates) stack.push(sub);
+	        }
+	        
+	        return total;
+	        
+	    }
 	
-    public int getImportance(List<Employee> employees, int id) {
+
+}
+
+/*
+ *     public int getImportance(List<Employee> employees, int id) {
         int total=0;
         //Base cases to terminate
         if(employees==null  || id<0 || id> employees.size()||employees.size()==0) { return 0;}
@@ -93,5 +106,4 @@ public class employeeImportance690 {
         	}
         }
         return total;
-    }
-}
+    }*/
