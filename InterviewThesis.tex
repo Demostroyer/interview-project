@@ -1,6 +1,6 @@
 \documentclass[10pt,twocolumn]{IEEEtran}
 
-\usepackage[linesnumbered,lined,boxed,commentsnumbered]{algorithm2e}
+\usepackage[linesnumbered,lined,boxed,commentsnumbered, noend, noline]{algorithm2e}
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{soul}
@@ -86,7 +86,7 @@ Pseudocode:
 \end{algorithm}\DecMargin{1em}
 
 \subsection{Graphs}
-Graphs are common in our lives. News media use them to help us visualize certain statistics. Though these are not the graphs that are studied by Computer Scientists. Graphs studied by Computer Scientists and Mathematicians are usally based on the tree structure, and the relationships among data elements. A tree is just one of the special types of graphs that can be studied, where the parent-child relationship is used to organise data. In this section I have focused on the Tree Abstract Data Type, Breadth-First Traversal, Depth-First Traversal and Graphs in general. 
+Graphs are common in our lives. News media use them to help us visualize certain statistics. Though these are not the graphs that are studied by Computer Scientists. Graphs studied by Computer Scientists and Mathematicians are usally based on the tree structure, and the relationships among data elements. A tree is just one of the special types of graphs that can be studied, where the parent-child relationship is used to organise data. In this section I have focused on the Tree Abstract Data Type, Breadth-First Traversal, Depth-First Traversal and Graphs in general. \\
 \subsubsection{Trees}
 Trees are one of the most powerful styles of data structures for processing data, this is because they allow rapid searching and fast insetion/deletion of a node. Trees are made up of Nodes, these are just basic Objects which hold some data and have a key. This key allows one to determine where this Node should be in the tree. The important distinction here with these Nodes in comparison to other Nodes used in various data structures, is that these Nodes contain references to children instead of just the next Link. Each Node has exactly one parent, but can many children. There is a special style of Trees known as a Binary Tree. This is a Tree which has between 0 and 2 children. The first Node in a tree is the Root, and it is possible to traverse to any Node in the Tree from this Root Node.
 With Trees the main function one must take care of is how to traverse them. There are three basic styles of traversal: inorder, preorder and postorder. Inorder visits every Node in ascending order based on their key values. Preorder is where the root is visited first, followed by it's left subtree and then it's right subtree. Finally, postorder is where the left subtree is followed by the right subtree and then the root. \\
@@ -100,7 +100,6 @@ Pseudocode:
 	initialization\;
 	$Node current \longleftarrow$root\;
 	\While{current.data is not key}{
-	
 		\If{current is null}{return null\;}
 		\eIf{current.data $>$ key}{
 			move left on the tree\;
@@ -115,32 +114,35 @@ return current\;
 \IncMargin{1em}
 \begin{algorithm}
 	\SetAlgoLined
-	\KwData{Node localRoot}
-	\KwResult{Print out in PostOrder}
+	\SetKwFunction{postOrder}{postOrder}
+	\Indm\postOrder{$Node localRoot$}
+	%\KwData{Node localRoot}
+	%\KwResult{Print out in PostOrder}
+	\\
 		\If{localRoot $!=$ null}{
-		postOrder(localRoot leftChild)\\
-		postOrder(localRoot rightChild)\\
-		Print(localRoot data)\;}
-		
+		\postOrder(localRoot leftChild)\\
+		\postOrder(localRoot rightChild)\\
+		Print(localRoot data)\;}	
 \caption{Basic Tree Traversal using PostOrder Traversal}
 \end{algorithm}\DecMargin{1em}
 \\
-Leetcode question 104, \textit{Maximum Depth of Binary Tree}, is an example of a problem where I used the basic tree traversal styles to solve the question.The problem description is given as: \textit{Given a binary tree, find its maximum depth.The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.} In this algorithm I used postorder traversal. Pseudocode:
+Leetcode question 104, \textit{Maximum Depth of Binary Tree}, is an example of a problem where I used the basic tree traversal styles to solve the question.The problem description is given as: \textit{Given a binary tree, find its maximum depth.The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.} In this algorithm I used postorder traversal. Pseudocode can be found in Algorithm 6 of this paper.\\
 \IncMargin{1em}
 \begin{algorithm}
-	\SetKwFunction{postOrder}{postOrder}
-	\Indm\postOrder{$TreeNode localRoot$}\\
+	\SetKwFunction{maxDepth}{maxDepth}
+	\Indm\maxDepth{$TreeNode  localRoot$}\\
 	\SetAlgoLined
 	%\KwData{Node localRoot}
 	%\KwResult{Print out in PostOrder}
-		\If{localRoot $!=$ null}{
-		\postOrder(localRoot leftChild)\\
-		\postOrder(localRoot rightChild)
-		Print(localRoot data)\;
-		}
-\caption{Leetcode Q104 Max. Depthof Binary Tree}
+		\If{localRoot $==$ null}{ return 0\;}
+		int ldepth $=$ \maxDepth(localRoot leftChild)\;
+		int rdepth $=$ \maxDepth(localRoot rightChild)\;
+		\If{ldepth $>$ rdepth}{
+		\KwRet{ldepth+1}
+		}\Else{\KwRet{rdepth+1}}
+\caption{Leetcode Q104 Max. Depth of Binary Tree}
 \end{algorithm}\DecMargin{1em}
-
+\\
 \subsubsection{Breadth-First Traversal}
 This is a special way to visit the nodes in a tree, the ordering in this traversal pattern is to visit the root node, then move onto the children of the root node, printing each child in turn. It then will repeat this for each child of these nodes.Figure 1 shows the nodes in numerical order of visitation when using Breadth-First Traversal. \\
 \begin{figure}[h]
