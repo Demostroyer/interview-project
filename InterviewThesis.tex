@@ -47,7 +47,7 @@ return true\;
 \caption{The Palindrome Algorithm}
 \end{algorithm}\DecMargin{1em}
 
-Whilst studying and working on this project I have answered a number of questions from Leetcode.com which I was able to solve using an altered version of the above Palindrome pattern. Leetcode question 1 TwoSum is one example of these questions. This question is described as: \textit{Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the same element twice.} The following pseudocode is my answer to this question. In it I have taken the basic idea of the Palindrome algorithm of having two pointers used for looking through the input data, but instead of moving both of these pointers together at the same time, I only ever move one pointer at a time, depending on the result of adding the two current elements at each pointer together. If the total from adding the two integers together was greater than the target sum, then I knew that I had to move the right-pointer left once, as this would allow me to have a smaller sum and potentially the correct sum. If on the other hand the sum was smaller than the total, I would only move the left-pointer right once and add the two elements and get a new result. This process was repeated until the target sum was found, or until the two pointers crossed which meant the target was not found.In this pseudocode I have highlighted any differences in blue.
+Whilst studying and working on this project I have answered a number of questions from Leetcode.com which I was able to solve using an altered version of the above Palindrome pattern. Leetcode question 1 TwoSum is one example of these questions. This question is described as: \textit{Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the same element twice.} The following pseudocode is my answer to this question. In it I have taken the basic idea of the Palindrome algorithm of having two pointers used for looking through the input data, but I have altered the way these two pointers behave.In this pseudocode I have highlighted any differences in blue.
 \IncMargin{1em}
 \begin{algorithm}
 	\SetAlgoLined
@@ -64,12 +64,10 @@ Whilst studying and working on this project I have answered a number of question
 	}\Else{
 		\hlc[cyan!50]{return leftIndex, rightIndex\;}
 	}
-	
-		
-     }
+     }return 0\;
 \caption{LeetCode Q1 TwoSum}
-\end{algorithm}\DecMargin{1em}
-
+\end{algorithm}\DecMargin{1em}\\
+As can be seen from the above answer, the main differences are the conditionals inside the while loop. Instead of the normal approach of a Palindrome where one checks if the two elemts are equal, and if so moves the two pointers are moved at the same time towards eachother, I have changed the condisitionals such that instead of moving both of these pointers together at the same time, I only ever move one pointer at a time. Depending on the result of adding the two current elements at each pointer together. If the total from adding the two integers together was greater than the target sum, then I knew that I had to move the right-pointer left once, as this would allow me to have a smaller sum and potentially the correct sum. If on the other hand the sum was smaller than the total, I would only move the left-pointer right once and add the two elements and get a new result. This process was repeated until the target sum was found, or until the two pointers crossed which meant the target was not found.
 \subsection{Merge Sort}
 Merge Sort is a very powerful algorithm. It is more efficient than most styles of insertion, with a time analysis of $O(n * log_{n})$, whereas insertion is $O(n^2)$. The idea of merge sort is to divide an array or some input in half and then sort each half before joining it back together. They do not have to be the same size which is useful.  \\
 Merge Sort uses the idea of divide and conquer, this means the list to be sorted should be divided up into equal parts first, then these new smaller parts should be sorted individually first before recreating the full list.
@@ -88,7 +86,7 @@ Pseudocode:
 \end{algorithm}\DecMargin{1em}
 
 \subsection{Graphs}
-Graphs are common in our lives. News media use them to help us visualize certain statistics. Though these are not the graphs that are studied by Computer Scientists. Graphs studied by Computer Scientists and Mathematicians are usally based on the tree structure, and the relationships among data elements. A tree is just one of the special types of graphs that can be studied, where the parent-child relationship is used to organise data. In this section I have focused on the Tree Abstract Data Type, Breadth-First Traversal, Depth-First Traversal and Graphs in general.  \\
+Graphs are common in our lives. News media use them to help us visualize certain statistics. Though these are not the graphs that are studied by Computer Scientists. Graphs studied by Computer Scientists and Mathematicians are usally based on the tree structure, and the relationships among data elements. A tree is just one of the special types of graphs that can be studied, where the parent-child relationship is used to organise data. In this section I have focused on the Tree Abstract Data Type, Breadth-First Traversal, Depth-First Traversal and Graphs in general. 
 \subsubsection{Trees}
 Trees are one of the most powerful styles of data structures for processing data, this is because they allow rapid searching and fast insetion/deletion of a node. Trees are made up of Nodes, these are just basic Objects which hold some data and have a key. This key allows one to determine where this Node should be in the tree. The important distinction here with these Nodes in comparison to other Nodes used in various data structures, is that these Nodes contain references to children instead of just the next Link. Each Node has exactly one parent, but can many children. There is a special style of Trees known as a Binary Tree. This is a Tree which has between 0 and 2 children. The first Node in a tree is the Root, and it is possible to traverse to any Node in the Tree from this Root Node.
 With Trees the main function one must take care of is how to traverse them. There are three basic styles of traversal: inorder, preorder and postorder. Inorder visits every Node in ascending order based on their key values. Preorder is where the root is visited first, followed by it's left subtree and then it's right subtree. Finally, postorder is where the left subtree is followed by the right subtree and then the root. \\
@@ -113,17 +111,34 @@ Pseudocode:
 return current\;
 \caption{Finding a specific Node in a tree based on the key}
 \end{algorithm}\DecMargin{1em}
-
+\\
 \IncMargin{1em}
 \begin{algorithm}
 	\SetAlgoLined
-	\KwData{Tree}
-	\KwResult{Print out in PreOrder}
-		\If{localRoot $!=$ null}{Print(localRoot data)\\
-		preOrder(localRoot leftChild)\\
-		preOrder(localRoot rightChild)\;}
+	\KwData{Node localRoot}
+	\KwResult{Print out in PostOrder}
+		\If{localRoot $!=$ null}{
+		postOrder(localRoot leftChild)\\
+		postOrder(localRoot rightChild)\\
+		Print(localRoot data)\;}
 		
-\caption{Basic Tree Traversal using PreOrder Traversal}
+\caption{Basic Tree Traversal using PostOrder Traversal}
+\end{algorithm}\DecMargin{1em}
+\\
+Leetcode question 104, \textit{Maximum Depth of Binary Tree}, is an example of a problem where I used the basic tree traversal styles to solve the question.The problem description is given as: \textit{Given a binary tree, find its maximum depth.The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.} In this algorithm I used postorder traversal. Pseudocode:
+\IncMargin{1em}
+\begin{algorithm}
+	\SetKwFunction{postOrder}{postOrder}
+	\Indm\postOrder{$TreeNode localRoot$}\\
+	\SetAlgoLined
+	%\KwData{Node localRoot}
+	%\KwResult{Print out in PostOrder}
+		\If{localRoot $!=$ null}{
+		\postOrder(localRoot leftChild)\\
+		\postOrder(localRoot rightChild)
+		Print(localRoot data)\;
+		}
+\caption{Leetcode Q104 Max. Depthof Binary Tree}
 \end{algorithm}\DecMargin{1em}
 
 \subsubsection{Breadth-First Traversal}
@@ -132,7 +147,7 @@ This is a special way to visit the nodes in a tree, the ordering in this travers
 \includegraphics[width=0.6\textwidth]{bfs.png}
 \caption{Breadth-First Traversal}
 \end{figure}
- 
+ \\
 \subsubsection{Depth-First Traversal}
 This is a second way of visiting nodes in a tree. This pattern involves starting at the root node, then going to the left most child, then repeating this movement until the traversal reaches a leaf node (a node which has no children), then it will move back up one node and try to visit the next child node of this current node. It repeats this until the traversal finds no univisited node. Figure 2 shows the nodes in numerical order of visitation when using Depth-First Traversal. 
 \begin{figure}[h]
