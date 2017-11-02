@@ -134,14 +134,16 @@ Leetcode question 104, \textit{Maximum Depth of Binary Tree}, is an example of a
 	\SetAlgoLined
 	%\KwData{Node localRoot}
 	%\KwResult{Print out in PostOrder}
-		\If{localRoot $==$ null}{ return 0\;}
-		int ldepth $=$ \maxDepth(localRoot leftChild)\;
-		int rdepth $=$ \maxDepth(localRoot rightChild)\;
-		\If{ldepth $>$ rdepth}{
-		\KwRet{ldepth+1}
-		}\Else{\KwRet{rdepth+1}}
+		\If{\hlc[cyan!50]{localRoot $==$ null}}{\hlc[cyan!50]{ return 0\;}}
+		\hlc[cyan!50]{int ldepth $=$}\hlc[cyan!50]{\maxDepth}\hlc[cyan!50]{(localRoot leftChild)}\;
+		\hlc[cyan!50]{int rdepth $=$}\hlc[cyan!50]{ \maxDepth}\hlc[cyan!50]{(localRoot rightChild)}\;
+		\If{\hlc[cyan!50]{ldepth $>$ rdepth}}{
+		\hlc[cyan!50]{return ldepth+1}
+		}\Else{\hlc[cyan!50]{return rdepth+1}}
 \caption{Leetcode Q104 Max. Depth of Binary Tree}
 \end{algorithm}\DecMargin{1em}
+\\
+As highlighted above, the key diference is inside the if statement. I have changed the conditional itself as it is the base case to stop the recursive execution. I have created a variable \textit{ldepth} which is the total depth of the left subtree. This is a recursive call on the leftChild of the current node. Line 4 will execute until it can't go left anymore, if it reaches null it will try to go right once, and then return going left. This is repeted until both calls return null. It then will go back all the way up until we reach the first call to go left, and set this summation of steps to ldepth. It then performs this same process but on the right subtree of the current node(which is the original node given), and set it to the variable \textit{rdepth}. Finally there is a conditional checking if ldepth is greater than rdepth. If so it returns ldepth+1,or it returns rdepth+1. This+1 is required as I need to take into account the root node's level, if I didn't take this into account my answer would always be one less than the actual depth of the tree. The major similarities between the postorder algorithm and this solution is the way I went down the left subtree first, then the right subtree and finally to take into account the root I added one to the height. This particular way of traversing the tree, left-right-root, is exactly how postorder traversal is performed.
 \\
 \subsubsection{Breadth-First Traversal}
 This is a special way to visit the nodes in a tree, the ordering in this traversal pattern is to visit the root node, then move onto the children of the root node, printing each child in turn. It then will repeat this for each child of these nodes.Figure 1 shows the nodes in numerical order of visitation when using Breadth-First Traversal. \\
