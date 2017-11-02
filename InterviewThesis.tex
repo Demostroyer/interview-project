@@ -2,10 +2,17 @@
 
 \usepackage[linesnumbered,lined,boxed,commentsnumbered]{algorithm2e}
 \usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{soul}
+
+\newcommand{\hlc}[2][yellow]{{%
+    \colorlet{foo}{#1}%
+    \sethlcolor{foo}\hl{#2}}%
+}
 
 \title{Analyzing Algorithmic Patterns Based on Real Coding Interview Questions}
 \author{Ian Dempsey}
-
+%\hlc[cyan!50]{_____} -> put in the stuff to be highlighted inside the {}
 
 \begin{document}
 
@@ -28,15 +35,39 @@ Pseudocode:
 	$leftIndex  \longleftarrow $S[0]\;
 	$rightIndex \longleftarrow $S.length-1\;
 	\While{leftIndex $<$ rightIndex}{
+	
 	compare leftIndex with rightIndex\;
 	\If{leftIndex !=rightIndex}{
 		return false\;
 	}
 	 leftIndex++\;
-	rightIndex\;
+	rightIndex++\;
 }
 return true\;
 \caption{The Palindrome Algorithm}
+\end{algorithm}\DecMargin{1em}
+
+Whilst studying and working on this project I have answered a number of questions from Leetcode.com which I was able to solve using an altered version of the above Palindrome pattern. Leetcode question 1 TwoSum is one example of these questions. This question is described as: \textit{Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the same element twice.} The following pseudocode is my answer to this question. In it I have taken the basic idea of the Palindrome algorithm of having two pointers used for looking through the input data, but instead of moving both of these pointers together at the same time, I only ever move one pointer at a time, depending on the result of adding the two current elements at each pointer together. If the total from adding the two integers together was greater than the target sum, then I knew that I had to move the right-pointer left once, as this would allow me to have a smaller sum and potentially the correct sum. If on the other hand the sum was smaller than the total, I would only move the left-pointer right once and add the two elements and get a new result. This process was repeated until the target sum was found, or until the two pointers crossed which meant the target was not found.In this pseudocode I have highlighted any differences in blue.
+\IncMargin{1em}
+\begin{algorithm}
+	\SetAlgoLined
+	\KwData{Array of integers nums, target S}
+	\KwResult{Indices i,j}
+	$leftIndex  \longleftarrow $S[0]\;
+	$rightIndex \longleftarrow $S.length-1\;
+	\While{leftIndex $<$ rightIndex}{
+	\hlc[cyan!50]{Sort the input array nums\;}\\
+	\uIf{\hlc[cyan!50]{nums[leftIndex]+nums[rightIndex] $>$ S}}{
+		\hlc[cyan!50]{rightIndex$--$\;}
+	}\uElseIf{\hlc[cyan!50]{nums[leftIndex]+nums[rightIndex]$<$S}}{
+		\hlc[cyan!50]{leftIndex++\;}
+	}\Else{
+		\hlc[cyan!50]{return leftIndex, rightIndex\;}
+	}
+	
+		
+     }
+\caption{LeetCode Q1 TwoSum}
 \end{algorithm}\DecMargin{1em}
 
 \subsection{Merge Sort}
@@ -96,14 +127,14 @@ return current\;
 \end{algorithm}\DecMargin{1em}
 
 \subsubsection{Breadth-First Traversal}
-This is a special way to visit the nodes in a tree, the ordering in this traversal pattern is to visit the root node, then move onto the children of the root node, printing each child in turn. It then will repeat this for each child of these nodes. The following image shows the nodes in numerical order of visitation when using Breadth-First Traversal. 
+This is a special way to visit the nodes in a tree, the ordering in this traversal pattern is to visit the root node, then move onto the children of the root node, printing each child in turn. It then will repeat this for each child of these nodes.Figure 1 shows the nodes in numerical order of visitation when using Breadth-First Traversal. \\
 \begin{figure}[h]
 \includegraphics[width=0.6\textwidth]{bfs.png}
 \caption{Breadth-First Traversal}
 \end{figure}
  
 \subsubsection{Depth-First Traversal}
-This is a second way of visiting nodes in a tree. This pattern involves starting at the root node, then going to the left most child, then repeating this movement until the traversal reaches a leaf node (a node which has no children), then it will move back up one node and try to visit the next child node of this current node. It repeats this until the traversal finds no univisited node. The following image shows the nodes in numerical order of visitation when using Depth-First Traversal. 
+This is a second way of visiting nodes in a tree. This pattern involves starting at the root node, then going to the left most child, then repeating this movement until the traversal reaches a leaf node (a node which has no children), then it will move back up one node and try to visit the next child node of this current node. It repeats this until the traversal finds no univisited node. Figure 2 shows the nodes in numerical order of visitation when using Depth-First Traversal. 
 \begin{figure}[h]
 \includegraphics[width=0.6\textwidth]{dfs.png}
 \caption{Depth-First Traversal}
