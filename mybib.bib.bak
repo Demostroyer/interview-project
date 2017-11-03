@@ -1,0 +1,29 @@
+% Encoding: UTF-8
+
+@Misc{leet1,
+  author = {LeetCode},
+  owner  = {LeetCode},
+  url    = {https://leetcode.com},
+}
+
+@Book{carrano2003data,
+  title     = {Data Structures and Abstractions with Java},
+  publisher = {Prentice Hall},
+  year      = {2003},
+  author    = {Carrano, F.M. and Savitch, W.J.},
+  isbn      = {9780130174895},
+  lccn      = {2002192658},
+  url       = {https://books.google.ie/books?id=peBQAAAAMAAJ},
+}
+
+@Book{goodrich2014data,
+  title     = {Data Structures and Algorithms in Java},
+  publisher = {Wiley},
+  year      = {2014},
+  author    = {Goodrich, M.T. and Tamassia, R. and Goldwasser, M.H.},
+  isbn      = {9781118771334},
+  lccn      = {2014412891},
+  url       = {https://books.google.ie/books?id=UqmYAgAAQBAJ},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
