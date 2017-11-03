@@ -2,6 +2,7 @@
 
 @Misc{leet1,
   author = {LeetCode},
+  title  = {LeetCode},
   owner  = {LeetCode},
   url    = {https://leetcode.com},
 }
