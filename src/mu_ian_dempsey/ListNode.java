@@ -9,5 +9,14 @@ public class ListNode {
 	int val;
 	ListNode next;
 	ListNode(int x) {val=x;}
-
+	
+	/* Function to print linked list */
+	void printlist(ListNode head) 
+	{
+		while (head != null) 
+		{
+			System.out.print(head.val + " ");
+			head = head.next;
+		}
+	}
 }
