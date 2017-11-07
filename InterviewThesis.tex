@@ -72,7 +72,25 @@ In order to fulfill the goal of this paper, we will answer the following researc
 \item How do these algorithms relate to the classic algorithms and how similar are they.
 \item How easy is it for a person to indentify the pattern of the algorithm.
 \end{enumerate}
-\section{General Patterns for Analysis}
+\section{The Solution}
+To answer question one above, we had to perform some information gathering. Many companies choose similarly styled questions for their technical tests, so we gathered information from forums, like glassdoor.ie \cite{glassdoor} and websites which discussed experiences people had at interviews. We also read through the main categories listed in books which prepare people for interviews, such as Cracking the Coding Interview \cite{mcdowell2015cracking} These discussions listed the questions they were asked, and by what companies. The website geeksforgeeks.org has a list of the top interview questions that a user is likely to be asked \cite{geeksalgos}. Therefore this paper focuses on the following areas:
+\begin{itemize}
+\item Sorting Algorithms
+\item Searching Algorithms
+\item Graphs
+\item Trees
+\item Dynamic Programming
+\end{itemize}
+In each of these areas we broke them down into some key patterns. These are patterns or types of the above listed algorithms which commonly appeared. These include but are not limited to:
+\begin{itemize}
+\item Palindrome
+\item  Merge Sort
+\item Binary Search
+\item Tree Traversal
+\item Breadth-First Search
+\item Depth-First Search
+\end{itemize} 
+\par Leetcode has over six hundred questions, which is impossible for us to answer in such a short amount of time. So we chose a representative amount of this total. We chose them based on reputation, if they were asked in interview and the solve rate of the question. Relating back to figure \ref{fig:homepage}, it can be seen that we are able to filter out the questions we chose.
 \subsection{Palindrome}
 Palindromes are extremely useful for searching algorithms, as Palindromes are meant to be the same in both directions, one can easily discover if the input is an actual palindrome. This is helpful for searching because one can search and find the odd character out, or the unique piece of data in some text. This style of algorithm is also space efficient, they normally have a space analysis of O(n/2) as the algorithm works over two elements of the input at a time. The basic approach of a Palindrome algorithm is to work inwards with both pointers starting at either end of the input and constantly moving towards one another and comparing if the elements are the same.\\  
 The following description is a general algorithm for solving the palindrome problem which is a common problem in Java and other languages. This approach can be used to solve numerous other problems by altering the inside of the loop.
@@ -98,7 +116,7 @@ return true\;
 \caption{The Palindrome Algorithm}
 \end{algorithm}\DecMargin{1em}
 
-Whilst studying and working on this project, I have answered a number of questions from Leetcode.com which I was able to solve using an altered version of the above Palindrome pattern. Leetcode question 1 TwoSum is one example. This question is described as: \textit{Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the same element twice.} The following pseudocode is my answer to this question. In it I have taken the basic idea of the Palindrome algorithm of having two pointers used for looking through the input data, but I have altered the way these two pointers behave.In this pseudocode I have highlighted any differences in blue.
+Whilst studying and working on this project, I have answered a number of questions from Leetcode.com which I was able to solve using an altered version of the above Palindrome pattern.\textbf{ID 1} TwoSum is one example. This question is described as: \textit{Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the same element twice.} The following pseudocode is my answer to this question. In it I have taken the basic idea of the Palindrome algorithm of having two pointers used for looking through the input data, but I have altered the way these two pointers behave.In this pseudocode I have highlighted any differences in blue.
 \IncMargin{1em}
 \begin{algorithm}
 	\SetAlgoLined
@@ -118,7 +136,7 @@ Whilst studying and working on this project, I have answered a number of questio
      }return 0\;
 \caption{LeetCode Q1 TwoSum}
 \end{algorithm}\DecMargin{1em}\\
-As can be seen from the above answer, the main differences are the conditionals inside the while loop. Instead of the normal approach of a Palindrome where one checks if the two elemts are equal, and if so moves the two pointers are moved at the same time towards eachother, I have changed the condisitionals such that instead of moving both of these pointers together at the same time, I only ever move one pointer at a time. Depending on the result of adding the two current elements at each pointer together. If the total from adding the two integers together was greater than the target sum, then I knew that I had to move the right-pointer left once, as this would allow me to have a smaller sum and potentially the correct sum. If on the other hand the sum was smaller than the total, I would only move the left-pointer right once and add the two elements and get a new result. This process was repeated until the target sum was found, or until the two pointers crossed which meant the target was not found.
+As can be seen from the above answer, the main differences are the conditionals inside the while loop. Instead of the normal approach of a Palindrome where one checks if the two elements are equal, and if so moves the two pointers are moved at the same time towards eachother, I have changed the condisitionals such that instead of moving both of these pointers together at the same time, I only ever move one pointer at a time. Depending on the result of adding the two current elements at each pointer together. If the total from adding the two integers together was greater than the target sum, then I knew that I had to move the right-pointer left once, as this would allow me to have a smaller sum and potentially the correct sum. If on the other hand the sum was smaller than the total, I would only move the left-pointer right once and add the two elements and get a new result. This process was repeated until the target sum was found, or until the two pointers crossed which meant the target was not found.
 \subsection{Merge Sort}
 Merge Sort is a very powerful algorithm. It is more efficient than most styles of insertion, with a time analysis of $O(n * log_{n})$, whereas insertion is $O(n^2)$. The idea of merge sort is to divide an array or some input in half and then sort each half before joining it back together. They do not have to be the same size which is useful.  \\
 Merge Sort uses the idea of divide and conquer, this means the list to be sorted should be divided up into equal parts first, then these new smaller parts should be sorted individually first before recreating the full list.
@@ -177,7 +195,7 @@ return current\;
 \caption{Basic Tree Traversal using PostOrder Traversal}
 \end{algorithm}\DecMargin{1em}
 \\
-Leetcode question 104, \textit{Maximum Depth of Binary Tree}, is an example of a problem where I used the basic tree traversal styles to solve the question.The problem description is given as: \textit{Given a binary tree, find its maximum depth.The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.} In this algorithm I used postorder traversal. Pseudocode can be found in Algorithm 6 of this paper.\\
+\textbf{ID 104}, \textit{Maximum Depth of Binary Tree}, is an example of a problem where I used the basic tree traversal styles to solve the question.The problem description is given as: \textit{Given a binary tree, find its maximum depth.The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.} In this algorithm I used postorder traversal. Pseudocode can be found in Algorithm 6 of this paper.\\
 \IncMargin{1em}
 \begin{algorithm}
 	\SetKwFunction{maxDepth}{maxDepth}

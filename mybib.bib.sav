@@ -36,4 +36,24 @@
   url       = {https://books.google.ie/books?id=jD8iswEACAAJ},
 }
 
+@Misc{geeks,
+  author = {GeeksForGeeks},
+  owner  = {GeeksForGeeks},
+  url    = {www.geeksforgeeks.org},
+}
+
+@Misc{geeksalgos,
+  author = {GeeksForGeeks},
+  title  = {Top 10 algorithms in Interview Questions},
+  owner  = {GeeksForGeeks},
+  url    = {http://www.geeksforgeeks.org/top-10-algorithms-in-interview-questions/},
+}
+
+@Misc{glassdoor,
+  author   = {GlassDoor},
+  abstract = {T},
+  owner    = {GlassDoor},
+  url      = {https://www.glassdoor.ie/index.htm},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

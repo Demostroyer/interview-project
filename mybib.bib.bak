@@ -27,4 +27,33 @@
   url       = {https://books.google.ie/books?id=UqmYAgAAQBAJ},
 }
 
+@Book{mcdowell2015cracking,
+  title     = {Cracking the Coding Interview: 189 Programming Questions and Solutions},
+  publisher = {CareerCup, LLC},
+  year      = {2015},
+  author    = {McDowell, G.L.},
+  isbn      = {9780984782857},
+  url       = {https://books.google.ie/books?id=jD8iswEACAAJ},
+}
+
+@Misc{geeks,
+  author = {GeeksForGeeks},
+  owner  = {GeeksForGeeks},
+  url    = {www.geeksforgeeks.org},
+}
+
+@Misc{geeksalgos,
+  author = {GeeksForGeeks},
+  title  = {Top 10 algorithms in Interview Questions},
+  owner  = {GeeksForGeeks},
+  url    = {http://www.geeksforgeeks.org/top-10-algorithms-in-interview-questions/},
+}
+
+@Misc{glassdoor,
+  author   = {GlassDoor},
+  abstract = {This website is a job and recruitment site. It offers users the chance to voice their experiences with companies during their interviews. Also users can read up on companies and what the interview process is like for this company.},
+  owner    = {GlassDoor},
+  url      = {https://www.glassdoor.ie/index.htm},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
