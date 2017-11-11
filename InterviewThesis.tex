@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{soul}
+\usepackage{supertabular}
 
 \newcommand{\hlc}[2][yellow]{{%
     \colorlet{foo}{#1}%
@@ -229,65 +230,83 @@ This is a second way of visiting nodes in a tree. This pattern involves starting
 \end{figure}
 
 \section{Evaluation}
-In the previous section of this paper, we only gave specific examples of the questions that we answered. Here we give a detailed summary of all solved questions in figure \ref{table:tab}. All of these were accepted by leetcode's online judging system. 
+In the previous section of this paper, we only gave specific examples of the questions that we answered. Here we give a detailed summary of all solved questions in figure \ref{table:long}. All of these were accepted by leetcode's online judging system. 
+
 \begin{table}[h!]
  \begin{tabular}{||c c c c c c||} 
  \hline
  Question Number & PassRate & Difficulty & Time to Complete(mins) & My Evaluation & Classical Algorithm \\ [0.5ex] 
  \hline\hline
- 1 & 36\% & Easy & 9 & Easy & Palindrome\\ 
+ 1 & 36.0\% & Easy & 9 & Easy & Palindrome\\ 
  \hline
- 2 & 7 & 78 & 5415 \\
+ 2 & 28.1\% & Medium & 20 &Medium& -- \\
  \hline
- 20 & 545 & 778 & 7507 \\
+ 20 & 33.7\% & Easy & 12&Easy& Stack/Palindrome \\
  \hline
- 21 & 545 & 18744 & 7560 \\
+ 21 & 39.3\% & Easy & 25&Easy& Graphs(?) \\
  \hline
- 23 & 545 & 18744 & 7560 \\
+ 23 & 27.7\% & Hard & 27&Medium&MergeSort \\
   \hline
- 35 & 545 & 18744 & 7560 \\
+ 35 &39.8\%  & Easy & 10 &Easy&Linear Search\\
   \hline
- 58 & 545 & 18744 & 7560 \\
+ 58 & 32.0\% & Easy & 15 &Easy&String/Array\\
   \hline
- 88 & 545 & 18744 & 7560 \\
+ 88 & 32.1\% & Easy & 12 &Medium&Array\\
   \hline
- 102 & 545 & 18744 & 7560 \\
+ 102 & 40.9\% &  Medium & 30  &Medium & Breadth-First Search\\
   \hline
- 104 & 545 & 18744 & 7560 \\
+ 104 & 53.5\% &Easy  &28  &Medium& Tree Traversal\\
   \hline
- 111 & 545 & 18744 & 7560 \\
+ 111 &  33.3\%& Easy&17  &Easy& Breadth-First Search\\
   \hline
- 114 & 545 & 18744 & 7560 \\
+ 114 & 35.7\% &Medium  & 33  &Medium& Pre-Order Tree Traversal\\
   \hline
- 136 & 545 & 18744 & 7560 \\
+ 136 &54.9\%  &Easy  &10  &Easy&Binary Search(?)\\
   \hline
- 147 & 545 & 18744 & 7560 \\
+ 147 & 33.4\% &Medium  &26  &Medium&Insertion Sort\\
   \hline
- 148 & 545 & 18744 & 7560 \\
+ 148 &  29.2\%& Medium &  &&\\
   \hline
-  167 & 545 & 18744 & 7560 \\
+  167 &  &  &  &&\\
   \hline
- 290 & 545 & 18744 & 7560 \\
+ 290 &  &  &  &&\\
   \hline
- 326 & 545 & 18744 & 7560 \\
+ 326 &  &  &  &&\\
   \hline
- 344 & 545 & 18744 & 7560 \\
+ 344 &  &  &  &&\\
   \hline
- 387 & 545 & 18744 & 7560 \\
+ 387 &  &  &  &&\\
   \hline
- 389 & 545 & 18744 & 7560 \\
+ 389 &  &  &  &&\\
   \hline
- 404 & 545 & 18744 & 7560 \\
+ 404 &  &  &  &&\\
   \hline
- 654 & 545 & 18744 & 7560 \\
+ 654 &  &  &  &&\\
   \hline
- 669 & 545 & 18744 & 7560 \\
+ 669 &  &  &  &&\\
   \hline
- 690 & 545 & 18744 & 7560 \\[1ex]
+ 690 &  &  &  &&\\[1ex]
  \hline
 \end{tabular}
 \label{table:tab}
 \end{table}
+
+%\tablefirsthead{\toprule Question Number & PassRate & Difficulty & Time to Complete(mins) & My Evaluation & Classical Algorithm \\  \midrule }	
+%
+%\tablehead{%
+%{{\bfseries Question Number & PassRate & Difficulty & Time to Complete(mins) & My Evaluation & Classical Algorithm  }} \\
+%\toprule Question Number & PassRate & Difficulty & Time to Complete(mins) & My Evaluation & Classical Algorithm \\ \midrule}
+%
+%\tabletail{%
+%\midrule Question Number & PassRate & Difficulty & Time to Complete(mins) & My Evaluation & Classical Algorithm \\  \midrule}
+%\tablelasttail{%
+%\\\midrule
+%Question Number & PassRate & Difficulty & Time to Complete(mins) & My Evaluation & Classical Algorithm \\  \bottomrule}
+%\begin{supertabular}{ll}
+ %1 & 36.0\% & Easy & 9 & Easy & Palindrome\\ 
+ %\end{supertabular}%
+ 
+ 
 
 \section{The questions chosen}
 I based all of my questions off of the six-hundred or so that were available on www.leetcode.com\cite{leet1}. To shrink the question pool that I was choosing from I would try to pick the quesitons which were under the filter of Top Interview Questions. I did pick questions which were not listed under this filter, as I felt that solving some questions from outside of this restriction allowed me to get a more diverse seletion of questions. Also the questions were tagged by the user base of the site. Meaning that some of the questions which were not listed as being interview related, could have been asked in one, and vice versa. This does lead to the issue of having faith in the honesty of the community on the site.  
