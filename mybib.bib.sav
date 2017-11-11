@@ -51,9 +51,18 @@
 
 @Misc{glassdoor,
   author   = {GlassDoor},
-  abstract = {T},
+  abstract = {This website is a job and recruitment site. It offers users the chance to voice their experiences with companies during their interviews. Also users can read up on companies and what the interview process is like for this company.},
   owner    = {GlassDoor},
   url      = {https://www.glassdoor.ie/index.htm},
+}
+
+@Misc{gitHub,
+  author = {Ian Dempsey},
+  title  = {Analyzing Algorithmic Patterns Based on Real Coding Interview Questions},
+  year   = {2017},
+  note   = {\url{https://github.com/Demostroyer/interview-project}},
+  owner  = {Ian Dempsey},
+  url    = {https://github.com/Demostroyer/interview-project},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
