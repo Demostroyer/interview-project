@@ -14,9 +14,13 @@ import java.util.List;
  * Then we check if these make a palindrome, call the helper method. 
  * This helper method just concatenates the two strings, and then runs through them checking if they are a palindrome. 
  * If they return true, then we need to create a list of the indices of the palindrome, and add into the result List. 
- * Need to check both ways to see if the palindorme is created by adding them together in both directions.
- * Note: As the first check could return true, it would never hit the second check. Could get around this  
+ * Need to check both ways to see if the palindrome is created by adding them together in both directions.
+ * After we have gone through the entire way , just return the result list.
  * @author Ian Dempsey
+ * @date: 12/11/2017
+ * Pattern : Palindrome
+ * Time ANalysis: O(n^2) - > two loops
+ * Space Analysis: O(n)
  *
  */
 public class palindromePairs336 {
