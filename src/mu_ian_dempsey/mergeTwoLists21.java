@@ -10,7 +10,7 @@ package mu_ian_dempsey;
  * Return the results next val.
  * @author Ian Dempsey
  * @date 5/10/17
- * Time analysis: O(n) because this is only dependant on how many elements are in the lists.
+ * Time analysis: O(n*m) because this is only dependant on how many elements are in the lists.
  */
 public class mergeTwoLists21 {
 
