@@ -8,9 +8,9 @@ package mu_ian_dempsey;
  * int version of the chars. So use (int)c , meaning cast the char to it's int equivalent.
  * Finally go through the array of ints and find the first occurrence where the frequency is =1.   
  * If it is not found, return -1.
- * Analysis: T -> O(n) because it is only searching through the size of the arrays
- * S -> not sure, as I have two arrays being stored, which would still be n I believe. 
- * @author demps
+ * Analysis: Time Analysis: O(n) ->because it is only searching through the size of the arrays
+ * Space analysis: O(n) -> 
+ * @author Ian Dempsey
  *Pattern found in this Question: 
  */
 public class uniqueChar387 {

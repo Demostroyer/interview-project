@@ -11,6 +11,9 @@ package mu_ian_dempsey;
 *2.If the second string is empty, only option is to remove all character of the first string.
 *3.If the two last characters in each are equal, then ignore them and look at the remaining characters.
 *4.Finally if the current characters are different, consider all possible options, inserting a character, deleting a character or replacing a character, and get the minimum of these 3. This is the value which gets inserted into this position of the matrix. 
+*Insert is : i, -1. Inserting one thing into second string to make it longer
+*Deletion: i-1, j. Deleting one thing in first string to make it the same as the second
+*Replacing: i-1,j-1. Copying from one to the other. 
 *@author Ian Dempsey
 *date 13/11/2017
 *Pattern: Dynamic Programming
@@ -22,9 +25,7 @@ public class minDistance72 {
 	    public int minDistance(String word1, String word2) {
 	        int m = word1.length();
 	        int n = word2.length();
-	        if(word1==null) return n;
-	        if(word2==null) return m;
-	                // Create a table to store results of subproblems
+	        // Create a table to store results of subproblems
 	        int dp[][] = new int[m+1][n+1];
 	      
 	        // Fill d[][] in bottom up manner

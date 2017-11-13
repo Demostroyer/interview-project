@@ -53,8 +53,6 @@ public class twoSum1 {
 			}else {
 				solution[0]=lowerBound;
 				solution[1]=upperBound;
-		   //	System.out.println("The pair of numbers totalling your target is " + nums[lowerBound] + " + "+ nums[upperBound]);
-          //      System.out.println("index" + lowerBound + " " + upperBound);
 				break;
 			}
 		}

@@ -10,7 +10,7 @@ package mu_ian_dempsey;
  Then cast this int back to it's equivalent char!
  @author Ian Dempsey
  @date 5/10/17
- Time analysis: O(n) -> because I am only every traversing along the strings/charArrays. 
+ Time analysis: O(s * t) -> because I am only every traversing along the strings/charArrays. 
  Space Analysis: O(n) -> I have multiple arrays, but still remains as n
 */
 public class findTheDifference389 {
