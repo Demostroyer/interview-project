@@ -123,7 +123,7 @@ return true\;
 \caption{The Palindrome Algorithm}
 \end{algorithm}\DecMargin{1em}
 
-Whilst studying and working on this project, I have answered a number of questions from Leetcode.com which I was able to solve using an altered version of the above Palindrome pattern.\textbf{ID 1} TwoSum is one example. This question is described as: \textit{Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the same element twice.} The following pseudocode is my answer to this question. In it I have taken the basic idea of the Palindrome algorithm of having two pointers used for looking through the input data, but I have altered the way these two pointers behave.In this pseudocode I have highlighted any differences in blue.
+Whilst studying and working on this project, we have answered a number of questions from Leetcode.com which we where able to solve using an altered version of the above Palindrome pattern. \textbf{ID 1} TwoSum is one example. This question is described as: \textit{Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the same element twice.} The following pseudocode is our answer to this question. In it we have taken the basic idea of the Palindrome algorithm of having two pointers used for looking through the input data, but we have altered the way these two pointers behave.In this pseudocode we have highlighted any differences in blue.
 \IncMargin{1em}
 \begin{algorithm}
 	\SetAlgoLined
@@ -145,7 +145,7 @@ Whilst studying and working on this project, I have answered a number of questio
      }return 0\;
 \caption{LeetCode Q1 TwoSum}
 \end{algorithm}\DecMargin{1em}\\
-As can be seen from the above answer, the main differences are the conditionals inside the while loop. Instead of the normal approach of a Palindrome where one checks if the two elements are equal, and if so moves the two pointers are moved at the same time towards eachother, I have changed the condisitionals such that instead of moving both of these pointers together at the same time, I only ever move one pointer at a time. Depending on the result of adding the two current elements at each pointer together. If the total from adding the two integers together was greater than the target sum, then I knew that I had to move the right-pointer left once, as this would allow me to have a smaller sum and potentially the correct sum. If on the other hand the sum was smaller than the total, I would only move the left-pointer right once and add the two elements and get a new result. This process was repeated until the target sum was found, or until the two pointers crossed which meant the target was not found.
+As can be seen from the above answer, the main differences are the conditionals inside the while loop. Instead of the normal approach of a Palindrome where one checks if the two elements are equal, and if so moves the two pointers are moved at the same time towards eachother, we have changed the conditionals such that instead of moving both of these pointers together at the same time, we only ever move one pointer at a time. Depending on the result of adding the two current elements at each pointer together. If the total from adding the two integers together was greater than the target sum, then we knew that we had to move the right-pointer left once, as this would allow us to have a smaller sum and potentially the correct sum. If on the other hand the sum was smaller than the total, we would only move the left-pointer right once and add the two elements and get a new result. This process was repeated until the target sum was found, or until the two pointers crossed which meant the target was not found.
 \subsection{Merge Sort}
 Merge Sort is a very powerful algorithm. It is more efficient than most styles of insertion, with a time analysis of $O(n * log_{n})$, whereas insertion is $O(n^2)$. The idea of merge sort is to divide an array or some input in half and then sort each half before joining it back together. They do not have to be the same size which is useful.  \\
 Merge Sort uses the idea of divide and conquer, this means the list to be sorted should be divided up into equal parts first, then these new smaller parts should be sorted individually first before recreating the full list.
@@ -207,7 +207,7 @@ return current\;
 \caption{Basic Tree Traversal using PostOrder Traversal}
 \end{algorithm}\DecMargin{1em}
 \\
-\textbf{ID 104}, \textit{Maximum Depth of Binary Tree}, is an example of a problem where I used the basic tree traversal styles to solve the question.The problem description is given as: \textit{Given a binary tree, find its maximum depth.The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.} In this algorithm I used postorder traversal. Pseudocode can be found in Algorithm 6 of this paper.\\
+\textbf{ID 104}, \textit{Maximum Depth of Binary Tree}, is an example of a problem where we used the basic tree traversal styles to solve the question.The problem description is given as: \textit{Given a binary tree, find its maximum depth.The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.} In this algorithm we used postorder traversal. Pseudocode can be found in Algorithm 6 of this paper.\\
 \IncMargin{1em}
 \begin{algorithm}
 	\SetKwFunction{maxDepth}{maxDepth}
@@ -224,7 +224,7 @@ return current\;
 \caption{Leetcode Q104 Max. Depth of Binary Tree}
 \end{algorithm}\DecMargin{1em}
 \\
-As highlighted above, the key diference is inside the if statement. I have changed the conditional itself as it is the base case to stop the recursive execution. I have created a variable \textit{ldepth} which is the total depth of the left subtree. This is a recursive call on the leftChild of the current node. Line 4 will execute until it can't go left anymore, if it reaches null it will try to go right once, and then return going left. This is repeted until both calls return null. It then will go back all the way up until we reach the first call to go left, and set this summation of steps to ldepth. It then performs this same process but on the right subtree of the current node(which is the original node given), and set it to the variable \textit{rdepth}. Finally there is a conditional checking if ldepth is greater than rdepth. If so it returns ldepth+1,or it returns rdepth+1. This+1 is required as I need to take into account the root node's level, if I didn't take this into account my answer would always be one less than the actual depth of the tree. The major similarities between the postorder algorithm and this solution is the way I went down the left subtree first, then the right subtree and finally to take into account the root I added one to the height. This particular way of traversing the tree, left-right-root, is exactly how postorder traversal is performed.
+As highlighted above, the key diference is inside the if statement. We changed the conditional itself as it is the base case to stop the recursive execution. We created a variable \textit{ldepth} which is the total depth of the left subtree. This is a recursive call on the leftChild of the current node. Line 4 will execute until it can't go left anymore, if it reaches null it will try to go right once, and then return going left. This is repeated until both calls return null. It will then go back all the way up until we reach the first call to go left, and set this summation of steps to ldepth. It then performs this same process but on the right subtree of the current node(which is the original node given), and set it to the variable \textit{rdepth}. Finally there is a conditional checking if ldepth is greater than rdepth. If so it returns ldepth+1,or it returns rdepth+1. This+1 is required as we need to take into account the root node's level, if we didn't take this into account my answer would always be one less than the actual depth of the tree. The major similarities between the postorder algorithm and this solution is the way we went down the left subtree first, then the right subtree and finally to take the root into account we added one to the height. This particular way of traversing the tree, left-right-root, is exactly how postorder traversal is performed.
 \\
 \subsubsection{Breadth-First Traversal}
 This is a special way to visit the nodes in a tree, the ordering in this traversal pattern is to visit the root node, then move onto the children of the root node, printing each child in turn. It then will repeat this for each child of these nodes.Figure 1 shows the nodes in numerical order of visitation when using Breadth-First Traversal. \\
@@ -308,28 +308,32 @@ In the previous section of this paper, we only gave specific examples of the que
 \label{tab:tabSols}
 \end{table}
 
-%\tablefirsthead{\toprule Question Number & PassRate & Difficulty & Time to Complete(mins) & My Evaluation & Classical Algorithm \\  \midrule }	
-%
-%\tablehead{%
-%{{\bfseries Question Number & PassRate & Difficulty & Time to Complete(mins) & My Evaluation & Classical Algorithm  }} \\
-%\toprule Question Number & PassRate & Difficulty & Time to Complete(mins) & My Evaluation & Classical Algorithm \\ \midrule}
-%
-%\tabletail{%
-%\midrule Question Number & PassRate & Difficulty & Time to Complete(mins) & My Evaluation & Classical Algorithm \\  \midrule}
-%\tablelasttail{%
-%\\\midrule
-%Question Number & PassRate & Difficulty & Time to Complete(mins) & My Evaluation & Classical Algorithm \\  \bottomrule}
-%\begin{supertabular}{ll}
- %1 & 36.0\% & Easy & 9 & Easy & Palindrome\\ 
- %\end{supertabular}%
- 
- 
+\par As can be seen in table \ref{tab:tabSols}, some of the questions which were marked as having difficulty easy, took longer than some which were marked as medium. This is because it took longer for us to see the pattern which was useful to solve the problem. It is not easy to judge how fast a user can see the underlying pattern of a problem. This is because each user will have a different background. We have categorised the different users into four different types. 
+\begin{enumerate}
+\item{These users are people which have a background in coding competitions. They are highly experienced and are unlikely to find the questions hard.}
+\item{Users with some computer science background, and understand the internal workings of data structures and other concepts. These people would generally find most problems approachable.}
+\item{There exists people which only have some self study and learning completed. These people would find some of the concepts difficult to grasp and require some study.}
+\item{Finally there would be people who are interested in learning to code who have no experience, but will have to put a lot of study in to grasp even basic concepts.}
+\end{enumerate}
+This leads us to create a table ,table\ref{tab:difficulty}, in which we have given the expected difficulty that each type of user listed above would be expected to have with the questions on leetcode.com.
+\begin{table}[t]
+\centering
+	\begin{tabular}{| c | c |} \hline
+		   Background Type &Expected Difficulty \\ \hline
+		1 & Easy \\ \hline
+		2 & Medium \\ \hline
+		3 & Medium  \\ \hline
+		4 & Hard  \\ \hline
+	\end{tabular}
+	\caption{The expected difficulty each type of categroised user would have with the questions on leetcode.com.}
+	\label{tab:difficulty}
+\end{table}
 
-\section{The questions chosen}
-I based all of my questions off of the six-hundred or so that were available on www.leetcode.com\cite{leet1}. To shrink the question pool that I was choosing from I would try to pick the quesitons which were under the filter of Top Interview Questions. I did pick questions which were not listed under this filter, as I felt that solving some questions from outside of this restriction allowed me to get a more diverse seletion of questions. Also the questions were tagged by the user base of the site. Meaning that some of the questions which were not listed as being interview related, could have been asked in one, and vice versa. This does lead to the issue of having faith in the honesty of the community on the site.  
-
-\section{Problems with the questions}
-Whilst working on the numerous questions that I have solved on leetcode.com, I did come across issues which related to the questions themselves. These problems stemmed from the questions being worded strangely, or the example given for the solution was not explicitly clear in the way the question worked. These were just some of the issues which occurred whilst attempting to solve the problems. An example of such an issue is leetcode question 654. Maximum Binary Tree. This question's problem was easy to understand:
+%\section{The questions chosen} -> maybe add in this somwhere else, kindof have it at the beginning already.
+%I based all of my questions off of the six-hundred or so that were available on www.leetcode.com\cite{leet1}. To shrink the question pool that I was choosing from I would try to pick the quesitons which were under the filter of Top Interview Questions. I did pick questions which were not listed under this filter, as I felt that solving some questions from outside of this restriction allowed me to get a more diverse seletion of questions. Also the questions were tagged by the user base of the site. Meaning that some of the questions which were not listed as being interview related, could have been asked in one, and vice versa. This does lead to the issue of having faith in the honesty of the community on the site.  
+\subsection{Question Evaluation}
+We must also evaluate the questions themselves and give a description of some issues we had with them.
+Whilst working on the numerous questions that we have solved on leetcode.com, we did come across issues which related to the questions themselves. These problems stemmed from the questions being worded strangely, or the example given for the solution was not explicitly clear in the way the question worked. These were just some of the issues which occurred whilst attempting to solve the problems. An example of such an issue is leetcode question 654. Maximum Binary Tree. This question's problem was easy to understand:
 \\ \textit {Given an integer array with no duplicates. A maximum tree building on this array is defined as follow:
 \begin{enumerate}
 \item The root is the maximum number in the array.
@@ -337,29 +341,14 @@ Whilst working on the numerous questions that I have solved on leetcode.com, I d
 \item The right subtree is the maximum tree constructed from right part subarray divided by the maximum number.
 \end{enumerate}
 Construct the maximum tree by the given array and output the root node of this tree.}\\
-The issue which I personally came across was when I tried to understand the way the left and right subtree should be structured. The description for them was not clear to me, as I was unsure what was meant by $''$left part subarray divided by the maximum number$''$. I then took a look at the provided example.
+The issue which we personally came across was when we tried to understand the way the left and right subtree should be structured. The description for them was not clear to us, as we was unsure what was meant by $''$left part subarray divided by the maximum number$''$. I then took a look at the provided example.
 \begin{figure}[h]
 \includegraphics[width=0.6\textwidth]{example654.png}
 \caption{Q654 Given Example}
 \end{figure} \\
-For me personally this did not make it any clearer as to which way I should structure the subtrees. I was able to understand that the biggest number of each subarray should be the next number and work down in a descending order from the root. I was unable to understand why the 2 was to the right of 3, and yet 0 was to the left of 5. This confusion did cause me to take longer to solve this question than anticipated.
+For us this did not make it any clearer as to which way we should structure the subtrees. We were able to understand that the biggest number of each subarray should be the next number and work down in a descending order from the root. We were unable to understand why the 2 was to the right of 3, and yet 0 was to the left of 5. This confusion did cause us to take longer to solve this question than anticipated.
 
-\begin{table}[t]
-\centering
-	\begin{tabular}{| c | c | c |} \hline
-		   & Achievable Invs & Unachievable Invs \\ \hline
-		$(a)$ & $\{1,3,4,6,7,8\}$ & $\{2,8\}$ \\ \hline
-		$(b)$ & $\{1,3,4,5,7,8\}$ & $\{2,6\}$ \\ \hline
-		$(c)$ & $\{1,3,4,5,6,8\}$ & $\{2,7\}$ \\ \hline
-		$(d)$ & $\{1,3,4,5,6,7\}$ & $\{2,8\}$ \\ \hline
-		$(e)$ & $\{2,3,4,6,7,8\}$ & $\{1,5\}$ \\ \hline
-		$(f)$ & $\{2,3,4,5,7,8\}$ & $\{1,6\}$ \\ \hline
-		$(g)$ & $\{2,3,4,5,6,8\}$ & $\{1,7\}$ \\ \hline
-		$(h)$ & $\{2,3,4,5,6,7\}$ & $\{1,8\}$ \\ \hline
-	\end{tabular}
-	\caption{A total of 8 possible ways of achieving a maximum number of 6 class invariants from the metamodel in Figure \ref{fig:running:example1}. The numbers $1$ - $8$ represent $8$ invariants in Figure \ref{fig:running:example1}.}
-	\label{tab:running:example1}
-\end{table}
+\section{Conclusion}
 \bibliography{mybib}
 \bibliographystyle{ieeetr}
 
