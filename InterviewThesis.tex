@@ -5,6 +5,7 @@
 \usepackage{xcolor}
 \usepackage{soul}
 \usepackage{supertabular}
+\usepackage{tabularx}
 
 \newcommand{\hlc}[2][yellow]{{%
     \colorlet{foo}{#1}%
@@ -12,7 +13,11 @@
 }
 
 \title{Analyzing Algorithmic Patterns Based on Real Coding Interview Questions}
-\author{Ian Dempsey}
+\author{\IEEEauthorblockN{Ian Dempsey,\\
+Computer Science Department,\\
+Maynooth University,\\
+Email: ian.dempsey.2013@mumail.ie}
+}
 %\hlc[cyan!50]{_____} -> put in the stuff to be highlighted inside the {}
 %cite{___} ->put in the bibtex key for the specific source.
 %\label{sec: | fig: | } -> use to give something a specific label. This allows it to be referenced later
@@ -99,9 +104,10 @@ Pseudocode:
 \IncMargin{1em}
 \begin{algorithm}
 	\SetAlgoLined
-	\KwData{Given input of characters, S}
-	\KwResult{Boolean}
-	initialization\;
+	\SetKwInOut{Input}{Input}
+	\SetKwInOut{Output}{Output}
+	\Input{Given input of characters, S}
+	\Output{Boolean}
 	$leftIndex  \longleftarrow $S[0]\;
 	$rightIndex \longleftarrow $S.length-1\;
 	\While{leftIndex $<$ rightIndex}{
@@ -121,8 +127,10 @@ Whilst studying and working on this project, I have answered a number of questio
 \IncMargin{1em}
 \begin{algorithm}
 	\SetAlgoLined
-	\KwData{Array of integers nums, target S}
-	\KwResult{Indices i,j}
+	\SetKwInOut{Input}{Input}
+	\SetKwInOut{Output}{Output}
+	\Input{Array of integers nums, target S}
+	\Output{Indices i,j}
 	$leftIndex  \longleftarrow $S[0]\;
 	$rightIndex \longleftarrow $S.length-1\;
 	\While{leftIndex $<$ rightIndex}{
@@ -145,8 +153,10 @@ Pseudocode:
 \IncMargin{1em}
 \begin{algorithm}
 	\SetAlgoLined
-	\KwData{List of unsorted data}
-	\KwResult{Sorted List}
+	\SetKwInOut{Input}{Input}
+	\SetKwInOut{Output}{Output}
+	\Input{List of unsorted data}
+	\Output{Sorted List}
  	\eIf{ length of A is 1}{ return 1}
   	{Split A into two halves , L and R. Repeat until size of part =1\\
   	Sort each part individually \\
@@ -155,19 +165,20 @@ Pseudocode:
 \caption{The Merge Sort Algorithm through Recursion}
 \end{algorithm}\DecMargin{1em}
 
-\subsection{Graphs}
-Graphs are common in our lives. News media use them to help us visualize certain statistics. Though these are not the graphs that are studied by Computer Scientists. Graphs studied by Computer Scientists are usually based on the tree structure, and the relationships among data elements. A tree is just one of the special types of graphs that can be studied, where the parent-child relationship is used to organise data. In this section I have focused on the Tree Abstract Data Type, Breadth-First Traversal, Depth-First Traversal and Graphs in general. \\
-\subsubsection{Trees}
-Trees are one of the most powerful styles of data structures for processing data, this is because they allow rapid searching and fast insetion/deletion of a node. Trees are made up of nodes, these are Objects which hold some data and have a key. This key allows one to determine where this node should be in the tree. The important distinction here with these nodes in comparison to other nodes used in various data structures, is that these nodes contain references to children instead of just the next Link. Each node has exactly one parent, but can have many children.A Binary Tree is a special type of tree, this is a tree which has between 0 and 2 children. The first node in a tree is the Root, and it is possible to traverse to any node in the tree from this node.
-With trees the main function is traversal. There are three basic styles of traversal: inorder, preorder and postorder. Inorder visits every Node in ascending order based on their key values. Preorder is where the root is visited first, followed by it's left subtree and then it's right subtree. Finally, postorder is where the left subtree is followed by the right subtree and then the root. \\
+	\subsection{Graphs}
+	Graphs are common in our lives. News media use them to help us visualize certain statistics. Though these are not the graphs that are studied by Computer Scientists. Graphs studied by Computer Scientists are usually based on the tree structure, and the relationships 	among data elements. A tree is just one of the special types of graphs that can be studied, where the parent-child relationship is used to organise data. In this section I have focused on the Tree Abstract Data Type, Breadth-First Traversal, Depth-First Traversal and Graphs in general. \\
+	\subsubsection{Trees}
+	Trees are one of the most powerful styles of data structures for processing data, this is because they allow rapid searching and fast insetion/deletion of a node. Trees are made up of nodes, these are Objects which hold some data and have a key. This key allows one to determine where this node should be in the tree. The important distinction here with these nodes in comparison to other nodes used in various data structures, is that these nodes contain references to children instead of just the next Link. Each node has exactly one parent, but can have many children.A Binary Tree is a special type of tree, this is a tree which has between 0 and 2 children. The first node in a tree is the Root, and it is possible to traverse to any node in the tree from this node.
+	With trees the main function is traversal. There are three basic styles of traversal: inorder, preorder and postorder. Inorder visits every Node in ascending order based on their key values. Preorder is where the root is visited first, followed by it's left subtree and then it's right subtree. Finally, postorder is where the left subtree is followed by the right subtree and then the root. \\
 The following is an example of how one might search for a particular Node in a Tree.\\
 Pseudocode:
 \IncMargin{1em}
 \begin{algorithm}
 	\SetAlgoLined
-	\KwData{Given a key to search for}
-	\KwResult{The desired Node, or null}
-	initialization\;
+	\SetKwInOut{Input}{Input}
+	\SetKwInOut{Output}{Output}
+	\Input{Given a key to search for}
+	\Output{The desired Node, or null}
 	$Node current \longleftarrow$root\;
 	\While{current.data is not key}{
 		\If{current is null}{return null\;}
@@ -186,8 +197,8 @@ return current\;
 	\SetAlgoLined
 	\SetKwFunction{postOrder}{postOrder}
 	\Indm\postOrder{$Node localRoot$}
-	%\KwData{Node localRoot}
-	%\KwResult{Print out in PostOrder}
+	%\SetKwInOut{Node localRoot}
+	%\SetKwInOut{Print out in PostOrder}
 	\\
 		\If{localRoot $!=$ null}{
 		\postOrder(localRoot leftChild)\\
@@ -202,8 +213,8 @@ return current\;
 	\SetKwFunction{maxDepth}{maxDepth}
 	\Indm\maxDepth{$TreeNode  localRoot$}\\
 	\SetAlgoLined
-	%\KwData{Node localRoot}
-	%\KwResult{Print out in PostOrder}
+	%\SetKwInOut{Node localRoot}
+	%\SetKwInOut{Print out in PostOrder}
 		\If{\hlc[cyan!50]{localRoot $==$ null}}{\hlc[cyan!50]{ return 0\;}}
 		\hlc[cyan!50]{int ldepth $=$}\maxDepth(localRoot leftChild)\;
 		\hlc[cyan!50]{int rdepth $=$}\maxDepth(localRoot rightChild)\;
@@ -230,71 +241,71 @@ This is a second way of visiting nodes in a tree. This pattern involves starting
 \end{figure}
 
 \section{Evaluation}
-In the previous section of this paper, we only gave specific examples of the questions that we answered. Here we give a detailed summary of all solved questions in figure \ref{table:long}. All of these were accepted by leetcode's online judging system. 
+In the previous section of this paper, we only gave specific examples of the questions that we answered. Here we give a detailed summary of all solved questions in table \ref{tab:tabSols}. All of these were accepted by leetcode's online judging system. 
 
-\begin{table}[h!]
- \begin{tabular}{||c c c c c c||} 
- \hline
- Question Number & PassRate & Difficulty & Time to Complete(mins) & My Evaluation & Classical Algorithm \\ [0.5ex] 
- \hline\hline
- 1 & 36.0\% & Easy & 9 & Easy & Palindrome\\ 
- \hline
- 2 & 28.1\% & Medium & 20 &Medium& -- \\
- \hline
- 20 & 33.7\% & Easy & 12&Easy& Stack/Palindrome \\
- \hline
- 21 & 39.3\% & Easy & 25&Easy& Graphs(?) \\
- \hline
- 23 & 27.7\% & Hard & 27&Medium&MergeSort \\
-  \hline
- 35 &39.8\%  & Easy & 10 &Easy&Linear Search\\
-  \hline
- 53 &39.9\%  & Easy & 20 &Medium&Array\\
-  \hline
- 58 & 32.0\% & Easy & 15 &Easy&String/Array\\
-  \hline
- 88 & 32.1\% & Easy & 12 &Medium&Array\\
-  \hline
- 102 & 40.9\% &  Medium & 30  &Medium & Breadth-First Search\\
-  \hline
- 104 & 53.5\% &Easy  &28  &Medium& Tree Traversal\\
-  \hline
- 111 &  33.3\%& Easy&17  &Easy& Breadth-First Search\\
-  \hline
- 114 & 35.7\% &Medium  & 33  &Medium& Pre-Order Tree Traversal\\
-  \hline
- 136 &54.9\%  &Easy  &10  &Easy&Binary Search(?)\\
-  \hline
- 147 & 33.4\% &Medium  &26  &Medium&Insertion Sort\\
-  \hline
- 148 &  29.2\%& Medium & 35 &Hard&Insertion Sort\\
-  \hline
-  167 & 47.1\% &Easy  &16  &Easy&Palindrome\\
-  \hline
-  205 & 34.2\% &Easy  &18  &Easy&HashMaps(?)\\
-  \hline
- 290 & 33.2\% &Easy  &28  &Medium&--\\
-  \hline
- 326 & 40.4\% &Easy  &25  &Easy&--\\
-   \hline
-  336 & 26.5\% &Hard &18  &Medium&Palindrome\\
-  \hline
- 344 & 59.5\% &Easy  &8  &Easy&Palindrome\\
-  \hline
- 387 & 47.1\% &Easy  & 19 &Medium&Linear Search(?)\\
-  \hline
- 389 & 50.9\% &Easy  & 10 &Easy&Linear Search\\
-  \hline
- 404 & 47.3\% &Easy  &16  &Medium&Tree Traversal\\
-  \hline
- 654 & 70.1\% &Medium  &46  &Hard&MergeSort\\
-  \hline
- 669 &  58.1\%& Easy &18  &Easy&Tree Traversal\\
-  \hline
- 690 &  52.9\%& Easy &   45&Medium&Breadth-First Search\\[1ex]
- \hline
+\begin{table}[t]
+ \begin{tabular}{|c| c| c| c| c| c|} \hline
+ Question Number & PassRate & Difficulty & Completion Time(mins) &Evaluation & Classical Algorithm \\
+	 \hline
+ 	1 & 36.0\% & Easy & 9 & Easy & Palindrome\\ 
+ 	\hline
+	 2 & 28.1\% & Medium & 20 &Medium& -- \\
+ 	\hline
+	 20 & 33.7\% & Easy & 12&Easy& Stack/Palindrome \\
+ 	\hline
+ 	21 & 39.3\% & Easy & 25&Easy& Graphs(?) \\
+ 	\hline
+ 	23 & 27.7\% & Hard & 27&Medium&MergeSort \\
+  	\hline
+ 	35 &39.8\%  & Easy & 10 &Easy&Linear Search\\
+  	\hline
+ 	53 &39.9\%  & Easy & 20 &Medium&Array\\
+  	\hline
+ 	58 & 32.0\% & Easy & 15 &Easy&String/Array\\
+  	\hline
+ 	88 & 32.1\% & Easy & 12 &Medium&Array\\
+  	\hline
+ 	102 & 40.9\% &  Medium & 30  &Medium & Breadth-First Search\\
+  	\hline
+	104 & 53.5\% &Easy  &28  &Medium& Tree Traversal\\
+  	\hline
+ 	111 &  33.3\%& Easy&17  &Easy& Breadth-First Search\\
+  	\hline
+ 	114 & 35.7\% &Medium  & 33  &Medium& Pre-Order Tree Traversal\\
+  	\hline
+ 	136 &54.9\%  &Easy  &10  &Easy&Binary Search(?)\\
+  	\hline
+ 	147 & 33.4\% &Medium  &26  &Medium&Insertion Sort\\
+  	\hline
+ 	148 &  29.2\%& Medium & 35 &Hard&Insertion Sort\\
+  	\hline
+  	167 & 47.1\% &Easy  &16  &Easy&Palindrome\\
+  	\hline
+  	205 & 34.2\% &Easy  &18  &Easy&HashMaps(?)\\
+  	\hline
+ 	290 & 33.2\% &Easy  &28  &Medium&--\\
+  	\hline
+ 	326 & 40.4\% &Easy  &25  &Easy&--\\
+   	\hline
+  	336 & 26.5\% &Hard &18  &Medium&Palindrome\\
+  	\hline
+ 	344 & 59.5\% &Easy  &8  &Easy&Palindrome\\
+  	\hline
+ 	387 & 47.1\% &Easy  & 19 &Medium&Linear Search(?)\\
+  	\hline
+ 	389 & 50.9\% &Easy  & 10 &Easy&Linear Search\\
+  	\hline
+ 	404 & 47.3\% &Easy  &16  &Medium&Tree Traversal\\
+  	\hline
+ 	654 & 70.1\% &Medium  &46  &Hard&MergeSort\\
+  	\hline
+	669 &  58.1\%& Easy &18  &Easy&Tree Traversal\\
+  	\hline
+ 	690 &  52.9\%& Easy &   45&Medium&Breadth-First Search\\[1ex]
+ 	\hline
 \end{tabular}
-\label{table:tab}
+\caption{All solutions solved by us}
+\label{tab:tabSols}
 \end{table}
 
 %\tablefirsthead{\toprule Question Number & PassRate & Difficulty & Time to Complete(mins) & My Evaluation & Classical Algorithm \\  \midrule }	
@@ -332,6 +343,23 @@ The issue which I personally came across was when I tried to understand the way 
 \caption{Q654 Given Example}
 \end{figure} \\
 For me personally this did not make it any clearer as to which way I should structure the subtrees. I was able to understand that the biggest number of each subarray should be the next number and work down in a descending order from the root. I was unable to understand why the 2 was to the right of 3, and yet 0 was to the left of 5. This confusion did cause me to take longer to solve this question than anticipated.
+
+\begin{table}[t]
+\centering
+	\begin{tabular}{| c | c | c |} \hline
+		   & Achievable Invs & Unachievable Invs \\ \hline
+		$(a)$ & $\{1,3,4,6,7,8\}$ & $\{2,8\}$ \\ \hline
+		$(b)$ & $\{1,3,4,5,7,8\}$ & $\{2,6\}$ \\ \hline
+		$(c)$ & $\{1,3,4,5,6,8\}$ & $\{2,7\}$ \\ \hline
+		$(d)$ & $\{1,3,4,5,6,7\}$ & $\{2,8\}$ \\ \hline
+		$(e)$ & $\{2,3,4,6,7,8\}$ & $\{1,5\}$ \\ \hline
+		$(f)$ & $\{2,3,4,5,7,8\}$ & $\{1,6\}$ \\ \hline
+		$(g)$ & $\{2,3,4,5,6,8\}$ & $\{1,7\}$ \\ \hline
+		$(h)$ & $\{2,3,4,5,6,7\}$ & $\{1,8\}$ \\ \hline
+	\end{tabular}
+	\caption{A total of 8 possible ways of achieving a maximum number of 6 class invariants from the metamodel in Figure \ref{fig:running:example1}. The numbers $1$ - $8$ represent $8$ invariants in Figure \ref{fig:running:example1}.}
+	\label{tab:running:example1}
+\end{table}
 \bibliography{mybib}
 \bibliographystyle{ieeetr}
 
