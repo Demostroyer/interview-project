@@ -14,7 +14,7 @@ If pattern is empty, and str !=empty then false. Visa versa.
 Need to make i Integer, this was found out from a lot of trial and error. 
 @author: Ian Dempsey
 Pattern found: No real pattern in it.
-Time Analysis: O(n * m)-> depends on the input given
+Time Analysis: O(n *	 m)-> depends on the input given
 Space Analysis: O() - > check with Hao
 */
 public class wordPattern290 {
