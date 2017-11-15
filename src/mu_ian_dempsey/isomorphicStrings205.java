@@ -17,7 +17,7 @@ import java.util.Map;
 *else just use .put(s,t).
 *@author Ian Dempsey
 *Pattern here: Map manipulation
-*Time Anaylsis: O(n*m) -> it depends on the size of the input. 
+*Time Anaylsis: O(n*m) -> it depends on the size of the input. n is string s, m is string t.
 *Space Analysis: O(n) -> defined by the size of the input for the size of the Map.
 */
 
