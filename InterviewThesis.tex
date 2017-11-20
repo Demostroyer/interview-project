@@ -242,6 +242,15 @@ This is a second way of visiting nodes in a tree. This pattern involves starting
 \caption{Depth-First Traversal}
 \end{figure}
 
+\subsection{Dynamic Programming}
+Dynamic Programming is oftern referred to as `smart recursion'. This is because it takes the idea of recursion and imporives the inefficiencies that come along with it. These inefficiencies mainly being that recursive algorithms are generally space inefficient. Each recursive call adds a new layer to the stack. This is why dynamic programming is such a strong style of programming. It is normally just a matter of taking a recursive algorithm and finding the overlapping subproblems. A user then caches these results for future recursive calls.
+This style is known as \textit{Top-Down}. There is a different approach, known as \textit{Bottom-Up}.
+	\subsubsection{Top-Down}
+	This method of dynamic programming is known as top-down as we would follow the normal structure of a simple recursion solution, we start from n and compute smaller results as we need them in order to solve the original problem. We then store these results in some 		form of data structure, this is known as memoization. We can then access these results quickly and efficiently in comparison to having to recompute the same values for n over and over again. This leads to us saving space and time when working with recursively styled 		problems. Though it is not the most efficient still. 
+
+	\subsubsection{Bottom-Up}
+	The issue with this memoized version is that even when we are saving the results to resue them later, we still have to go all the way down to the base cases with the recursion the first time. This is when we have yet to compute any values, so we have nothing stored.
+	Bottom-Up solves this by going in reverse to the normal recursive way. Instead of going down to the base case from the value of n, it works its way up to the value of n.   
 \section{Evaluation}
 In the previous section of this paper, we only gave specific examples of the questions that we answered. Here we give a detailed summary of all solved questions in table \ref{tab:tabSols}. All of these were accepted by leetcode's online judging system. 
 
@@ -310,14 +319,14 @@ In the previous section of this paper, we only gave specific examples of the que
 \label{tab:tabSols}
 \end{table}
 
-\par As can be seen in table \ref{tab:tabSols}, some of the questions which were marked as having difficulty easy, took longer than some which were marked as medium. This is because it took longer for us to see the pattern which was useful to solve the problem. It is not easy to judge how fast a user can see the underlying pattern of a problem. This is because each user will have a different background. We have categorised the different users into four different types. 
+\par As can be seen in table \ref{tab:tabSols}, some of the questions which were marked as having difficulty easy, took longer than some which were marked as medium. This is because it took longer for us to see the pattern which was useful to solve the problem. It is not easy to judge how fast a user can see the underlying pattern of a problem. This is because each user will have a different background. We have categorised the different users into four distinct types. 
 \begin{enumerate}
 \item{These users are people which have a background in coding competitions. They are highly experienced and are unlikely to find the questions hard.}
-\item{Users with some computer science background, and understand the internal workings of data structures and other concepts. These people would generally find most problems approachable.}
+\item{Users with some computer science background, who understand the internal workings of data structures and other concepts. These people would generally find most problems approachable.}
 \item{There exists people which only have some self study and learning completed. These people would find some of the concepts difficult to grasp and require some study.}
-\item{Finally there would be people who are interested in learning to code who have no experience, but will have to put a lot of study in to grasp even basic concepts.}
+\item{Finally there would be people who are interested in learning to code who have no experience. They will have to put a lot of study in to grasp even basic concepts.}
 \end{enumerate}
-This leads us to create a table ,table\ref{tab:difficulty}, in which we have given the expected difficulty that each type of user listed above would be expected to have with the questions on leetcode.com.
+This leads us to create a table ,table \ref{tab:difficulty}, in which we have given the expected difficulty that each type of user listed above would be expected to have with the questions on leetcode.com.
 \begin{table}[t]
 \centering
 	\begin{tabular}{| c | c |} \hline
@@ -335,7 +344,7 @@ This leads us to create a table ,table\ref{tab:difficulty}, in which we have giv
 %I based all of my questions off of the six-hundred or so that were available on www.leetcode.com\cite{leet1}. To shrink the question pool that I was choosing from I would try to pick the quesitons which were under the filter of Top Interview Questions. I did pick questions which were not listed under this filter, as I felt that solving some questions from outside of this restriction allowed me to get a more diverse seletion of questions. Also the questions were tagged by the user base of the site. Meaning that some of the questions which were not listed as being interview related, could have been asked in one, and vice versa. This does lead to the issue of having faith in the honesty of the community on the site.  
 \subsection{Question Evaluation}
 We must also evaluate the questions themselves and give a description of some issues we had with them.
-Whilst working on the numerous questions that we have solved on leetcode.com, we did come across issues which related to the questions themselves. These problems stemmed from the questions being worded strangely, or the example given for the solution was not explicitly clear in the way the question worked. These were just some of the issues which occurred whilst attempting to solve the problems. An example of such an issue is leetcode question 654. Maximum Binary Tree. This question's problem was easy to understand:
+Whilst working on the numerous questions that we have solved on leetcode.com, we did come across issues which related to the questions themselves. These problems stemmed from the questions being worded strangely, or the example given for the solution was not explicitly clear in the way the question worked. These were just some of the issues which occurred whilst attempting to solve the problems. An example of such an issue is question ID 654, Maximum Binary Tree. This question's problem was easy to understand:
 \\ \textit {Given an integer array with no duplicates. A maximum tree building on this array is defined as follow:
 \begin{enumerate}
 \item The root is the maximum number in the array.
@@ -343,7 +352,7 @@ Whilst working on the numerous questions that we have solved on leetcode.com, we
 \item The right subtree is the maximum tree constructed from right part subarray divided by the maximum number.
 \end{enumerate}
 Construct the maximum tree by the given array and output the root node of this tree.}\\
-The issue which we personally came across was when we tried to understand the way the left and right subtree should be structured. The description for them was not clear to us, as we was unsure what was meant by $''$left part subarray divided by the maximum number$''$. I then took a look at the provided example.
+The issue which we personally came across was when we tried to understand the way the left and right subtree should be structured. The description for them was not clear to us, as we were unsure what was meant by $''$left part subarray divided by the maximum number$''$. We then took a look at the provided example.
 \begin{figure}[h]
 \includegraphics[width=0.6\textwidth]{example654.png}
 \caption{Q654 Given Example}
