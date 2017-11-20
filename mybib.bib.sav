@@ -1,6 +1,6 @@
 % Encoding: UTF-8
 
-@Misc{leet1,
+@Online{leet1,
   author = {LeetCode},
   title  = {LeetCode},
   owner  = {LeetCode},
@@ -36,20 +36,20 @@
   url       = {https://books.google.ie/books?id=jD8iswEACAAJ},
 }
 
-@Misc{geeks,
+@Online{geeks,
   author = {GeeksForGeeks},
   owner  = {GeeksForGeeks},
   url    = {www.geeksforgeeks.org},
 }
 
-@Misc{geeksalgos,
+@Online{geeksalgos,
   author = {GeeksForGeeks},
   title  = {Top 10 algorithms in Interview Questions},
   owner  = {GeeksForGeeks},
   url    = {http://www.geeksforgeeks.org/top-10-algorithms-in-interview-questions/},
 }
 
-@Misc{glassdoor,
+@Online{glassdoor,
   author   = {GlassDoor},
   abstract = {This website is a job and recruitment site. It offers users the chance to voice their experiences with companies during their interviews. Also users can read up on companies and what the interview process is like for this company.},
   owner    = {GlassDoor},
@@ -63,6 +63,23 @@
   note   = {\url{https://github.com/Demostroyer/interview-project}},
   owner  = {Ian Dempsey},
   url    = {https://github.com/Demostroyer/interview-project},
+}
+
+@Online{hackerearth,
+  author       = {HackerEarth},
+  title        = {HackerEarth},
+  howpublished = {Online},
+  url          = {https://www.hackerearth.com},
+}
+
+@Online{e,
+  author       = {Jose Luis},
+  title        = {Easy to understand Dynamic Programming – Edit distance},
+  howpublished = {Online},
+  month        = mar,
+  year         = {2014},
+  abstract     = {This was a site I used when I was studying Dynamic Programming. },
+  url          = {https://www.javacodegeeks.com/2014/03/easy-to-understand-dynamic-programming-edit-distance.html},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

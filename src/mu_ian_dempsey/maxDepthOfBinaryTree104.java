@@ -7,7 +7,7 @@ package mu_ian_dempsey;
  *  Then back propagate the values to 2 ints storing both results for the left and right subtrees. 
  *  3. Check which one is bigger. Return the bigger value. 
  *  Note, add 1 to the bigger value to get the true level value. 
- *  Pattern here: Tree traversal. 
+ *  Pattern here: Depth-First Search
  *  Time analysis: O(n) -> because I must traverse the entire tree to find the depth.
  *  Space analysis: O(n) -> because I am not using anymore space, so just storing the tree once. 
  *  @author Ian Dempsey

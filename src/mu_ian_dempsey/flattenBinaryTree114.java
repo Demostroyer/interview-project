@@ -5,7 +5,6 @@ package mu_ian_dempsey;
  *So root, left subtree, then right subtree
  *Note: this Q does not actually require a linked list to be returned. 
  *Idea: Check if it is null, base case.
- *(Issue I keep getting is there should be some nulls in the output. These nulls are from the old LEFT children of the tree, which are no longer in the outputted linked list display. So I must set root.left = null; at some stage. )
  *Recursively go through the left and right subtrees. 
  *This can be done by calling root.left, root.right. Set these to two vars to hold the data
  *As the linked list only contains right children, there must be a point where root.right is set to the left tree. 

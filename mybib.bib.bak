@@ -60,7 +60,7 @@
   author = {Ian Dempsey},
   title  = {Analyzing Algorithmic Patterns Based on Real Coding Interview Questions},
   year   = {2017},
-  note   = {https://github.com/Demostroyer/interview-project},
+  note   = {\url{https://github.com/Demostroyer/interview-project}},
   owner  = {Ian Dempsey},
   url    = {https://github.com/Demostroyer/interview-project},
 }

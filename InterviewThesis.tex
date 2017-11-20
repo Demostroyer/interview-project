@@ -33,12 +33,12 @@ This is my abstract. It is empty for now. Fill in later
 \section{Introduction}
 \label{sec:intro}
 \par
-Nowadays interviews for jobs in the I.T industry are becoming more complex and demanding on the applicant. As this section of the working industry is usually quite technical, it is quite common for the applicants to have to perform some form of technical test. These tests normally involve a question or two that are based on a wide variety of topics in programming. These questions in particular are used to test potential employees on whether they have strong analytical and critical assessment skills. The technical tests also allow the employer to see how many standard algorithms the candidate knows and is able to use. However, it is difficult to master all of the different types of algorithms and their intricacies. 
-\par The purpose of this paper is to study the relationship between the classical and well known algorithms, and the interview questions which are commonly asked.  This paper aims to give guidance to people who want to study the interview questions, but learn a core set of common ideas which will help them solve multiple problems. This would therefore allow them to save time as they prepare for the interview.
-\par In this paper we present a comprehensive report summarising the similarities between interview questions and standard algorithms taught in any programming course. This distinguishes our work from interview preparation books which focus on the problem solving skills, simply showing the reader a solution to a single problem, and not reinforcing material they would already be familiar with. This paper's goal is to show people that understanding the fundamentals of several common algorithms, will allow them to be able to solve a wide array of problems. It is also the purpose of this paper that a beginner at programming or a fresh graduate can use this paper as guidance to show them how much time is needed for preparatory work before they have the interview.  
+Nowadays interviews for jobs in the I.T industry are becoming more complex and demanding on the applicant. As this section of the working industry is usually quite technical, it is quite common for the applicants to have to perform some form of technical test. These tests normally involve a question or two that are based on a wide variety of topics in programming. These questions in particular are used to test potential employees on whether they have strong analytical and critical assessment skills. The technical tests also allow the employer to see how many standard algorithms the candidate knows, and is able to use. However, it is difficult to master all of the different types of algorithms and their intricacies. 
+\par The purpose of this paper is to study the relationship between the classical and well known algorithms, and the interview questions which are commonly asked.  This paper aims to give guidance to people who want to study the interview questions, but also learn a core set of common ideas which will help them solve multiple problems. This would therefore allow them to save time as they prepare for the interview.
+\par This paper presents a comprehensive report summarising the similarities between interview questions and standard algorithms taught in any programming course. This distinguishes our work from interview preparation books which focus on the problem solving skills, simply showing the reader a solution to a single problem, and not reinforcing material they would already be familiar with. This paper's goal is to show people that understanding the fundamentals of several common algorithms will allow them to be able to solve a wide array of problems. It is also the purpose of this paper that a beginner of programming or a fresh graduate can use this paper as guidance to show them how much time is needed for preparatory work before they have the interview.  
   %The questions themselves have a wide range of difficulty, from easier ones which focus on in basics of programming- e.g., array indexing, sorting algorithms, up to harder questions which really push candidates- e.g., dynamic programming, graphs. This area of interviewing is known as \textit{whiteboarding}, and has become quite common, it has led to some books being published which compile together numerous questions which are popular for interviewers to ask\cite{mcdowell2015cracking}.The focus in this paper is not the ability to solve as many quetions as possible to give to the applicants to study, but to try and discover patterns in problems which are similar, and then classify these patterns based off of pre-established patterns that candidates would be used to. This classification will then be able to help applicants and fellow programmers to learn how to see the patterns in problems quicker and be able to apply them to multiple problems, where they need only alter specific areas of code to solve the target problem. %
 \section{Technical Background}
-\par Nowadays there are a lot of online repositories for interview questions and interview related material in general. Websites such as hackerrank.com, glassdoor.ie, geeksforgeeks.org, and leetcode.com all offer information on what questions are common during interviews for different companies. They also offer ways to test potential solutions to some of the given questions. 
+\par Nowadays, in general, there are a lot of online repositories for interview questions and interview related material. Websites such as hackerrank.com, glassdoor.ie, geeksforgeeks.org, and leetcode.com all offer information on what questions are common during interviews for different companies. They also offer ways to test potential solutions to some of the given questions. 
 \par For this paper we chose to use leetcode.com\cite{leet1}, as this website comes with a huge amount of online material that is generally taken from previously asked interview questions. Companies also use sites just like leetcode when they are building up a question bank to ask candidates. This was important in our decision for the repository, as it meant we were using a platform which was regularly updated. LeetCode itself also has some built-in features which really appealed to us. The website has an online discussion forum for each question, allowing the community to discuss solutions, issues and the questions themselves. LeetCode also host their own weekly coding competitions, which allows users to get even more experience and confidence in coding problems. One of the main features which this online judge website has in comparison to the others is a section for a user to perform a mock interview. This mock interview is under the time constraint of a normal real world interview, this was a big attraction for us in choosing our online judge. The online editor that is used by leetcode also allows a user to select from a multitude of programming languages, as shown in figure \ref{fig:langUI} below. For the purpose of this paper the language that was chosen was java. The reason for this is because it is a language most people learn first. However, any choice of programming language would be just as acceptable, as we present pseudocode throughout the paper which can be used by any major programming language.  
 \par The user interface of LeetCode is also very simple to use. The main page which lists all of the problems offers users the option to filter questions by difficulty, which company has asked it before, what area the questions focuses on and much more. As seen in figure \ref{fig:homepage}, we have chosen to focus on questions which are tagged as being related to trees. 
 \begin{figure}[h]
@@ -214,7 +214,7 @@ return current\;
 \begin{algorithm}
 	\SetKwFunction{maxDepth}{maxDepth}
 	\Indm\maxDepth{$TreeNode  localRoot$}\\
-	\SetAlgoLined
+	
 	%\SetKwInOut{Node localRoot}
 	%\SetKwInOut{Print out in PostOrder}
 		\If{\hlc[cyan!50]{localRoot $==$ null}}{\hlc[cyan!50]{ return 0\;}}
@@ -243,22 +243,99 @@ This is a second way of visiting nodes in a tree. This pattern involves starting
 \end{figure}
 
 \subsection{Dynamic Programming}
-Dynamic Programming is oftern referred to as `smart recursion'. This is because it takes the idea of recursion and imporives the inefficiencies that come along with it. These inefficiencies mainly being that recursive algorithms are generally space inefficient. Each recursive call adds a new layer to the stack. This is why dynamic programming is such a strong style of programming. It is normally just a matter of taking a recursive algorithm and finding the overlapping subproblems. A user then caches these results for future recursive calls.
-This style is known as \textit{Top-Down}. There is a different approach, known as \textit{Bottom-Up}.
+Dynamic Programming is often referred to as `smart recursion'. This is because it takes the idea of recursion and improvess the inefficiencies that come along with it. These inefficiencies mainly being that recursive algorithms are generally space inefficient. Each recursive call adds a new layer to the stack. This is why dynamic programming is such a strong style of programming. It is normally just a matter of taking a recursive algorithm and finding the overlapping subproblems. A user then caches these results for future recursive calls.
+This style is known as \textit{Top-Down}. There is a different approach, known as \textit{Bottom-Up}. We will give a quick demonstration of the two by using the classic recursive algorithm to solve Fibonacci numbers.
+\IncMargin{1em}
+	\begin{algorithm}
+		%\Fn(\tcc*[h]{recursive fibonacci}){\FRecurs{Integer n}}{
+		\SetKwInOut{Input}{Input}
+		\SetKwInOut{Output}{Output}
+		
+		\Input{Integer n}
+		\Output{Fibonacci Numbers}
+		\If{n$<$3} {return 1\;}
+		return fib(n-2) + fib(n-1)\;
+			
+	\caption{Fibonacci Numbers through normal recursion}
+	\end{algorithm}
+\DecMargin{1em}
+	
 	\subsubsection{Top-Down}
 	This method of dynamic programming is known as top-down as we would follow the normal structure of a simple recursion solution, we start from n and compute smaller results as we need them in order to solve the original problem. We then store these results in some 		form of data structure, this is known as memoization. We can then access these results quickly and efficiently in comparison to having to recompute the same values for n over and over again. This leads to us saving space and time when working with recursively styled 		problems. Though it is not the most efficient still. 
-
+	
+\IncMargin{1em}
+	\begin{algorithm}
+		\SetKwInOut{Input}{Input}
+		\SetKwInOut{Output}{Output}
+		\Input{Integer n}
+		\Output{Fibonacci Numbers}
+		$computed \leftarrow $HashMap\;
+		\If{n$<$3} {return 1\;}
+		return fib(n-2) + fib(n-1)\;
+		computed put (1,1)\;
+		computed put (2,1)\;
+		return fib2(n, computed)\;
+		\caption{fib; Fibonacci Numbers through Top-Down and Memoization}
+	\end{algorithm}\DecMargin{1em}
+\IncMargin{1em}
+	\begin{algorithm}
+		\SetKwInOut{Input}{Input}
+		\SetKwInOut{Output}{Output}
+		\Input{Integer n, HashMap computed}
+		\Output{Fibonacci Number}
+		\If{computed containsKey(n)} {return computed get(n)\;}
+		computed.put(n-1,fib2(n-1,computed))\;
+		computed.put(n-2,fib2(n-2,computed))\;
+		$newVal \leftarrow $computed.get(n-1) + computed.get(n-2)\;
+		return newVal\;
+	\caption{fib2;Fibonacci Numbers through Top-Down and Memoization}	
+	\end{algorithm}\DecMargin{1em}	
+	
+	
 	\subsubsection{Bottom-Up}
 	The issue with this memoized version is that even when we are saving the results to resue them later, we still have to go all the way down to the base cases with the recursion the first time. This is when we have yet to compute any values, so we have nothing stored.
 	Bottom-Up solves this by going in reverse to the normal recursive way. Instead of going down to the base case from the value of n, it works its way up to the value of n.   
+\IncMargin{1em}
+	\begin{algorithm}
+		\SetKwInOut{Input}{Input}
+		\SetKwInOut{Output}{Output}
+		\Input{Integer n}
+		\Output{Fibonacci Numbers}
+		\SetKwArray{Kw}{results}
+		$results[] \leftarrow $int[n+1]\;
+		results[1] = 1\;
+		results[2] = 2\;
+		\For{$i \leftarrow 3$ \KwTo $n$}{ 
+		results[i] = results[i-1]+results[i-2]\;}
+		return results[n]\;		
+		\caption{fibDP; Fibonacci Numbers through Bottom-Up}
+	\end{algorithm}\DecMargin{1em}
+\par It must be noted though that Dynamic Programming is one of the toughest sections of programming to learn. This only makes it more challenging for candidates to answer questions in interviews in such a limited window. The reason it is so tough is because a candidate must think of the problem in mutliple ways, and make the decision to tackle it in a certain way. If they choose the wrong option, then they will end up with a very inefficient solution, choose correctly and they will have shown a very strong understanding of this area.
 \section{Evaluation}
 In the previous section of this paper, we only gave specific examples of the questions that we answered. Here we give a detailed summary of all solved questions in table \ref{tab:tabSols}. All of these were accepted by leetcode's online judging system. 
+We also have created a table which details a numeric value for the algorithms previously listed in \ref{itm:patterns}.
+\begin{table}[t]
+\centering
+	\begin{tabular}{| c | c |} \hline
+		    &Algorithm \\ \hline
+		1 & Palindrome\\ \hline
+		2 & Merge Sort\\ \hline
+		3 & Binary Search\\ \hline
+		4 & Tree Traversal \\ \hline
+		5 & Breadth-First Search\\ \hline
+		6 & Depth-First Search\\ \hline
+		7 & Dynamic Programming\\ \hline
+		8 & Not Applicable\\ \hline
+	\end{tabular}
+	\caption{The classical algorithms}
+	\label{tab:classicalAlgos}
+\end{table}
 
 \begin{table}[t]
  \begin{tabular}{|c| c| c| c| c| c|} \hline
  Question ID & PassRate & Difficulty & Time(mins) &Evaluation &Algorithm \\
 	 \hline
- 	1 & 36.0\% & Easy & 9 & Easy & Palindrome\\ 
+ 	1 & 36.0\% & Easy & 9 & Easy & 1\\ 
  	\hline
 	 2 & 28.1\% & Medium & 20 &Medium& -- \\
  	\hline
@@ -266,7 +343,7 @@ In the previous section of this paper, we only gave specific examples of the que
  	\hline
  	21 & 39.3\% & Easy & 25&Easy& Graphs(?) \\
  	\hline
- 	23 & 27.7\% & Hard & 27&Medium&MergeSort \\
+ 	23 & 27.7\% & Hard & 27&Medium&2 \\
   	\hline
  	35 &39.8\%  & Easy & 10 &Easy&Linear Search\\
   	\hline
@@ -274,15 +351,19 @@ In the previous section of this paper, we only gave specific examples of the que
   	\hline
  	58 & 32.0\% & Easy & 15 &Easy&String/Array\\
   	\hline
+ 	69 & 28.2\% & Easy & 19 &Easy&3\\
+ 	\hline
+ 	72 & 32.1\% & Hard & 29 &Hard&7\\
+  	\hline
  	88 & 32.1\% & Easy & 12 &Medium&Array\\
   	\hline
- 	102 & 40.9\% &  Medium & 30  &Medium & Breadth-First Search\\
+ 	102 & 40.9\% &  Medium & 30  &Medium & 5\\
   	\hline
-	104 & 53.5\% &Easy  &28  &Medium& Tree Traversal\\
+	104 & 53.5\% &Easy  &28  &Medium& 4\\
   	\hline
- 	111 &  33.3\%& Easy&17  &Easy& Breadth-First Search\\
+ 	111 &  33.3\%& Easy&17  &Easy& 5\\
   	\hline
- 	114 & 35.7\% &Medium  & 33  &Medium& Pre-Order Tree Traversal\\
+ 	114 & 35.7\% &Medium  & 33  &Medium&4\\
   	\hline
  	136 &54.9\%  &Easy  &10  &Easy&Binary Search(?)\\
   	\hline
@@ -290,7 +371,7 @@ In the previous section of this paper, we only gave specific examples of the que
   	\hline
  	148 &  29.2\%& Medium & 35 &Hard&Insertion Sort\\
   	\hline
-  	167 & 47.1\% &Easy  &16  &Easy&Palindrome\\
+  	167 & 47.1\% &Easy  &16  &Easy&1\\
   	\hline
   	205 & 34.2\% &Easy  &18  &Easy&HashMaps(?)\\
   	\hline
@@ -298,26 +379,27 @@ In the previous section of this paper, we only gave specific examples of the que
   	\hline
  	326 & 40.4\% &Easy  &25  &Easy&--\\
    	\hline
-  	336 & 26.5\% &Hard &18  &Medium&Palindrome\\
+  	336 & 26.5\% &Hard &18  &Medium&1\\
   	\hline
- 	344 & 59.5\% &Easy  &8  &Easy&Palindrome\\
+ 	344 & 59.5\% &Easy  &8  &Easy&1\\
   	\hline
  	387 & 47.1\% &Easy  & 19 &Medium&Linear Search(?)\\
   	\hline
  	389 & 50.9\% &Easy  & 10 &Easy&Linear Search\\
   	\hline
- 	404 & 47.3\% &Easy  &16  &Medium&Tree Traversal\\
+ 	404 & 47.3\% &Easy  &16  &Medium&4\\
   	\hline
- 	654 & 70.1\% &Medium  &46  &Hard&MergeSort\\
+ 	654 & 70.1\% &Medium  &46  &Hard&2\\
   	\hline
-	669 &  58.1\%& Easy &18  &Easy&Tree Traversal\\
+	669 &  58.1\%& Easy &18  &Easy&4\\
   	\hline
- 	690 &  52.9\%& Easy &   45&Medium&Breadth-First Search\\[1ex]
+ 	690 &  52.9\%& Easy &   45&Medium&5\\[1ex]
  	\hline
 \end{tabular}
 \caption{All solutions solved by us}
 \label{tab:tabSols}
 \end{table}
+\par In table \ref{tab:tabSols} there a number of headings. Question ID is the specific ID of each question solved. PassRate is the percentage of solutions accepted by leetcode. These were taken at the time of writing. Difficulty is the level that was awarded to each question by leetcode themselves. Time is the total time in minutes it took us to complete each question. Evaluation is our opinion on the difficulty of each question we solved. Algorithm, this is the algorithm we feel that each question was closest to. The number in this columns referes to table \ref{tab:classicalAlgos}, which states the number assigned to each algorithm.
 
 \par As can be seen in table \ref{tab:tabSols}, some of the questions which were marked as having difficulty easy, took longer than some which were marked as medium. This is because it took longer for us to see the pattern which was useful to solve the problem. It is not easy to judge how fast a user can see the underlying pattern of a problem. This is because each user will have a different background. We have categorised the different users into four distinct types. 
 \begin{enumerate}
