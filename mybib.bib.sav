@@ -72,7 +72,7 @@
   url          = {https://www.hackerearth.com},
 }
 
-@Online{e,
+@Online{easyDP,
   author       = {Jose Luis},
   title        = {Easy to understand Dynamic Programming – Edit distance},
   howpublished = {Online},
@@ -80,6 +80,10 @@
   year         = {2014},
   abstract     = {This was a site I used when I was studying Dynamic Programming. },
   url          = {https://www.javacodegeeks.com/2014/03/easy-to-understand-dynamic-programming-edit-distance.html},
+}
+
+@Online{{,
+  url = {http://algorithms.tutorialhorizon.com},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
