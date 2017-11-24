@@ -1,10 +1,11 @@
 % Encoding: UTF-8
 
 @Online{leet1,
-  author = {LeetCode},
-  title  = {LeetCode},
-  owner  = {LeetCode},
-  url    = {https://leetcode.com},
+  author   = {LeetCode},
+  title    = {LeetCode},
+  abstract = {Website used to obtain, and solve the questions for my MSc Paper.},
+  owner    = {LeetCode},
+  url      = {https://leetcode.com},
 }
 
 @Book{carrano2003data,
@@ -38,6 +39,8 @@
 
 @Online{geeks,
   author = {GeeksForGeeks},
+  month  = sep,
+  year   = {2017},
   owner  = {GeeksForGeeks},
   url    = {www.geeksforgeeks.org},
 }
@@ -51,6 +54,8 @@
 
 @Online{glassdoor,
   author   = {GlassDoor},
+  month    = sep,
+  year     = {2017},
   abstract = {This website is a job and recruitment site. It offers users the chance to voice their experiences with companies during their interviews. Also users can read up on companies and what the interview process is like for this company.},
   owner    = {GlassDoor},
   url      = {https://www.glassdoor.ie/index.htm},
@@ -69,6 +74,8 @@
   author       = {HackerEarth},
   title        = {HackerEarth},
   howpublished = {Online},
+  month        = oct,
+  year         = {2017},
   url          = {https://www.hackerearth.com},
 }
 
@@ -82,8 +89,77 @@
   url          = {https://www.javacodegeeks.com/2014/03/easy-to-understand-dynamic-programming-edit-distance.html},
 }
 
-@Online{{,
-  url = {http://algorithms.tutorialhorizon.com},
+@Online{algoHorizon,
+  author   = {TutorialHorizon},
+  title    = {Algorithms},
+  month    = nov,
+  year     = {2017},
+  abstract = {Good site for Dynamic Programming},
+  url      = {http://algorithms.tutorialhorizon.com},
+}
+
+@Online{pramp,
+  author       = {Pramp,Inc},
+  title        = {Pramp},
+  howpublished = {Online},
+  abstract     = {This site provides mock interview scenarios for programming interviews.},
+  owner        = {Pramp,Inc.},
+  url          = {https://www.pramp.com},
+}
+
+@Online{indeed,
+  author       = {Indeed},
+  title        = {Indeed},
+  howpublished = {Online},
+  month        = sep,
+  year         = {2017},
+  abstract     = {Indeed offers information on job offers, and also reviews of companies. },
+  url          = {http://ie.indeed.com},
+}
+
+@Misc{diff,
+  author       = {DiffChecker},
+  howpublished = {Online},
+  month        = nov,
+  year         = {2017},
+  abstract     = {Used to try and get a numerical number for similarity between pieces of code},
+  url          = {https://www.diffchecker.com},
+}
+
+@InProceedings{Schleimer:2003:WLA:872757.872770,
+  author    = {Schleimer, Saul and Wilkerson, Daniel S. and Aiken, Alex},
+  title     = {Winnowing: Local Algorithms for Document Fingerprinting},
+  booktitle = {Proceedings of the 2003 ACM SIGMOD International Conference on Management of Data},
+  year      = {2003},
+  series    = {SIGMOD '03},
+  pages     = {76--85},
+  address   = {New York, NY, USA},
+  publisher = {ACM},
+  acmid     = {872770},
+  doi       = {10.1145/872757.872770},
+  isbn      = {1-58113-634-X},
+  location  = {San Diego, California},
+  numpages  = {10},
+  url       = {http://doi.acm.org/10.1145/872757.872770},
+}
+
+@Online{mosswebsite,
+  author       = {Aiken, A.},
+  title        = {Moss},
+  howpublished = {Online},
+}
+
+@InProceedings{{,
+  author    = {K. W. Bowyer and L. O. Hall},
+  title     = {Experience using "MOSS" to detect cheating on programming assignments},
+  booktitle = {Frontiers in Education Conference, 1999. FIE '99. 29th Annual},
+  year      = {1999},
+  volume    = {3},
+  pages     = {13B3/18-13B3/22 vol.3},
+  month     = {Nov},
+  doi       = {10.1109/FIE.1999.840376},
+  issn      = {0190-5848},
+  keywords  = {computer science education;educational administrative data processing;educational courses;programming;teaching;C programming course;MOSS;Measure Of Software Similarity;administration;cheating detection;computer science education courses;educational process;plagiarism;programming assignments;Automatic programming;Computer science;Inspection;Maintenance engineering;Plagiarism;Postal services;Programmable control;Software tools;Technological innovation;Testing},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
