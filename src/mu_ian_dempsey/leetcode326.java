@@ -10,7 +10,7 @@ package mu_ian_dempsey;
  * @author Ian Dempsey
  *Time Complexity: O(logn) ->Number of divisions is given by the log 
   Space Complexity: O(1) -> no extra memory needed
-  Pattern in this Q is: 
+  Pattern in this Q is: Math
  */
 public class leetcode326 {
 	public static void main(String [] args) {
