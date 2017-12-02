@@ -58,10 +58,10 @@ public class twoSum1 {
 		}
 		//now just return the index of the unsorted array, this will not affect input which is sorted. 
         int count=0;
-        //using the copy of original arry which is unsorted
+        //using the copy of original array which is unsorted
         for(int i =0;i <num2.length;i++){
         	//if the unsorted array's value at index i = our sorted arrays value at lowerBound index
-        	//& count==0, (this just stops the index being overwrritten, applies to unsorted arrays)
+        	//& count==0, (this just stops the index being overwritten, applies to unsorted arrays)
            if(num2[i]==nums[lowerBound] && count==0) {
        //     System.out.println("num2[0]" + num2[0]);
                solution[0]=i;//first index for solution pair
@@ -69,7 +69,7 @@ public class twoSum1 {
             }
            //in the original unsorted array, if the array's val at index i= sorted array's val at upper
             else if(num2[i]==nums[upperBound]){
-                solution[1]=i;//second index for soultion pair
+                solution[1]=i;//second index for solution pair
             }
         }
     return solution;
