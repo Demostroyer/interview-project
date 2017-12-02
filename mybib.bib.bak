@@ -114,7 +114,7 @@
 @Online{indeed,
   author       = {Indeed},
   title        = {Indeed},
-  howpublished = {https://indeed.com},
+  howpublished = {http://ie.indeed.com},
   month        = sep,
   year         = {2017},
   abstract     = {Indeed offers information on job offers, and also reviews of companies. },
