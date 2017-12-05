@@ -132,7 +132,7 @@ The following description is a general algorithm for solving the palindrome prob
 return true\;
 \caption{The Palindrome Algorithm}
 \end{algorithm}\DecMargin{1em}
- \textbf{ID}1 TwoSum is one example where the Palindrome algorithm was used to solve the question. This question is described as: \textit{Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the same element twice.} Figure \ref{fig:twosum} is the solution accpeted by LeetCode. In this pseudocode we have highlighted any differences in blue, this is the same for all the following answers.
+ \textbf{ID 1} TwoSum is one example where the Palindrome algorithm was used to solve the question. This question is described as: \textit{Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the same element twice.} Figure \ref{fig:twosum} is the solution accpeted by LeetCode. In this pseudocode we have highlighted any differences in blue, this is the same for all the following answers.
 \IncMargin{1em}
 \begin{algorithm}
 	\SetAlgoLined
@@ -158,7 +158,7 @@ return true\;
 As can be seen in Figure \ref{fig:twosum}, the main differences are the conditionals inside the while loop. The conditionals will only move one pointer at a time, depending on the result of adding the two current elements at each pointer together. If the total is greater than the target sum, then the right-pointer is moved left once, as this would allowthe sum to be smaller and potentially the correct sum. If on the other hand the sum was smaller than the total, then the left-pointer is moved right once and add the two elements and get a new result. This process was repeated until the target sum was found, or until the two pointers crossed which meant the target was not found.
 \subsection{Merge Sort}
 Merge Sort is a very powerful algorithm. It is more efficient than most styles of insertion, with a time analysis of $O(n * log_{n})$, whereas insertion is $O(n^2)$. The idea of merge sort is to divide an array or some input in half and then sort each half before joining it back together. They do not have to be the same size which is useful.  \\
-Merge Sort uses the idea of divide and conquer, this means the list to be sorted should be divided up into equal parts first, then these new smaller parts should be sorted individually first before recreating the full list.
+Merge Sort uses the idea of divide and conquer, this means the list to be sorted should be divided up into equal parts first, then these new smaller parts should be sorted individually first before recreating the full list. Figure \ref{fig:mergesort} shows this.
 \IncMargin{1em}
 \begin{algorithm}
 	\SetAlgoLined
@@ -172,8 +172,63 @@ Merge Sort uses the idea of divide and conquer, this means the list to be sorted
   	Merge with another subdivided section into B, the sorted list\\ 
   	Return B, the sorted structure}
 \caption{The Merge Sort Algorithm through Recursion}
+\label{fig:mergesort}
 \end{algorithm}\DecMargin{1em}
 
+\subsection{Binary Search}
+Binary Search is a rapid algorithm for locating data. It has a time complexity of $O(log{n})$ and is used when working with sorted arrays. The algorithm is also used when using binary search trees. In this section the examples are shown with arrays. This algorithm compares the target value to the middle value of the array. If the target is less than this middle value, then the upper half is eliminated as the target cannot lie in this section and the search continues on the remaining half until the search is successful or not. Figure \ref{fig:binary} shows the standard binary search algorithm.
+\IncMargin{1em}
+\begin{algorithm}
+	\SetAlgoLined
+	\SetKwInOut{Input}{Input}
+	\SetKwInOut{Output}{Output}
+	\Input{Sorted array S, target x}
+	\Output{index of target or -1}
+	$left \longleftarrow $0\;
+	$right \longleftarrow $S.length-1\;
+	\While{left $<=$ right}{
+		$mid \longleftarrow $left + (right - left)/2\;
+		\If{S[mid] $==$ x}{
+			return mid\;
+		}
+		\If{S[mid]$<$x}{
+		left $=$ mid + 1\;
+		}
+		\Else{
+		right $=$ mid-1;
+		}
+	}
+	return -1\;
+\caption{Binary Search}
+\label{fig:binary}
+\end{algorithm}\DecMargin{1em}
+
+\textbf{ID 69},\textit{Sqrt(x)}, is just one example of binary search being employed to solve a question. This question is described as \textit{Implement int sqrt(int x). Compute and return the square root of x. x is guaranteed to be a non-negative integer.} Figure \ref{fig:sqrt} is the solution to this problem. 
+\IncMargin{1em}
+\begin{algorithm}
+	\SetAlgoLined
+	\SetKwInOut{Input}{Input}
+	\SetKwInOut{Output}{Output}
+	\Input{Int x}
+	\Output{Int y}
+	\If{\hlc[cyan!50]{x $==$ 0}}{\hlc[cyan!50]{ return 0\;}}
+	$left \longleftarrow $1\;
+	$right \longleftarrow $x/2\;
+	\While{true}{
+		$mid \longleftarrow $left + (right - left)/2\;
+		\If{\hlc[cyan!50]{mid $>$ x/mid}}{
+			right $=$ mid-1\;
+		}
+		\Else{
+		\If{\hlc[cyan!50]{mid+1 $>$ x/(mid+1)}}{
+			\hlc[cyan!50]{return mid\;}
+			}
+			\hlc[cyan!50]{left $=$ mid+1\;}
+		}
+	}
+\caption{Sqrt(x)}
+\label{fig:sqrt}
+\end{algorithm}\DecMargin{1em}
 	\subsection{Graphs}
 	Graphs are common in our lives. News media use them to help us visualize certain statistics. Though these are not the graphs that are studied by Computer Scientists. Graphs studied by Computer Scientists are usually based on the tree structure, and the relationships 	among data elements. A tree is just one of the special types of graphs that can be studied, where the parent-child relationship is used to organise data. In this section I have focused on the Tree Abstract Data Type, Breadth-First Traversal, Depth-First Traversal and Graphs in general. \\
 	\subsubsection{Trees}
@@ -205,8 +260,6 @@ return current\;
 	\SetAlgoLined
 	\SetKwFunction{postOrder}{postOrder}
 	\Indm\postOrder{$Node localRoot$}
-	%\SetKwInOut{Node localRoot}
-	%\SetKwInOut{Print out in PostOrder}
 	\\
 		\If{localRoot $!=$ null}{
 		\postOrder(localRoot leftChild)\\
@@ -220,9 +273,6 @@ return current\;
 \begin{algorithm}
 	\SetKwFunction{maxDepth}{maxDepth}
 	\Indm\maxDepth{$TreeNode  localRoot$}\\
-	
-	%\SetKwInOut{Node localRoot}
-	%\SetKwInOut{Print out in PostOrder}
 		\If{\hlc[cyan!50]{localRoot $==$ null}}{\hlc[cyan!50]{ return 0\;}}
 		\hlc[cyan!50]{int ldepth $=$}\maxDepth(localRoot leftChild)\;
 		\hlc[cyan!50]{int rdepth $=$}\maxDepth(localRoot rightChild)\;
