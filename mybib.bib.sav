@@ -123,7 +123,7 @@
 
 @Misc{diff,
   author       = {DiffChecker},
-  howpublished = {Online},
+  howpublished = {w},
   month        = nov,
   year         = {2017},
   abstract     = {Used to try and get a numerical number for similarity between pieces of code},
@@ -196,6 +196,22 @@
   isbn      = {9781118722862},
   lccn      = {2013958289},
   url       = {https://books.google.ie/books?id=uuHAAgAAQBAJ},
+}
+
+@Online{pramp,
+  author       = {Pramp, I.},
+  howpublished = {Online},
+  year         = {2017},
+  url          = {https://www.pramp.com/#/},
+}
+
+@Book{aziz2012elements,
+  title     = {Elements of Programming Interviews: The Insiders' Guide},
+  publisher = {ElementsOfProgrammingInterviews.com},
+  year      = {2012},
+  author    = {Aziz, A. and Lee, T.H. and Prakash, A.},
+  isbn      = {9781479274833},
+  url       = {https://books.google.ie/books?id=y6FLBQAAQBAJ},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
