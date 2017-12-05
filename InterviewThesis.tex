@@ -6,6 +6,7 @@
 \usepackage{soul}
 \usepackage{supertabular}
 \usepackage{tabularx}
+\usepackage{ caption, floatrow, makecell, booktabs}%
 
 \newcommand{\hlc}[2][yellow]{{%
     \colorlet{foo}{#1}%
@@ -103,9 +104,8 @@ In each of these areas we categorised them into some key patterns. These are pat
 \begin{itemize}
 \item Adding code
 \item Deleting code
-\item Substituting code
 \end{itemize}
-As this would be a big task to perform by hand, we used an online difference calculator called DiffChecker \cite{diff} to get the differences between the two source files, A and B. DiffChecker returns the number of edit operations, additions and deletions, required to transform one piece of code into the other. Then we went through the listed changes manually, we did this to verify the changes that DiffChecker suggested to us were required to make the two pieces of code identical in logical terms.\par We also looked into using tools for plagiarism checking such as Turnitin and Moss \cite{Schleimer:2003:WLA:872757.872770}. Moss is a powerful tool for detecting plagiarism. Moss is described as an automatic system for determining the similarity of programs \cite{mosswebsite}. The tool itself is heavily focused on finding plagiarised pieces of code from given sources. Even though we were able to see the benefits of using Moss, as documented by other users \cite{MossBowyer}, we decided not to use it. This was for a few reasons, mainly that the process was quite laborious, as we needed to send off each file to compare with a base file. 
+As this would be a considerable task to perform by hand, we used an online difference calculator called DiffChecker \cite{diff} to get the differences between the two source files, A and B. DiffChecker returns the number of edit operations, additions and deletions, required to transform one piece of code into the other. Then we went through the listed changes manually, we did this to verify the changes that DiffChecker suggested to us were required to make the two pieces of code identical in logical terms.This process was not automatic and therefore needed to be improved. \par We also looked into using tools for plagiarism checking such as Turnitin and Moss \cite{Schleimer:2003:WLA:872757.872770}. Moss is a powerful tool for detecting plagiarism. Moss is described as an automatic system for determining the similarity of programs \cite{mosswebsite}. The tool itself is heavily focused on finding plagiarised pieces of code from given sources. Even though we were able to see the benefits of using Moss, as documented by other users \cite{MossBowyer}, we decided not to use it. This was for a few reasons, mainly that the process was quite laborious, as we needed to send off each file to compare with a base file. 
 \par We have listed the aforementioned patterns in the following section, along with sample questions which are similar to the classical algorithms. We picked only a few to represent all of the questions due to the page limit. Please see Table \ref{tab:tabSols} for more detail.
 \subsection{Palindrome}
 Palindromes are extremely useful for searching algorithms, as Palindromes are meant to be the same in both directions, one can easily discover if the input is an actual palindrome. This is helpful for searching because one can search and find the odd character out, or the unique piece of data in some text. This style of algorithm is also space efficient, they normally have a space analysis of O(n/2) as the algorithm works over two elements of the input at a time. The basic approach of a Palindrome algorithm is to work inwards with both pointers starting at either end of the input and constantly moving towards one another and comparing if the elements are the same.\\  
@@ -235,23 +235,23 @@ return current\;
 As highlighted above, the key difference is inside the if statement. We changed the conditional itself as it is the base case to stop the recursive execution. We created a variable \textit{ldepth} which is the total depth of the left subtree. This is a recursive call on the leftChild of the current node. Line 4 will execute until it can't go left anymore, if it reaches null it will try to go right once, and then return going left. This is repeated until both calls return null. It will then go back all the way up until we reach the first call to go left, and set this summation of steps to ldepth. It then performs this same process but on the right subtree of the current node (which is the original node given), and set it to the variable \textit{rdepth}. Finally, there is a conditional checking if ldepth is greater than rdepth. If so it returns ldepth+1, or it returns rdepth+1. This+1 is required as we need to considert the root node's level, if we didn't take this into account my answer would always be one less than the actual depth of the tree. The major similarities between the postorder algorithm and this solution is the way we went down the left subtree first, then the right subtree and finally to take the root into account we added one to the height. This way of traversing the tree, left-right-root, is exactly how postorder traversal is performed.
 \\
 \subsubsection{Breadth-First Search}
-This is a special way to visit the nodes in a tree, the ordering in this traversal pattern is to visit the root node, then move onto the children of the root node, printing each child in turn. It then will repeat this for each child of these nodes. Figure \ref{fig:breadth} shows the nodes in numerical order of visitation when using Breadth-First Traversal. \\
+This is a special way to visit the nodes in a tree, the ordering in this traversal pattern is to visit the root node, then move onto the children of the root node, printing each child in turn. It then will repeat this for each child of these nodes. Figure \ref{fig:breadth} shows the nodes in numerical order of visitation when using Breadth-First Search. \\
 \begin{figure}[h]
 \includegraphics[width=0.6\textwidth]{bfs.png}
-\caption{Breadth-First Traversal}
+\caption{Breadth-First Search}
 \label{fig:breadth}
 \end{figure}
  \\
-\subsubsection{Depth-First Searchl}
-This is a second way of visiting nodes in a tree. This pattern involves starting at the root node, then going to the left most child, then repeating this movement until the traversal reaches a leaf node (a node which has no children), then it will move back up one node and try to visit the next child node of this current node. It repeats this until the traversal finds no unvisited node. Figure \ref{fig:depth} shows the nodes in numerical order of visitation when using Depth-First Traversal. 
+\subsubsection{Depth-First Search}
+This is a second way of visiting nodes in a tree. This pattern involves starting at the root node, then going to the left most child, then repeating this movement until the traversal reaches a leaf node (a node which has no children), then it will move back up one node and try to visit the next child node of this current node. It repeats this until the traversal finds no unvisited node. Figure \ref{fig:depth} shows the nodes in numerical order of visitation when using Depth-First Search. 
 \begin{figure}[h]
 \includegraphics[width=0.6\textwidth]{dfs.png}
-\caption{Depth-First Traversal}
+\caption{Depth-First Search}
 \label{fig:depth}
 \end{figure}
 
 \subsection{Dynamic Programming}
-Dynamic Programming is often referred to as `smart recursion'. This is because it takes the idea of recursion and improves the inefficiencies that come along with it. These inefficiencies mainly being that recursive algorithms are generally space inefficient. Each recursive call adds a new layer to the stack. Therefore, dynamic programming is such a strong style of programming. It is normally just a matter of taking a recursive algorithm and finding the overlapping subproblems. A user then caches these results for future recursive calls.
+Dynamic Programming is outlined as `smart recursion'. This is because it takes the idea of recursion and improves on the inefficiencies of recursion. These inefficiencies mainly being that recursive algorithms are generally space inefficient. Each recursive call adds a new layer to the stack. Therefore, dynamic programming is such a strong style of programming as it uses the simplicity of recursion but does not have the problem of causing a stack overflow. Dynamic programming  is described as taking a recursive algorithm and finding the overlapping subproblems. A user then caches these results for future recursive calls.
 This style is known as \textit{Top-Down}. There is a different approach, known as \textit{Bottom-Up}. We will give a quick demonstration of the two by using the classic recursive algorithm to solve Fibonacci numbers.
 \IncMargin{1em}
 	\begin{algorithm}
@@ -269,7 +269,7 @@ This style is known as \textit{Top-Down}. There is a different approach, known a
 \DecMargin{1em}
 	
 	\subsubsection{Top-Down}
-	This method of dynamic programming is known as top-down as we would follow the normal structure of a simple recursion solution, we start from n and compute smaller results as we need them to solve the original problem. We then store these results in some 		form of data structure, this is known as memoization. We can then access these results quickly and efficiently in comparison to having to recompute the same values for n repeatedly. This leads to us saving space and time when working with recursively styled 		problems. Though it is not the most efficient still. 
+	This method of dynamic programming follows the normal structure of a simple recursive solution. Start from n and compute smaller results as they are needed to solve the original problem. Results are stored in some form of data structure, this is known as memoization. These stored results can be accessed quickly and efficiently in comparison to having to recompute the same values for n repeatedly. This leads to saving space on the stack, and time when working with recursively styled problems. 
 	
 \IncMargin{1em}
 	\begin{algorithm}
@@ -301,8 +301,8 @@ This style is known as \textit{Top-Down}. There is a different approach, known a
 	
 	
 	\subsubsection{Bottom-Up}
-	The issue with this memoized version is that even when we are saving the results to reuse them later, we still must go all the way down to the base cases with the recursion the first time. This is when we have yet to compute any values, so we have nothing stored.
-	Bottom-Up solves this by going in reverse to the normal recursive way. Instead of going down to the base case from the value of n, it works its way up to the value of n.   
+	The issue with the Top Down version is that even though the results are being saved to reuse later, they must be calculated from n to the base cases through recursion the first time. This is performed only once, when no values have been computed, so nothing has been stored.
+	Bottom-Up solves this by going in reverse to the normal recursive way. Instead of starting at n and working down towards the base case, it works its way up to the value of n.   
 \IncMargin{1em}
 	\begin{algorithm}
 		\SetKwInOut{Input}{Input}
@@ -318,13 +318,15 @@ This style is known as \textit{Top-Down}. There is a different approach, known a
 		return results[n]\;		
 		\caption{fibDP; Fibonacci Numbers through Bottom-Up}
 	\end{algorithm}\DecMargin{1em}
-\par It must be noted though that Dynamic Programming is one of the toughest sections of programming to learn. This only makes it more challenging for candidates to answer questions in interviews in such a limited window. The reason it is so tough is because a candidate must think of the problem in multiple ways, and make the decision to tackle it in a certain way. If they choose the wrong option, then they will end up with a very inefficient solution, choose correctly and they will have shown a very strong understanding of this area.
+\par It must be noted though that Dynamic Programming is one of the toughest sections of programming to learn. This only makes it more challenging for candidates to answer questions in interviews in such a limited window. The reason it is so tough is because a candidate must think of the problem in multiple ways, and make the decision to tackle it in a certain manner. If they choose the wrong option, then they will end up with a very inefficient solution, choose correctly and they will have shown a very strong understanding of this area.
 \section{Evaluation}
-In the previous section of this paper, we only gave specific examples of the questions that we answered. Here we give a detailed summary of all solved questions in Table \ref{tab:tabSols}. These were accepted by leetcode's online judging system. 
+In the previous section of this paper, only specific examples of the solutions were shown. Here we give a detailed summary of all solved questions in Table \ref{tab:tabSols}. These were accepted by leetcode's online judging system. 
 We also have created a table which details a numeric value for the algorithms previously listed in the solution section.
-\begin{table}[t]
-	\begin{tabular}{| c | c |} \hline
-		    &Algorithm \\ \hline
+\begin{table}
+\parbox{.45\linewidth}{
+\centering
+\begin{tabular}{|c|c|}
+		    &Algorithms \\ \hline
 		1 & Palindrome\\ \hline
 		2 & Merge Sort\\ \hline
 		3 & Binary Search\\ \hline
@@ -332,10 +334,15 @@ We also have created a table which details a numeric value for the algorithms pr
 		5 & Breadth-First Search\\ \hline
 		6 & Depth-First Search\\ \hline
 		7 & Dynamic Programming\\ \hline
-		- & No algorithm required\\ \hline
-	\end{tabular}
-	
-	\begin{tabular}{| c | c |}\hline
+		- & None required\\ \hline
+\end{tabular}
+\caption{The classical algorithms and data structures}
+\label{tab:classicalAlgos}
+}
+\hfill
+\parbox{.45\linewidth}{
+\centering
+\begin{tabular}{|c|c|}
 	&Data Structures \\ \hline
 	1 & List\\ \hline
 	2 & Trees\\ \hline
@@ -344,90 +351,95 @@ We also have created a table which details a numeric value for the algorithms pr
 	5 & Linked-List\\ \hline
 	6 & Arrays\\ \hline
 	7 & Maps\\ \hline	
-	\end{tabular}
-	\caption{The classical algorithms and Data Structures}
-	\label{tab:classicalAlgos}
+	8&Strings\\ \hline
+	-&None required\\
+\end{tabular}
+}
 \end{table}
 
 \begin{table}[t]
 \begin{tabular}{|c| c| c| c| c| c|} \hline
  Question ID & PassRate & Difficulty & Time(mins) &Evaluation &Algorithm \\
 	 \hline
- 	1 & 36.0\% & Easy & 9 & Easy & 1\\ 
+ 	1 & 36.0\% & Easy & 9 & Easy & [1,[6]]\\ 
  	\hline
-	 2 & 28.1\% & Medium & 20 &Medium& 2\\
+	 2 & 28.1\% & Medium & 20 &Medium& [-.[1]]\\
  	\hline
-	 20 & 33.7\% & Easy & 12&Easy& 1 \\
+	 20 & 33.7\% & Easy & 12&Easy& [1,[3]] \\
  	\hline
- 	21 & 39.3\% & Easy & 25&Easy& Graphs 8 \\
+ 	21 & 39.3\% & Easy & 25&Easy& [-,[1]] \\
  	\hline
- 	23 & 27.7\% & Hard & 27&Medium&2 \\
+ 	23 & 27.7\% & Hard & 27&Medium&[2,[1,6]] \\
   	\hline
- 	35 &39.8\%  & Easy & 10 &Easy&Linear Search 8\\
+ 	35 &39.8\%  & Easy & 10 &Easy&[-,[6]]\\
   	\hline
- 	53 &39.9\%  & Easy & 20 &Medium&Array 8\\
+ 	53 &39.9\%  & Easy & 20 &Medium& [-,[6]]\\
   	\hline
- 	58 & 32.0\% & Easy & 15 &Easy&String/Array 8\\
+ 	58 & 32.0\% & Easy & 15 &Easy&[-,[6,8]]\\
   	\hline
- 	69 & 28.2\% & Easy & 19 &Easy&3\\
+ 	69 & 28.2\% & Easy & 19 &Easy&[3,[-]]\\
   	\hline
- 	70 & 40.5\% & Easy & 18 &Easy&7\\
+ 	70 & 40.5\% & Easy & 18 &Easy&[7,[6]]\\
  	\hline
- 	72 & 32.1\% & Hard & 29 &Hard&7\\
+ 	72 & 32.1\% & Hard & 29 &Hard&[7,[6]]\\
   	\hline
- 	88 & 32.1\% & Easy & 12 &Medium&Array 8\\
+ 	88 & 32.1\% & Easy & 12 &Medium&[-,[6]]\\
   	\hline
- 	94 & 47.8\% & Medium & 27 & Medium&4\\
+ 	94 & 47.8\% & Medium & 27 & Medium&[4,[1,2,3]]\\
   	\hline
- 	102 & 40.9\% & Medium & 30  &Medium & 5\\
+ 	102 & 40.9\% & Medium & 30  &Medium & [5,[1]]\\
   	\hline
-	104 & 53.5\% &Easy  &28  &Medium& 4\\
+	104 & 53.5\% &Easy  &28  &Medium& [4,[2]]\\
   	\hline
- 	111 &  33.3\%& Easy&17  &Easy& 5\\
+ 	111 &  33.3\%& Easy&17  &Easy& [5,[2,4,5]]\\
   	\hline
- 	114 & 35.7\% &Medium  & 33  &Medium&4\\
+ 	114 & 35.7\% &Medium  & 33  &Medium&[4,[2]]\\
   	\hline
- 	136 &54.9\%  &Easy  &10  &Easy& 3\\
+ 	136 &54.9\%  &Easy  &10  &Easy& [3,[6]]\\
   	\hline
- 	147 & 33.4\% &Medium  &26  &Medium&Insertion Sort8\\
-  	\hline
- 	148 &  29.2\%& Medium & 35 &Hard&Insertion Sort 8\\
+ 	147 & 33.4\% &Medium  &26  &Medium& [-,[1]]\\
 	\hline
- 	152 &  26.2\%& Medium & 31 &Hard&7\\
+ 	152 &  26.2\%& Medium & 31 &Hard&[7,[6]]\\
   	\hline
-  	167 & 47.1\% &Easy  &16  &Easy&1\\
+  	167 & 47.1\% &Easy  &16  &Easy&[1,[6]]\\
   	\hline
-  	205 & 34.2\% &Easy  &18  &Easy&HashMaps(?) 8\\
+  	169 & 47.3\% &Easy  &20  &Easy&[-,[6]]\\
   	\hline
-  	230 & 44.1\% &Medium  &19  &Medium&4\\
+  	205 & 34.2\% &Easy  &18  &Easy& [-,[7,]]\\
   	\hline
- 	290 & 33.2\% &Easy  &28  &Medium&8\\
+  	230 & 44.1\% &Medium  &19  &Medium&[4,[2,3]]\\
   	\hline
- 	326 & 40.4\% &Easy  &25  &Easy&8 Math\\
+ 	290 & 33.2\% &Easy  &28  &Medium&[-[6,7]]\\
+  	\hline
+ 	326 & 40.4\% &Easy  &25  &Easy&[-[-]]\\
    	\hline
-  	336 & 26.5\% &Hard &18  &Medium&1\\
+  	336 & 26.5\% &Hard &18  &Medium&[1,[1,8]]\\
   	\hline
- 	344 & 59.5\% &Easy  &8  &Easy&1\\
+ 	344 & 59.5\% &Easy  &8  &Easy&[1,[6,8]]\\
   	\hline
- 	387 & 47.1\% &Easy  & 19 &Medium&Linear Search 8\\
+ 	387 & 47.1\% &Easy  & 19 &Medium&[-,[6]]\\
   	\hline
- 	389 & 50.9\% &Easy  & 10 &Easy&Linear Search 8\\
+ 	389 & 50.9\% &Easy  & 10 &Easy& [-,[6]]\\
   	\hline
- 	404 & 47.3\% &Easy  &16  &Medium&4\\
+ 	404 & 47.3\% &Easy  &16  &Medium&[4,[2]]\\
+	\hline
+ 	441 & 36.3\% &Easy  &6&Easy &[3,[-]]\\ 	
   	\hline
- 	654 & 70.1\% &Medium  &46  &Hard&2\\
+ 	654 & 70.1\% &Medium  &46  &Hard&[2,[2,6]]\\
   	\hline
-	669 &  58.1\%& Easy &18  &Easy&4\\
+	669 &  58.1\%& Easy &18  &Easy&[4,[2]]\\
   	\hline
- 	690 &  52.9\%& Easy &   45&Medium&5\\[1ex]
+	687 &  33.5\%& Easy &21  &Medium&[-,[2]]\\
+  	\hline
+ 	690 &  52.9\%& Easy &   45&Medium&[5,[3,7]]\\[1ex]
  	\hline
 \end{tabular}
-\caption{All solutions solved by us}
+\caption{All solutions}
 \label{tab:tabSols}
 \end{table}
-\par In table \ref{tab:tabSols} there a number of headings. Question ID is the specific ID of each question solved. PassRate is the percentage of solutions accepted by leetcode. These were taken at the time of writing. Difficulty is the level that was awarded to each question by leetcode themselves. Time is the total time in minutes it took us to complete each question. Evaluation is our opinion on the difficulty of each question we solved. Algorithm, this is the algorithm we feel that each question was closest to. The number in this columns refers to table \ref{tab:classicalAlgos}, which states the number assigned to each algorithm.
+\par In Table \ref{tab:tabSols} there a number of headings. Question ID is the specific ID of each question solved. PassRate is the percentage of solutions accepted by leetcode. These were taken at the time of writing. Difficulty is the level that was awarded to each question by leetcode themselves. Time is the total time in minutes it took us to complete each question. Evaluation is our opinion on the difficulty of each question we solved. Algorithm, this is the algorithm and data structures which were used to solve the question. The first number in the list refers to the algorithm, the second list refers to the relevant data structures used. Both can be found in Table {\ref{tab:classicalAlgos}}
 
-\par As can be seen in table \ref{tab:tabSols}, some of the questions which were marked as having difficulty easy, took longer than some which were marked as medium. This is because it took longer for us to see the pattern which was useful to solve the problem.
+\par As can be seen in Table \ref{tab:tabSols}, some of the questions which were marked as having difficulty easy, took longer than some which were marked as medium. This is because it took longer for us to see the pattern which was useful to solve the problem.
 \par It is not easy to judge how fast a user can see the underlying pattern of a problem. This is because each user will have a different background. We have categorised the different users into four distinct types. 
 \begin{enumerate}
 \item{These users are people which have a background in coding competitions. They are highly experienced and are unlikely to find the questions hard.}
@@ -465,6 +477,7 @@ The issue which we personally came across was when we tried to understand the wa
 \end{figure} \\
 For us this did not make it any clearer as to which way we should structure the subtrees. We were able to understand that the biggest number of each subarray should be the next number and work down in a descending order from the root. We were unable to understand why the 2 was to the right of 3, and yet 0 was to the left of 5. This confusion did cause us to take longer to solve this question than anticipated.
 \section{Related Work}
+As was mentioned earlier in this paper, there are some pieces of literature which focus on analogous topics. These include books which aim to give solutions to common programming questions \cite{mcdowell2015cracking} and the fundamentals of java \cite{markham2014java}.
 \section{Conclusion and Future Works}
 In this paper we have created a guide for beginners in programming, fresh graduates and readers who wish to refresh their knowledge. This paper enables them to learn and understand some of the fundamental algorithms of programming quickly. Through learning these patterns, the reader should be able to identify solutions to a wide array of coding problems. 
 \par The results of this paper have a potentially generalisable impact on the coding world, yet they also have a specific impact on the key area of algorithms. The potentially generalisable case is impacted as this paper can apply to multiple different programming languages. Java was used to solve all of the questions in this paper, but in reality, any language would have been applicable for the questions. Therefore, this paper has the potential to be useful for people who come from different language backgrounds. The specific case is due to this paper focusing in on the algorithms and approach to solving the problems. By showing how the algorithms, which are learned by every coder can be applied to multiple problems by simply changing some area of these important patterns. The paper clearly shows the reader that learning the main algorithms will allow them to spend more time thinking of the solution based off previously learned algorithms. This will give the reader a good starting point when they are attempting to solve a question. This should allow the reader to be more confident in their coding ability, as they will have a strong basis to start from. 
@@ -472,7 +485,8 @@ In this paper we have created a guide for beginners in programming, fresh gradua
 The negatives of this approach were that this manual style required a lot of human effort. This resulted in questions taking longer than expected to be completed, and questions being solved in ways which might not have been the most optimal. This method is dependent on the coding ability of the human, which depending on the topic can vary. For example, the questions relating to the advanced topic Dynamic Programming took longer to learn and be able to complete.
  In this paper there was no automatic approach to solving the questions developed. This would have been helpful for validating the solutions produced by the manual methodology. This automatic process was unable to be produced because of the time constraints of this paper. 
  \par This paper does have its limitations. As mentioned previously the approach to a solve the questions can be improved. Also, the topics which were covered, which are important and fundamental to any programmer wishing to further their knowledge in this field, did not address all of the areas which the questions answered. For example, the questions focusing on Strings. Whilst String manipulation was used throughout multiple answers, it was never formally addressed in this paper. This applies to other key patterns such as insertion sort, red-black trees etc. The reason this paper does not cover more topic areas is because of the time constraint for the project.
-\par It would have been extremely useful to have a numerical representation of how similar a solution was to the original pattern it is based off. This was explored by us, but we were unable to produce this numerical value. This was because we could not justify a way to classify similarity, as we found similarity was hard to define. One might want to base the similarity on the length of the code, as pieces of code which have similar length might be closely related, another person might base it purely off of the logic involved, but not take into account the length of it, meaning the solution could be correct and employ the algorithm to some extent but it would be too far removed from the original algorithm then.
+%\par It would have been extremely useful to have a numerical representation of how similar a solution was to the original pattern it is based off. This was explored by us, but we were unable to produce this numerical value. This was because we could not justify a way to classify similarity, as we found similarity was hard to define. One might want to base the similarity on the length of the code, as pieces of code which have similar length might be closely related, another person might base it purely off of the logic involved, but not take into account the length of it, meaning the solution could be correct and employ the algorithm to some extent but it would be too far removed from the original algorithm then.
+
 \bibliography{mybib}
 \bibliographystyle{ieeetr}
 

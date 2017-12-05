@@ -166,11 +166,7 @@
   keywords  = {computer science education;educational administrative data processing;educational courses;programming;teaching;C programming course;MOSS;Measure Of Software Similarity;administration;cheating detection;computer science education courses;educational process;plagiarism;programming assignments;Automatic programming;Computer science;Inspection;Maintenance engineering;Plagiarism;Postal services;Programmable control;Software tools;Technological innovation;Testing},
 }
 
-@Misc{,
-  author = {V. Kuncak},
-}
-
-@Article{V,
+@Article{VKuncak,
   author               = {Jani\v{c}i\'{c}, Milena V. and Nikoli\'{c}, Mladen and To\v{s}i\'{c}, Du\v{s}an and Kuncak, Viktor},
   title                = {{Software Verification and Graph Similarity for Automated Evaluation of Students' Assignments}},
   journal              = {Inf. Softw. Technol.},
@@ -189,6 +185,17 @@
   posted-at            = {2016-01-04 06:08:18},
   publisher            = {Butterworth-Heinemann},
   url                  = {http://dx.doi.org/10.1016/j.infsof.2012.12.005},
+}
+
+@Book{markham2014java,
+  title     = {Java Programming Interviews Exposed},
+  publisher = {Wiley},
+  year      = {2014},
+  author    = {Markham, N.},
+  series    = {Wrox guides},
+  isbn      = {9781118722862},
+  lccn      = {2013958289},
+  url       = {https://books.google.ie/books?id=uuHAAgAAQBAJ},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
