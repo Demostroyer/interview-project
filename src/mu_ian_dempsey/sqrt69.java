@@ -17,7 +17,7 @@ package mu_ian_dempsey;
  * @author Ian Dempsey
  * @date 20/11/17
  *Pattern found: Binary Search
- *Time Analysis: O(logn) -> Size of th search is halved everytime we check. 
+ *Time Analysis: O(logn) -> Size of the search is halved every time we check. 
  *Space Analysis: O(n).  
  */
 public class sqrt69 {
