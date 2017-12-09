@@ -123,7 +123,7 @@
 
 @Misc{diff,
   author       = {DiffChecker},
-  howpublished = {Online},
+  howpublished = {www.diffchecker.com},
   month        = nov,
   year         = {2017},
   abstract     = {Used to try and get a numerical number for similarity between pieces of code},
@@ -212,6 +212,14 @@
   author    = {Aziz, A. and Lee, T.H. and Prakash, A.},
   isbn      = {9781479274833},
   url       = {https://books.google.ie/books?id=y6FLBQAAQBAJ},
+}
+
+@Book{softwaretesting,
+  title     = {Software Testing Principles and Practice},
+  publisher = {China Machine Press},
+  year      = {2016},
+  author    = {Dr.Stephen Brown Dr.Joe Timoney Dr.Thoa Pham Tom Lysaght Deshi Ye},
+  editor    = {Maynooth University},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

@@ -73,12 +73,14 @@ The user will attempt to solve the problem they have selected, and they will the
 \end{figure}    
 
 \section{Problem Statement}
+\label{label:problemstmt}
 In order to fulfill the goal of this paper, we will answer the following research questions:
 \begin{enumerate}
 \item What algorithms to choose, and what categories are these algorithms associated with. 
 \item How do these algorithms relate to the classic algorithms and how similar are they.
 \item How easy is it for a person to indentify the pattern of the algorithm.
 \end{enumerate}
+
 \section{The Solution}
 To answer question one above, we had to perform some information gathering. Many companies choose similarly styled questions for their technical tests, so we gathered information from forums, such as glassdoor.ie \cite{glassdoor}, and websites which discussed experiences people had at interviews. We also read through the main categories listed in books which prepare people for interviews, such as Cracking the Coding Interview \cite{mcdowell2015cracking}. These discussions listed the questions people were asked, and by what companies. The website geeksforgeeks.org has a list of the top interview questions that a user should study prior to an interview \cite{geeksalgos}. Therefore, this paper focuses on the following areas:
 \begin{itemize}
@@ -100,17 +102,18 @@ In each of these areas we categorised them into some key patterns. These are pat
 \end{itemize} 
 \par Leetcode has over six hundred questions, which is impossible to answer in such a short period of time. So, a representative amount of this tota was selected. They were selected based on reputation, if they were asked in interviews, and the pass rate of the question. Relating back to Figure \ref{fig:homepage}, it can be seen that questions can be filtered.
 \par With regards to question two above, in order to find the most similar algorithm, we first compared the ideas of the classical algorithm and the solution to the question we were solving. It is possible to have multiple algorithms apply to a problem. We implemented the easiest solution which is the first which came to our minds. This is because one normally has limited time in an interview, and this means that a person would build on an idea they initially discover after they understand the question being asked. The candidate would not have enough time to explore multiple solutions to a problem under the interview conditions. 
-\par To try and obtain a numerical representation of similarity between the standard algorithm and the solution we created, we decided to count how many edit operations we would require to transform one piece of code into another. These edit operations are defined as 
+\par To try and obtain a numerical representation of similarity between the standard algorithm and the solution we created, we decided to count how many edit operations we would require to transform one piece of code into another. These edit operations are defined as: 
 \begin{itemize}
 \item Adding code
 \item Deleting code
 \end{itemize}
 As this would be a considerable task to perform by hand, we used an online difference calculator called DiffChecker \cite{diff} to get the differences between the two source files, A and B. DiffChecker returns the number of edit operations, additions and deletions, required to transform one piece of code into the other. Then we went through the listed changes manually, we did this to verify the changes that DiffChecker suggested to us were required to make the two pieces of code identical in logical terms.This process was not automatic and therefore needed to be improved. 
 \par We also looked into using tools for plagiarism checking such as Turnitin and Moss \cite{Schleimer:2003:WLA:872757.872770}. Moss is a powerful tool for detecting plagiarism. Moss is described as an automatic system for determining the similarity of programs \cite{mosswebsite}. The tool itself is heavily focused on finding plagiarised pieces of code from given sources. Even though there were benefits of using Moss, as documented by other users \cite{MossBowyer}, we decided not to use it. This was for a few reasons, mainly that the process was quite laborious, as we needed to send off each file to compare with a base file. 
+\par Finally it was decided that the use of control flow graphs would be beneficial to obtaining a numerical value for the similarity between pieces of code. The use of control flow graphs is explained later on in the section \ref{label:CFG}.
 \par We have listed the aforementioned patterns in the following section, along with sample questions which are similar to the classical algorithms. We picked only a few to represent all of the questions due to the page limit. Please see Table \ref{tab:tabSols} for more detail.
 \subsection{Palindrome}
 Palindromes are extremely useful for searching. As Palindromes are meant to be the same in both directions, one can easily discover if the input is an actual palindrome. This is helpful for searching because one can search and find the odd character out, or the unique piece of data in some text. This style of algorithm is also space efficient, they normally have a space analysis of O(n/2) as the algorithm works over two elements of the input at a time. The basic approach of a Palindrome algorithm is to work inwards with both pointers starting at either end of the input and constantly moving towards one another and comparing if the elements are the same.\\  
-The following description is a general algorithm for solving the palindrome problem which is a common problem in Java and other languages. This approach can be used to solve numerous other problems by altering the inside of the loop.
+Algorithm \ref{fig:pal} is a general algorithm for solving the palindrome problem which is a common problem in java and other languages. This approach can be used to solve numerous other problems by altering the inside of the loop.
 \IncMargin{1em}
 \begin{algorithm}
 	\SetAlgoLined
@@ -131,8 +134,9 @@ The following description is a general algorithm for solving the palindrome prob
 }
 return true\;
 \caption{The Palindrome Algorithm}
+\label{fig:pal}
 \end{algorithm}\DecMargin{1em}
- \textbf{ID 1} TwoSum is one example where the Palindrome algorithm was used to solve the question. This question is described as: \textit{Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the same element twice.} Figure \ref{fig:twosum} is the solution accpeted by LeetCode. In this pseudocode we have highlighted any differences in blue, this is the same for all the following answers.
+ \textbf{ID 1} TwoSum is one example where the Palindrome algorithm was used to solve the question. This question is described as: \textit{''Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the same element twice.''} Algorithm \ref{fig:twosum} is the solution accepted by LeetCode. In this pseudocode we have highlighted any differences in blue, this is the same for all the following answers.
 \IncMargin{1em}
 \begin{algorithm}
 	\SetAlgoLined
@@ -155,10 +159,11 @@ return true\;
 \caption{LeetCode Q1 TwoSum}
 \label{fig:twosum}
 \end{algorithm}\DecMargin{1em}\\
-As can be seen in Figure \ref{fig:twosum}, the main differences are the conditionals inside the while loop. The conditionals will only move one pointer at a time, depending on the result of adding the two current elements at each pointer together. If the total is greater than the target sum, then the right-pointer is moved left once, as this would allowthe sum to be smaller and potentially the correct sum. If on the other hand the sum was smaller than the total, then the left-pointer is moved right once and add the two elements and get a new result. This process was repeated until the target sum was found, or until the two pointers crossed which meant the target was not found.
+As can be seen in Figure \ref{fig:twosum}, the main differences are the conditionals inside the while loop. The conditionals will only move one pointer at a time, depending on the result of adding the two current elements at each pointer together. If the total is greater than the target sum, then the right-pointer is moved left once, as this would allowthe sum to be smaller and potentially the correct sum. If on the other hand the sum was smaller than the total, then the left-pointer is moved right once, the two elements are added together resulting in a new total. This process was repeated until the target sum was found, or until the two pointers crossed which meant the target was not found.
+
 \subsection{Merge Sort}
 Merge Sort is a very powerful algorithm. It is more efficient than most styles of insertion, with a time analysis of $O(n * log_{n})$, whereas insertion is $O(n^2)$. The idea of merge sort is to divide an array or some input in half and then sort each half before joining it back together. They do not have to be the same size which is useful.  \\
-Merge Sort uses the idea of divide and conquer, this means the list to be sorted should be divided up into equal parts first, then these new smaller parts should be sorted individually first before recreating the full list. Figure \ref{fig:mergesort} shows this.
+Merge Sort uses the idea of divide and conquer, this means the list to be sorted should be divided up into equal parts first, then these new smaller parts should be sorted individually first before recreating the full list. Algorithm \ref{fig:mergesort} shows this.
 \IncMargin{1em}
 \begin{algorithm}
 	\SetAlgoLined
@@ -176,7 +181,7 @@ Merge Sort uses the idea of divide and conquer, this means the list to be sorted
 \end{algorithm}\DecMargin{1em}
 
 \subsection{Binary Search}
-Binary Search is a rapid algorithm for locating data. It has a time complexity of $O(log{n})$ and is used when working with sorted arrays. The algorithm is also used when using binary search trees. In this section the examples are shown with arrays. This algorithm compares the target value to the middle value of the array. If the target is less than this middle value, then the upper half is eliminated as the target cannot lie in this section and the search continues on the remaining half until the search is successful or not. Figure \ref{fig:binary} shows the standard binary search algorithm.
+Binary Search is a rapid algorithm for locating data. It has a time complexity of $O(log{n})$ and is used when working with sorted arrays. The algorithm is also used when using binary search trees. In this section the examples are shown with arrays. This algorithm compares the target value to the middle value of the array. If the target is less than this middle value, then the upper half is eliminated as the target cannot lie in this section and the search continues on the remaining half until the search is successful or not. Algorithm \ref{fig:binary} shows the standard binary search algorithm.
 \IncMargin{1em}
 \begin{algorithm}
 	\SetAlgoLined
@@ -203,7 +208,7 @@ Binary Search is a rapid algorithm for locating data. It has a time complexity o
 \label{fig:binary}
 \end{algorithm}\DecMargin{1em}
 
-\textbf{ID 69},\textit{Sqrt(x)}, is just one example of binary search being employed to solve a question. This question is described as \textit{Implement int sqrt(int x). Compute and return the square root of x. x is guaranteed to be a non-negative integer.} Figure \ref{fig:sqrt} is the solution to this problem. 
+\textbf{ID 69} \textit{Sqrt(x)}, is just one example of binary search being employed to solve a question. This question is described as: \textit{''Implement int sqrt(int x). Compute and return the square root of x. x is guaranteed to be a non-negative integer.} Algorithm \ref{fig:sqrt} is the solution to this problem. 
 \IncMargin{1em}
 \begin{algorithm}
 	\SetAlgoLined
@@ -229,12 +234,36 @@ Binary Search is a rapid algorithm for locating data. It has a time complexity o
 \caption{Sqrt(x)}
 \label{fig:sqrt}
 \end{algorithm}\DecMargin{1em}
+\par A second example of a question from leetcode.com which is based off of binary search is \textbf{ID 441} Arranging Coins. The description for this questions is given as: \textit{''You have a total of n coins that you want to form in a staircase shape, where every k-th row must have exactly k coins. Given n, find the total number of full staircase rows that can be formed. n is a non-negative integer and fits within the range of a 32-bit signed integer.''} Algorithm \ref{fig:arrangingcoins} is the solution to this problem.  
+\IncMargin{1em}
+\begin{algorithm}
+	\SetAlgoLined
+	\SetKwInOut{Input}{Input}
+	\SetKwInOut{Output}{Output}
+	\Input{Int n}
+	\Output{Number of full steps completed}
+	$low\longleftarrow $1\;
+	$high \longleftarrow $\hlc[cyan!50]{n}\;
+	\While{low $<=$ high}{
+		$mid \longleftarrow $low + (high - low)/2\;
+		\If{\hlc[cyan!50]{mid $*$ (mid+1L) $<=$2L$*$n }}{
+			low $=$ mid+1\;
+		}
+		\Else{
+			high = mid -1\;
+	}
+}return \hlc[cyan!50]{high}\;
+\caption{Arranging Coins}
+\label{fig:arrangingcoins}
+\end{algorithm}\DecMargin{1em}
+\par As is detailed in Algorithm \ref{fig:arrangingcoins}, this solution is extremely close to the original pattern for binary search. The first change of note is within the assignments at the start. This is where the variable \textit{high} is set to n. This is so the calculation starts at n, as this is the upper limit and max number of steps that could theoretically be produced. The main change required is in the first conditional, which when returns true means that the lower side must be moved up, so \textit{low} is reset to be mid + 1.
+	
 	\subsection{Graphs}
 	Graphs are common in our lives. News media use them to help us visualize certain statistics. Though these are not the graphs that are studied by Computer Scientists. Graphs studied by Computer Scientists are usually based on the tree structure, and the relationships 	among data elements. A tree is just one of the special types of graphs that can be studied, where the parent-child relationship is used to organise data. In this section I have focused on the Tree Abstract Data Type, Breadth-First Traversal, Depth-First Traversal and Graphs in general. \\
 	\subsubsection{Trees}
 	Trees are one of the most powerful styles of data structures for processing data, this is because they allow rapid searching and fast insertion/deletion of a node. Trees are made up of nodes, which are objects which hold some data and have a key. This key allows one to determine where this node should be in the tree. The important distinction here with these nodes in comparison to other nodes used in various data structures, is that these nodes contain references to children instead of just the next Link. Each node has exactly one parent, but can have many children. A Binary Search Tree is a special type of tree, this is a tree which has strictly between zero and two children and keeps their keys in sorted order. It has $O(n)$ space, search, insertion and deletion operations. 
 	\par With trees the main function is traversal. There are three basic styles of traversal: inorder, preorder and postorder. Inorder visits every node in the left subtree, the root and then the right subtree. Preorder is where the root is visited first, followed by its left subtree and then it's right subtree. Finally, postorder is where the left subtree is followed by the right subtree and then the root. \\
-The following is an example of how one might search for a particular node in a Tree.\\
+Algorithm \ref{fig:nodesearch} is an example of how one might search for a particular node in a Tree.\\
 \IncMargin{1em}
 \begin{algorithm}
 	\SetAlgoLined
@@ -253,6 +282,7 @@ The following is an example of how one might search for a particular node in a T
 	}
 return current\;
 \caption{Finding a specific Node in a tree based on the key}
+\label{fig:nodesearch}
 \end{algorithm}\DecMargin{1em}
 \\
 \IncMargin{1em}
@@ -266,9 +296,11 @@ return current\;
 		\postOrder(localRoot rightChild)\\
 		Print(localRoot data)\;}	
 \caption{Basic Tree Traversal using PostOrder Traversal}
+\label{fig:postorder}
 \end{algorithm}\DecMargin{1em}
-\\
-\textbf{ID 104}, \textit{Maximum Depth of Binary Tree}, is an example of a problem where the basic tree traversal styles were used to solve the question. The problem description is given as: \textit{Given a binary tree, find its maximum depth. The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.} Postorder traversal was used. Pseudocode can be found in Figure \ref{fig:maxdepth} of this paper.\\
+\par Algorithm \ref{fig:postorder} is the basic postorder traversal of a tree. The key area to note is thr order of calling the different children of a node. Altering this will result in preorder and inorder traversal.
+
+\par \textbf{ID 104}, \textit{Maximum Depth of Binary Tree}, is an example of a problem where the basic tree traversal styles were used to solve the question. The problem description is given as: \textit{''Given a binary tree, find its maximum depth. The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.''} Postorder traversal was used. Pseudocode can be found in Figure \ref{fig:maxdepth} of this paper.\\
 \IncMargin{1em}
 \begin{algorithm}
 	\SetKwFunction{maxDepth}{maxDepth}
@@ -283,7 +315,7 @@ return current\;
 \label{fig:maxdepth}
 \end{algorithm}\DecMargin{1em}
 \\
-As highlighted in Figure \ref{fig:maxdepth}, the key difference is inside the if statement. The conditional is the base case to stop the recursive execution on the stack. Variable \textit{ldepth} is the total depth of the left subtree. This is a recursive call on the leftChild of the current node. Line 4 will execute until it can't go left anymore, if it reaches null it will try to go right once, and then return going left. This is repeated until both calls return null. The stack then returns all the recursive calls on it, adding them together and seeting them to \textit{ldepth}. This process is repeated on the right subtree, and set it to the variable \textit{rdepth}. Finally, there is a conditional checking if ldepth is greater than rdepth. If so it returns ldepth+1, or it returns rdepth+1. This +1 is required as we need to consider the root node's level, if we didn't take this into account the answer would always be one less than the actual depth of the tree. The major similarities between the postorder algorithm and this solution is the recursive call to traverse the left subtree first, then the right subtree and finally to take the root into account by adding 1. This way of traversing the tree, left-right-root, is exactly how postorder traversal is performed.
+As highlighted in Algorithm \ref{fig:maxdepth}, the key difference is inside the if statement. The conditional is the base case to stop the recursive execution on the stack. Variable \textit{ldepth} is the total depth of the left subtree. This is a recursive call on the leftChild of the current node. Line 4 will execute until it can't go left anymore, if it reaches null it will try to go right once, and then return going left. This is repeated until both calls return null. The stack then returns all the recursive calls on it, adding them together and seeting them to \textit{ldepth}. This process is repeated on the right subtree, and set it to the variable \textit{rdepth}. Finally, there is a conditional checking if ldepth is greater than rdepth. If so it returns ldepth+1, or it returns rdepth+1. This +1 is required as we need to consider the root node's level, if we didn't take this into account the answer would always be one less than the actual depth of the tree. The major similarities between the postorder algorithm and this solution is the recursive call to traverse the left subtree first, then the right subtree and finally to take the root into account by adding 1. This way of traversing the tree, left-right-root, is exactly how postorder traversal is performed.
 \\
 \subsubsection{Breadth-First Search}
 This is a special way to visit the nodes in a tree, the ordering in this traversal pattern is to visit the root node, then move onto the children of the root node, printing each child in turn. It then will repeat this for each child of these nodes. Figure \ref{fig:breadth} shows the nodes in numerical order of visitation when using Breadth-First Search. \\
@@ -320,7 +352,7 @@ This style is known as \textit{Top-Down}. There is a different approach, known a
 \DecMargin{1em}
 	
 	\subsubsection{Top-Down}
-	This method of dynamic programming follows the normal structure of a simple recursive solution. Start from n and compute smaller results as they are needed to solve the original problem. Results are stored in some form of data structure, this is known as memoization. These stored results can be accessed quickly and efficiently in comparison to having to recompute the same values for n repeatedly. This leads to saving space on the stack, and time when working with recursively styled problems. See Figure \ref{fig:topdown}.
+	This method of dynamic programming follows the normal structure of a simple recursive solution. Start from n and compute smaller results as they are needed to solve the original problem. Results are stored in some form of data structure, this is known as memoization. These stored results can be accessed quickly and efficiently in comparison to having to recompute the same values for n repeatedly. This leads to saving space on the stack, and time when working with recursively styled problems. See Algorithms \ref{fig:topdown1} and \ref{fig:topdown}.
 	
 \IncMargin{1em}
 	\begin{algorithm}
@@ -335,6 +367,7 @@ This style is known as \textit{Top-Down}. There is a different approach, known a
 		computed put (2,1)\;
 		return fib2(n, computed)\;
 		\caption{fib; Fibonacci Numbers through Top-Down and Memoization}
+		\label{fig:topdown1}
 	\end{algorithm}\DecMargin{1em}
 \IncMargin{1em}
 	\begin{algorithm}
@@ -354,7 +387,7 @@ This style is known as \textit{Top-Down}. There is a different approach, known a
 	
 	\subsubsection{Bottom-Up}
 	The issue with the Top Down version is that even though the results are being saved to reuse later, they must be calculated from n to the base cases through recursion the first time. This is performed only once, when no values have been computed, so nothing has been stored.
-	Bottom-Up solves this by going in reverse to the normal recursive way. Instead of starting at n and working down towards the base case, it works its way up to the value of n. See Figure \ref{fig:bottomup}.
+	Bottom-Up solves this by going in reverse to the normal recursive way. Instead of starting at n and working down towards the base case, it works its way up to the value of n. See Algorithm \ref{fig:bottomup}.
 \IncMargin{1em}
 	\begin{algorithm}
 		\SetKwInOut{Input}{Input}
@@ -371,6 +404,7 @@ This style is known as \textit{Top-Down}. There is a different approach, known a
 		\caption{fibDP; Fibonacci Numbers through Bottom-Up}
 		\label{fig:bottomup}
 	\end{algorithm}\DecMargin{1em}
+	\\
 \par It must be noted though that Dynamic Programming is one of the toughest sections of programming to learn. This only makes it more challenging for candidates to answer questions in interviews in such a limited window. The reason it is so tough is because a candidate must think of the problem in multiple ways, and make the decision to tackle it in a certain manner. If they choose the wrong option, then they will end up with a very inefficient solution, choose correctly and they will have shown a very strong understanding of this area.
 \section{Evaluation}
 In the previous section of this paper, only specific examples of the solutions were shown. Here we give a detailed summary of all solved questions in Table \ref{tab:tabSols}. These were accepted by leetcode's online judging system. 
@@ -447,7 +481,7 @@ We also have created a table which details a numeric value for the algorithms pr
   	\hline
  	114 & 35.7\% &Medium  & 33  &Medium&[4,[2]]\\
   	\hline
- 	136 &54.9\%  &Easy  &10  &Easy& [3,[5]]\\
+ 	136 &54.9\%  &Easy  &10  &Easy& [-,[5]]\\
   	\hline
  	147 & 33.4\% &Medium  &26  &Medium& [-,[1]]\\
 	\hline
@@ -512,23 +546,53 @@ This leads to the creation of Table \ref{tab:difficulty}, in whicheach type of u
 	\caption{The expected difficulty each type of categorised user would have with the questions.}
 	\label{tab:difficulty}
 \end{table}
+
 \subsection{Question Evaluation}
 Whilst working on the numerous questions that were solved,  some issues did arise which related to the questions themselves. These problems stemmed from the questions being worded strangely, or the example given for the solution was not explicitly clear in the way the question worked. These were just some of the issues which occurred whilst attempting to solve the problems. An example of such an issue is \textbf{ID} 654, Maximum Binary Tree. This question's problem was easy to understand:
-\\ \textit {Given an integer array with no duplicates. A maximum tree building on this array is defined as follow:
+\\ \textit {''Given an integer array with no duplicates. A maximum tree building on this array is defined as follow:
 \begin{enumerate}
 \item The root is the maximum number in the array.
 \item The left subtree is the maximum tree constructed from left part subarray divided by the maximum number.
 \item The right subtree is the maximum tree constructed from right part subarray divided by the maximum number.
 \end{enumerate}
-Construct the maximum tree by the given array and output the root node of this tree.}\\
+Construct the maximum tree by the given array and output the root node of this tree''.}\\
 The issue which we personally came across was when we tried to understand the way the left and right subtree should be structured. The description for them was not clear to us, as we were unsure what was meant by $''$left part subarray divided by the maximum number$''$. We then took a look at the provided example.
 \begin{figure}
 \includegraphics[width=0.6\textwidth]{example654.png}
 \caption{ID 654 Given Example}
 \end{figure} \\
-For us this did not make it any clearer as to which way we should structure the subtrees. We were able to understand that the biggest number of each subarray should be the next number and work down in a descending order from the root. We were unable to understand why the 2 was to the right of 3, and yet 0 was to the left of 5. This confusion did cause us to take longer to solve this question than anticipated.
+This did not make it any clearer as to which way the subtrees should be structured. It was simple to understand that the biggest number in the subarray should be the next number in the tree and then work down in a descending order from the root node. What was hard to understand was why the two was the right child of the three, and yet zero was to the left of five, where it was to be expected. This confusion caused a delay in the solution to this question being completed. 
+\subsection{Control Flow Graphs}
+\label{label:CFG}
+As mentioned previously, it was decided that control flow graphs \cite{softwaretesting} would be the best way to evaluate the similarity between the code of the fundamental pattern’s, and the answer for the questions. To evaluate the similarity between the pieces of code, the number of edit operations required to transform one piece of code into another was used. These edits were previously listed in section \ref{label:problemstmt}. Adding or deleting a node was counted as one operation, whilst adding or deleting any edges between nodes was also counted as one operation. The reason that control flow graphs were chosen is due to them being relatively simple to create and understand. They show the natural flow of the program and this allows for easy evaluation of similarity to a standard pattern.
+\par After creating the CFG for both the standard algorithm and the solution to some answer, both CFGs were compared. The number of additions and deletions of the graph was totalled to give a number. It was decided that if this number was below ten, these two pieces of code were similar. Anything above ten was regarded as being dissimilar. In this paper an example has been included which demonstrates this between the palindrome algorithm displayed in Algorithm \ref{fig:pal} and the TwoSum algorithm displayed in Algorithm \ref{fig:twosum}. Both algorithms' CFGs have been included in Figures \ref{fig:cfgpal} and \ref{fig:cfgtwosum}. 
+ \begin{figure}[h]
+\includegraphics[width=0.6\textwidth]{CFGPalindrome.png}
+\caption{Control Flow Graph for Palindrome}
+\label{fig:cfgpal}
+\end{figure}
+
+ \begin{figure}[h]
+\includegraphics[width=0.6\textwidth]{CFGTwoSum.png}
+\caption{Control Flow Graph for TwoSum}
+\label{fig:cfgtwosum}
+\end{figure}
+\par Each node in the graphs represents one or more statements in the source code. The lines of code which they represent are next to each node. With regards to the two graphs, it can be seen that Figure \ref{fig:cfgpal} has a total of six nodes and six edges between the nodes. In comparison, Figure \ref{fig:cfgtwosum} has eight nodes and ten edges between them. Therefore, to transform the original pattern code into the specific version for the question there is a need for two additional nodes and four more edges. This total is therefore six edit operations. This result only proved to back up the decision that the answer to TwoSum is based off of the palindrome algorithm.
+\par A second example to demonstrate the strength of CFGs is shown next. This example relates to binary search and the solution to \textbf{ID 441} Arranging Coins, which is displayed in Algorithm \ref{fig:arrangingcoins}. 
+ \begin{figure}[h]
+\includegraphics[width=0.6\textwidth]{CFGBinarySearch.png}
+\caption{Control Flow Graph for Binary Search}
+\label{fig:cfgbinarysearch}
+\end{figure}
+ \begin{figure}[h]
+\includegraphics[width=0.6\textwidth]{CFGArrangingCoins.png}
+\caption{Control Flow Graph for ArrangingCoins}
+\label{fig:cfgbinarysearch}
+\end{figure}
+\par The total number of nodes in the original pattern is eight and it contains nine edges. In the specific version for Arranging Coins there are a total of six nodes and seven edges. The total is therefore four edit operations required to transform between the two pieces of source code. 
 \section{Related Work}
 As was mentioned earlier in this paper, there are some pieces of literature which focus on analogous topics. These include books which aim to give solutions to common programming questions \cite{mcdowell2015cracking} and the fundamentals of java \cite{markham2014java}\cite{aziz2012elements}. There are also some websites which have some mock interview questions and stage the mock interview to be similar to the normal interview process by having limited time and selected questions.
+
 \section{Conclusion and Future Works}
 In this paper we have created a guide for beginners in programming, fresh graduates and readers who wish to refresh their knowledge. This paper enables them to learn and understand some of the fundamental algorithms of programming quickly. Through learning these patterns, the reader should be able to identify solutions to a wide array of coding problems. 
 \par The results of this paper have a potentially generalisable impact on the coding world, yet they also have a specific impact on the key area of algorithms. The potentially generalisable case is impacted as this paper can apply to multiple different programming languages. Java was used to solve all of the questions in this paper, but in reality, any language would have been applicable for the questions. Therefore, this paper has the potential to be useful for people who come from different language backgrounds. The specific case is due to this paper focusing in on the algorithms and approach to solving the problems. By showing how the algorithms, which are learned by every coder can be applied to multiple problems by simply changing some area of these important patterns. The paper clearly shows the reader that learning the main algorithms will allow them to spend more time thinking of the solution based off previously learned algorithms. This will give the reader a good starting point when they are attempting to solve a question. This should allow the reader to be more confident in their coding ability, as they will have a strong basis to start from. 
