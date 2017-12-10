@@ -306,11 +306,13 @@ return current\;
 	\SetKwFunction{maxDepth}{maxDepth}
 	\Indm\maxDepth{$TreeNode  localRoot$}\\
 		\If{\hlc[cyan!50]{localRoot $==$ null}}{\hlc[cyan!50]{ return 0\;}}
+		\Else{
 		\hlc[cyan!50]{int ldepth $=$}\maxDepth(localRoot leftChild)\;
 		\hlc[cyan!50]{int rdepth $=$}\maxDepth(localRoot rightChild)\;
 		\If{\hlc[cyan!50]{ldepth $>$ rdepth}}{
-		\hlc[cyan!50]{return ldepth+1}
-		}\Else{\hlc[cyan!50]{return rdepth+1}}
+		\hlc[cyan!50]{return ldepth+1\;}
+		}\Else{\hlc[cyan!50]{return rdepth+1\;}}
+		}
 \caption{Leetcode Q104 Max. Depth of Binary Tree}
 \label{fig:maxdepth}
 \end{algorithm}\DecMargin{1em}
