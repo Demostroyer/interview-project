@@ -60,7 +60,8 @@ public class employeeImportance690 {
 	        //use a Stack which holds all the subordinates of the current employee.
 	        Stack<Integer> stack = new Stack<Integer>();
 	        //Adding in all the employees and their ids into the table
-	        for (Employee e : employees) table.put(e.id,e);
+	        for (Employee e : employees) 
+	        	table.put(e.id,e);
 	        int total = 0;//used to store the total importance value
 	        stack.push(id);//initially put the id of the Employee onto the stack 
 	        
@@ -70,14 +71,11 @@ public class employeeImportance690 {
 	            total += e.importance;//add their importance to the total
 	          //for every subordinate of this employee, add to the stack, this will allow every subordinate 
 	          //to be added in and then processed
-	            for (Integer sub : e.subordinates) stack.push(sub);
+	            for (Integer sub : e.subordinates) 
+	            	stack.push(sub);
 	        }
-	        
 	        return total;
-	        
 	    }
-	
-
 }
 
 /*

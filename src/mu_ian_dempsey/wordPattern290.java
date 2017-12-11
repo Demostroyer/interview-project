@@ -19,10 +19,12 @@ Space Analysis: O() - > check with Hao
 */
 public class wordPattern290 {
 	    public boolean wordPattern(String pattern, String str) {
-	        if(pattern == null && str == null) return true;//this should be allowed by definition
+	        if(pattern == null && str == null) 
+	        	return true;//this should be allowed by definition
 	        //get the number if words inside the str, and construct an array out of this splitting
 	        String[] words = str.split(" ");//make an array of the str given where it splits on " ".
-	        if(pattern.length() != words.length) return false;//if the pattern is a different size to the number of words inside the str it is false
+	        if(pattern.length() != words.length) 
+	        	return false;//if the pattern is a different size to the number of words inside the str it is false
 	        Map map = new HashMap();
 	        //now to assign the elements in the pattern to a slot in the Map!
 	        for(Integer i =0;i<words.length; ++i){// NOTE: Needs to be Integer I, this is for boxing reasons.

@@ -27,7 +27,8 @@ public class kthSmallestElementinaBST230 {
         while (k != 0) {
             TreeNode n = myStack.pop();
             k--;//as a node has been popped off of the stack, decrement k, as we are getting closer to k being 0.
-            if (k == 0) return n.val;//When k is 0, then just return the current node's value.
+            if (k == 0) 
+            	return n.val;//When k is 0, then just return the current node's value.
             //The following is in the chance that it has not been found in the entire left subtree, so it must be in the right subtree
             TreeNode right = n.right;
             while (right != null) {

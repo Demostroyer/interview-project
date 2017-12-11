@@ -19,7 +19,8 @@ package mu_ian_dempsey;
 public class TrimBinarySearchTree669 {
 
 	    public TreeNode trimBST(TreeNode root, int L, int R) {
-	        if(root==null)return null;
+	        if(root==null)
+	        	return null;
 	        //if the current node is outside of the limit of R, move left! L and R never change
 	        if(root.val > R){
 	            return trimBST(root.left,L,R);
@@ -34,7 +35,5 @@ public class TrimBinarySearchTree669 {
 	        root.left=trimBST(root.left,L,R);
 	        root.right=trimBST(root.right,L,R);
 	        return root;
-	        
 	    }
-	    
 }
