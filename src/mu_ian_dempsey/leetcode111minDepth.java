@@ -35,8 +35,8 @@ public class leetcode111minDepth {
 	}
     public static int minDepth(TreeNode root) {
             //first check if root is null, return 0 if so
-            if(root==null) return 0;
-           
+            if(root==null) 
+            	return 0;
 	    	//Step 1 above
 	        Queue<TreeNode> queue = new LinkedList<TreeNode>();
 	        //Adding in the root so I have somewhere to start, Step 2
@@ -62,7 +62,6 @@ public class leetcode111minDepth {
 	                if (tempNode.left != null) {
 	                 queue.add(tempNode.left);
 	                }
-
 	                /*Enqueue right child */
 	                if (tempNode.right != null) {
 	                    queue.add(tempNode.right);

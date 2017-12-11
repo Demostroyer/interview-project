@@ -23,7 +23,8 @@ import java.util.Map;
 
 public class isomorphicStrings205 {
 	       public boolean isIsomorphic(String s, String t) {
-	        if(s == null || s.length() <= 1) return true;//some base cases to take care of
+	        if(s == null || s.length() <= 1) 
+	        	return true;//some base cases to take care of
 	            //map to store them as <K,V> pairs. 
 	        Map<Character, Character> myMap = new HashMap<Character, Character>();
 	        for(int i = 0 ; i< s.length(); i++){//loop through and text
@@ -32,12 +33,17 @@ public class isomorphicStrings205 {
 	            if(myMap.containsKey(key)){//if the key has already been inserted
 	                // then we need to check if the key's value, is the same as what we are trying to insert into the map as value
 	                //if it is the same, then just continue
-	                 if(myMap.get(key).equals(val)) continue;
-	                else return false;//else it is not the same as what is already in the map, and therefore is false.
-	            }else{//if the key is not in the map yet
+	                 if(myMap.get(key).equals(val)) 
+	                	 continue;
+	                else 
+	                	return false;//else it is not the same as what is already in the map, and therefore is false.
+	            }
+	            else{//if the key is not in the map yet
 	                //Check if the value is already in the map, if not we have not got this Key Value pair yet, so add it in
-	                if(!myMap.containsValue(val)) myMap.put(key,val);
-	                else return false;//else th value exisits in it, but for another key, so we have return false.
+	                if(!myMap.containsValue(val)) 
+	                	myMap.put(key,val);
+	                else 
+	                	return false;//else th value exisits in it, but for another key, so we have return false.
 	            }
 	        }//if this runs through with no fail, return true.
 	        return true;

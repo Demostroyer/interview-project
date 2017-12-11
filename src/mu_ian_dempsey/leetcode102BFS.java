@@ -39,7 +39,8 @@ public class leetcode102BFS {
         //using the Queue system to go through the given elements, it will never have any null nodes on it
     	ArrayList<TreeNode> queue = new ArrayList<TreeNode>();
     	List<List<Integer>> answer= new ArrayList<List<Integer>>();//to store the answer, the elements in the tree itself
-    	if(root==null) {return answer;} //base case
+    	if(root==null) 
+    		return answer; //base case
     	queue.add(root);//straight away add in the root, then we go from here
     	//whilst there is something on the queue, this means there are elements in the queue and in the tree
     	while(!queue.isEmpty()){
@@ -51,13 +52,14 @@ public class leetcode102BFS {
     			/*these 2 conditionals will check if the current node has any children
       			if so it then add them to the curr Arraylist. this list acts as a temp storage for the Queue. 
       			It only holds nodes which are non-null*/
-    			if(queue.get(i).left !=null) curr.add(queue.get(i).left);
-    			if(queue.get(i).right !=null) curr.add(queue.get(i).right);
+    			if(queue.get(i).left !=null) 
+    				curr.add(queue.get(i).left);
+    			if(queue.get(i).right !=null) 
+    				curr.add(queue.get(i).right);
     		}          
     		answer.add(temp);//add the correct nodes to answer from temp
     		queue=curr;//set the queue to now have the elements inside curr
     	}
     	return answer;
-
     	}
 	}

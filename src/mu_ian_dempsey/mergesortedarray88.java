@@ -8,7 +8,8 @@ package mu_ian_dempsey;
 public class mergesortedarray88 {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         //if the second array is empty, then just return the entire first array(it is already sorted!)
-        if(n == 0){return;}
+        if(n == 0){
+        	return;}
     while(n>0){
         if(m==0){nums1[m+n-1]=nums2[n-- -1];//the first is empty, so copy over the contents of second. 
         }else{

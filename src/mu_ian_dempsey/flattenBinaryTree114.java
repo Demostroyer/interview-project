@@ -23,7 +23,8 @@ package mu_ian_dempsey;
 
 public class flattenBinaryTree114 {
 		    public void flatten(TreeNode root) {
-	        if(root==null) {return;}
+	        if(root==null) 
+	        	return;
 	        TreeNode leftSub = root.left;//these two variables are used to cycle through the tree.
 	        TreeNode rightSub = root.right;
 	        root.left=null;//as it is only the right children that are taken into account.
@@ -32,7 +33,8 @@ public class flattenBinaryTree114 {
 	        flatten(rightSub);//right subtree
 	        root.right=leftSub;//now set it so the left sub tree will be before the right subtree, we do this by overwriting the right subtree to be the old left subtree. Later on just cycle through this list, and have it such that the old right subtree is stuck on after the end of the old left subtree: 
 	        TreeNode current = root;
-	        while(current.right!=null)current=current.right;//go to the end of the leftsubtree.
+	        while(current.right!=null)
+	        	current=current.right;//go to the end of the leftsubtree.
 	        current.right = rightSub;//now can fill in the right subtree contents.
 	    }
 	}

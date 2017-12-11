@@ -42,7 +42,8 @@ public class maxProductSubarray152 {
 	               	*If it is this means we are still going along good in the subarray, so update result.
 	               	*If it is not, that means this single digit is bigger, and then must keep result as is.
 	                */
-	               if(max > result) result=max;
+	               if(max > result) 
+	            	   result=max;
 		       }
 		       return result;//after going through the entire array, return the result.
 	    }

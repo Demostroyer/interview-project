@@ -24,7 +24,6 @@ public class majorityElement169 {
 	            }else if(major==num[i]){
 	                count++;//if we found the same element, ++.
 	            }else count--;//else we didn't find it, so --.
-	            
 	        }
 	        return major;
 	    }

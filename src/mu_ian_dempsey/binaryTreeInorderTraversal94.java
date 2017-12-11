@@ -31,7 +31,8 @@ public class binaryTreeInorderTraversal94 {
 
 	    public List<Integer> inorderTraversal(TreeNode root) {
 	        List<Integer> myList = new ArrayList<>();
-	        if(root==null)return myList;//it would be empty at this stage
+	        if(root==null)
+	        	return myList;//it would be empty at this stage
 	        Stack<TreeNode> myStack = new Stack<>();
 	        while(root!=null||!myStack.empty())//whilst we still have nodes to traverse
 	        {
