@@ -22,7 +22,8 @@ public class climbingStairs70 {
 	
     public static int climbStairs(int n) {
         int []nums=new int[n+1];
-        if(n <= 1) return 1;
+        if(n <= 1) 
+        	return 1;
         nums[0]=1;//base cases of the normal fibonacci
         nums[1]=1;
         for(int i =2;i< n +1;i++){//now start at the next empty slot(2 here) and figure it out with its predecessors.
