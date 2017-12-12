@@ -1,7 +1,3 @@
 The MergeSort pattern area needs work tbh. Needs to have one example included of it included to show how it is based off of the original pattern. 
-Working on the CFGs at the moment. Want all algorithms done in the paper to be displayed firstly. 
-Then work on the other questions solved. 
-Have the area for the CFGs done up, have two exmaples shown in it to show how it backs up our decision on which is similar to it. 
-
 Need to do the conclusion again.
 Need to do the abstract, -> this comes from the combo of conclusion and introduction though. 
