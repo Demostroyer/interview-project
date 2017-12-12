@@ -27,7 +27,8 @@ public class uniqueChar387 {
 	}
 	
 	public static int firstUniqueChar(String s) {
-	     if(s.length() == 0) {return -1;}
+	     if(s.length() == 0) 
+	    	 return -1;
 	        int index = 0;
 	        char[] arrChar = s.toCharArray();//an array of characters
 	        int[] arrInt = new int[256];//every possible letter that could appear. -> in ASCII form!
@@ -44,7 +45,8 @@ public class uniqueChar387 {
 	                index = i;//set result to the index of this found letter.
 	                //System.out.println("The index is: "+index+", the value of i is: "+i);
 	                break;
-	            }else{index = -1;}//else it was not found, so return -1.
+	            }else
+	            	index = -1;//else it was not found, so return -1.
 	        }
 	        return index;
 	}

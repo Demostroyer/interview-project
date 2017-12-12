@@ -61,7 +61,6 @@ public class sumLeftLeaves404 {
         //Finally if the left child of the current node is null, we try to look down the right branch of the tree. Starting again with
         //the right branch having a new 'root' in the current node's right child. 
         ans += sumOfLeftLeaves(root.right);
-    
      return ans;
     }
 }

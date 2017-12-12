@@ -27,7 +27,8 @@ public class palindromePairs336 {
 	
 	public List<List<Integer>> palindromePairs(String[] words) {
         //base check, if words is empty, return null
-		if(words.length==0) return null;
+		if(words.length==0) 
+			return null;
         //storing the solution pairs
         List<List<Integer>> result = new ArrayList<List<Integer>>();
     	//go through the array. Have j be 1 ahead of i to start
@@ -41,7 +42,6 @@ public class palindromePairs336 {
                 	pals.add(j);
                 	//now add into result
                 	result.add(pals);
-                
             	} 
             	if(palindromeCheck(words[j],words[i])){//checking the other way to pair just in case
             		List<Integer> pals = new ArrayList<Integer>();//need to recreate it everytime so only 2 are in it when adding into result
@@ -59,8 +59,7 @@ public class palindromePairs336 {
 		//first concatenate them 
 		String tester = words+words2;
 		int lower =0 ;//start at beginning
-		int upper = tester.length()-1;//start at end
-        
+		int upper = tester.length()-1;//start at end        
 		while(lower<upper){//now go thru and test if it is a palindrome, condition: if they cross then we have a palindrome!
 			if(tester.charAt(lower) != tester.charAt(upper)){//if they are ever notequal, then it is not a palindrome
 				return false;//return false
@@ -68,7 +67,8 @@ public class palindromePairs336 {
 				lower++;
 				upper--;
 			}
-		}return true;//if we make it out of the while loop, then we know it is a palindrome! So return it to the main method above
+		}
+		return true;//if we make it out of the while loop, then we know it is a palindrome! So return it to the main method above
 	}
 
 }

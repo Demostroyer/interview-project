@@ -35,11 +35,13 @@ import java.util.Arrays;
 
 public class MaximumBinaryTree654 {
         public TreeNode constructMaximumBinaryTree(int[] nums) {    
-    	if (nums.length==0) return null;
+    	if (nums.length==0) 
+    		return null;
         int max = nums[0];//the biggest number which is the root
         int j=0;//the index of the root, will be used for splitting later on
         for (int i=1;i<nums.length;i++){//finding the biggest number -> root. Also setting j to i. 
-            if (nums[i]>max) {max = nums[i];j=i;}
+            if (nums[i]>max) 
+            max = nums[i];j=i;
         }
         //creating the node of the current max, will be updated everytime I recursively call this method. 
         TreeNode node = new TreeNode(max);
@@ -50,7 +52,7 @@ public class MaximumBinaryTree654 {
         //Only fires when the left subarray is null,the key here is to go from one AFTER the original root, upto the end of the original array 
         int[] right = Arrays.copyOfRange(nums,j+1,nums.length); //key point, keep array shrinks everytime.
 	//the right node is created via a recursive call on the right subarray, It finds the 'root' of this subarray everytime. 
-             node.right = constructMaximumBinaryTree(right);
+        node.right = constructMaximumBinaryTree(right);
      	return node;
     }
         /*public TreeNode constructMaximumBinaryTree(int[] nums) {
