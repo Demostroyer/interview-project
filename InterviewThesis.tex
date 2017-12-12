@@ -29,8 +29,9 @@ Email: ian.dempsey.2013@mumail.ie}
 \pagenumbering{gobble}
 \newpage
 \pagenumbering{arabic}
-\section{Abstract}
-This is my abstract. It is empty for now. Fill in later
+\begin{abstract}
+This paper aims to analyse and produce a report based off real world interview questions. This is being performed because programming questions have become staples in any interview with technology companies. To perform this analysis, this paper will simulate the interview environment by implementing restrictive time allowances for questions. This will allow the solutions created to be as authentic as possible. Every answer will be completed manually by the author of this paper, this allows for the human aspect of the interview process to be considered. To support the decision on which algorithm each solution is related to, control flow graphs have been designed for each standard algorithm to compare each solution to. By comparing the number of nodes and edges in the standard algorithm to the number of nodes and edges in the solution, it is possible to obtain a numerical value for the similarity between pieces of code. This numerical value is used to reinforce the decision on which algorithm a solution is close to. Overall this paper presents that learning the fundamental algorithms and patterns will allow a programmer of any experience to be a better programmer. By learning these algorithms, readers will able to spend more time thinking of the specific solution to a problem, once they identify which algorithm the question is most similar to. 
+\end{abstract}
 \section{Introduction}
 \label{sec:intro}
 \par
@@ -74,7 +75,7 @@ The user will attempt to solve the problem they have selected, and they will the
 
 \section{Problem Statement}
 \label{label:problemstmt}
-In order to fulfill the goal of this paper, we will answer the following research questions:
+In order to fulfill the goal of this paper, this paper will answer the following research questions:
 \begin{enumerate}
 \item What algorithms to choose, and what categories are these algorithms associated with. 
 \item How do these algorithms relate to the classic algorithms and how similar are they.
@@ -163,23 +164,115 @@ As can be seen in Figure \ref{fig:twosum}, the main differences are the conditio
 
 \subsection{Merge Sort}
 Merge Sort is a very powerful algorithm. It is more efficient than most styles of insertion, with a time analysis of $O(n * log_{n})$, whereas insertion is $O(n^2)$. The idea of merge sort is to divide an array or some input in half and then sort each half before joining it back together. They do not have to be the same size which is useful.  \\
-Merge Sort uses the idea of divide and conquer, this means the list to be sorted should be divided up into equal parts first, then these new smaller parts should be sorted individually first before recreating the full list. Algorithm \ref{fig:mergesort} shows this.
+Merge Sort uses the idea of divide and conquer, this means the list to be sorted should be divided up into equal parts first, then these new smaller parts should be sorted individually before recreating the full list. Algorithms \ref{fig:mergesort} and \ref{fig:merge} show this.
 \IncMargin{1em}
 \begin{algorithm}
 	\SetAlgoLined
 	\SetKwInOut{Input}{Input}
 	\SetKwInOut{Output}{Output}
-	\Input{List of unsorted data}
+	\Input{List of unsorted data A, int left, int right}
 	\Output{Sorted List}
- 	\eIf{ length of A is 1}{ return 1}
-  	{Split A into two halves , L and R. Repeat until size of part =1\\
-  	Sort each part individually \\
-  	Merge with another subdivided section into B, the sorted list\\ 
-  	Return B, the sorted structure}
-\caption{The Merge Sort Algorithm through Recursion}
+ 	\eIf{ left == right}{ return A[left]\;}
+  	{$mid \longleftarrow $(left+right)/2\;
+  	recMergeSort(A,left,mid)\;
+  	recMergeSort(A,mid+1,right)\;
+  	merge(A,left,mid+1,right)\;
+  	}
+\caption{recMergeSort(). The Merge Sort Algorithm through Recursion}
 \label{fig:mergesort}
 \end{algorithm}\DecMargin{1em}
 
+\IncMargin{1em}
+\begin{algorithm}
+	\SetAlgoLined
+	\SetKwInOut{Input}{Input}
+	\SetKwInOut{Output}{Output}
+	\Input{List of unsorted data A, int left, int mid, int right}
+	\Output{Sorted List}
+ 	$n1 \longleftarrow $mid - left + 1\;
+ 	$n2 \longleftarrow $right - mid\;
+ 	$temp1[] \longleftarrow $[n1]\; 
+ 	$temp2[]\longleftarrow $[n2]\;
+ 	\tcc*[h]{Copy data into each temparray}
+ 	\For{$i\leftarrow 1$ \KwTo $n1$}{
+		copy
+	}
+	\For{$i\leftarrow 1$ \KwTo $n2$}{
+		copy
+	}
+	$i,j \longleftarrow $0\;
+	$k \longleftarrow $left\;
+	\While{$i < n1$ \&\& $j < n2$}{
+	\If{$temp1[i] <= temp2[j]$ }{
+		$A[k] = temp1[i]$\;
+		$i++$\;
+	}
+	\Else{
+		$A[k] = temp2[j]$\;
+		$j++$\;
+	
+		}
+		$k++$\;
+	}
+	\While{$i < n1$}{
+		$A[k] = temp1[i]$\;
+		$i++$\;
+		$k++$\;
+	}
+	\While{$j < n2$}{
+		$A[k] = temp2[j]$\;
+		$j++$\;
+		$k++$\;
+	}
+	return A\;
+
+	
+\caption{merge(). The merge method for Merge Sort}
+\label{fig:merge}
+\end{algorithm}\DecMargin{1em}
+
+\par As can be seen, the Merge Sort is quite a long algorithm, which contains many intricate parts which must be correct inorder for the algorithm to work correctly. \textbf{ID 23} \textit{Merge K Sorted Lists} is an example of Merge Sort being used to solve a problem. 
+The question is defined as: \textit{'' Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.''} Algorithms \ref{fig:mergeK} and \ref{fig:mergeK2} is the solution to this question.
+\IncMargin{1em}
+\begin{algorithm}
+	\SetAlgoLined
+	\SetKwInOut{Input}{Input}
+	\SetKwInOut{Output}{Output}
+	\Input{ListNode[]A, int left, int right}
+	\Output{Sorted List}
+ 	\eIf{ left == right}{ return A[left]\;}
+  	{$mid \longleftarrow $(left+right)/2\;
+  	$ListNode $ \hlc[cyan!50]{l1}$ \leftarrow recMergeSort(A,left,mid)$\;
+  	$ListNode $ \hlc[cyan!50]{l2}$ \leftarrow recMergeSort(A,mid+1,right)$\;
+  	\hlc[cyan!50]{merge(l1,l2)}\tcc*[h]{See Algorithm \ref{fig:mergeK2}}\; 
+  	}
+\caption{recMergeSort() function Merge K Sorted Lists}
+\label{fig:mergeK}
+\end{algorithm}\DecMargin{1em}
+
+\IncMargin{1em}
+\begin{algorithm}
+	\SetAlgoLined
+	\SetKwInOut{Input}{Input}
+	\SetKwInOut{Output}{Output}
+	\Input{ListNode l1, ListNode l2}
+	\Output{Sorted List}
+	\If{\hlc[cyan!50]{l1 == null}}{
+		\hlc[cyan!50]{return l2}\;
+	}
+	\If{\hlc[cyan!50]{l2 == null}}{
+		\hlc[cyan!50]{return l1}\;
+	}
+	\If{\hlc[cyan!50]{$l1.val < l2.val$}}{
+		\hlc[cyan!50]{l1.next = merge(l1.next,l2)}\;
+		\hlc[cyan!50]{return l1}\;
+	}
+	\hlc[cyan!50]{l2.next = merge(l1,l2.next)}\;
+	\hlc[cyan!50]{return l2}\;
+\caption{merge() function for \textbf{ID 23}}
+\label{fig:mergeK2}
+\end{algorithm}\DecMargin{1em}
+\par Comparing this solution which is based off of Merge Sort, it can be seen that the main difference is inside the merge method, Algorithm \ref{fig:mergeK2}. The reason for this is because each scenario will alter the merge method due to their data structures and requirements. On the other hand, Algorithm \ref{fig:mergeK} is very similar to the standard pattern.  
 \subsection{Binary Search}
 Binary Search is a rapid algorithm for locating data. It has a time complexity of $O(log{n})$ and is used when working with sorted arrays. The algorithm is also used when using binary search trees. In this section the examples are shown with arrays. This algorithm compares the target value to the middle value of the array. If the target is less than this middle value, then the upper half is eliminated as the target cannot lie in this section and the search continues on the remaining half until the search is successful or not. Algorithm \ref{fig:binary} shows the standard binary search algorithm.
 \IncMargin{1em}
@@ -598,13 +691,14 @@ As was mentioned earlier in this paper, there are some pieces of literature whic
 
 \section{Conclusion and Future Works}
 In this paper we have created a guide for beginners in programming, fresh graduates and readers who wish to refresh their knowledge. This paper enables them to learn and understand some of the fundamental algorithms of programming quickly. Through learning these patterns, the reader should be able to identify solutions to a wide array of coding problems. 
-\par The results of this paper have a potentially generalisable impact on the coding world, yet they also have a specific impact on the key area of algorithms. The potentially generalisable case is impacted as this paper can apply to multiple different programming languages. Java was used to solve all of the questions in this paper, but in reality, any language would have been applicable for the questions. Therefore, this paper has the potential to be useful for people who come from different language backgrounds. The specific case is due to this paper focusing in on the algorithms and approach to solving the problems. By showing how the algorithms, which are learned by every coder can be applied to multiple problems by simply changing some area of these important patterns. The paper clearly shows the reader that learning the main algorithms will allow them to spend more time thinking of the solution based off previously learned algorithms. This will give the reader a good starting point when they are attempting to solve a question. This should allow the reader to be more confident in their coding ability, as they will have a strong basis to start from. 
-\par The approach taken in this paper was to solve each question manually by a human. The approach was stipulated as follows: allocate a certain amount of time to solving the question and then attempt it. Whilst solving the question, the approach was to document the ideas which were used to try and solve the question.  This process had both positives and negatives to it. The positives were that the solutions were all attempted and completed by a human, meaning that this process of solving the questions was similar to the interview process. This is due to both, the interview and human solving the questions for this paper, having the human element of thinking of multiple ways to tackle the issues. This allowed our approach to be as valid and authentic to the real scenario of the interview as possible.
+\par The results of this paper have a potentially generalisable impact, yet they also have a specific impact on the key area of algorithms. The generalisable case is that this paper can apply to multiple different programming languages. Java was used to solve all the questions in this paper, but any language would have been applicable for the questions. Therefore, this paper has the potential to be useful for different programming languages. The specific case comes from this paper focusing on the algorithms and approaches to solving the problems. By showing how the algorithms, which are learned by every programmer, can be applied to multiple problems by simply changing some area of these important patterns, readers learn that specific problems can be solved using the fundamental algorithms. This will give the reader a good starting point when they are attempting to solve a question.
+\par The approach taken in this paper was to solve each question manually. This process had both positives and negatives to it. The positives were that the solutions were all attempted and completed by a human, meaning that this process was similar to the interview environment. This is due to both, the interview and approach taken for this paper, having the human element of thinking of multiple ways to tackle the issues. This allowed the approach to be as valid and authentic to the real scenario of the interview as possible.
 The negatives of this approach were that this manual style required a lot of human effort. This resulted in questions taking longer than expected to be completed, and questions being solved in ways which might not have been the most optimal. This method is dependent on the coding ability of the human, which depending on the topic can vary. For example, the questions relating to the advanced topic Dynamic Programming took longer to learn and be able to complete.
  In this paper there was no automatic approach to solving the questions developed. This would have been helpful for validating the solutions produced by the manual methodology. This automatic process was unable to be produced because of the time constraints of this paper. 
- \par This paper does have its limitations. As mentioned previously the approach to a solve the questions can be improved. Also, the topics which were covered, which are important and fundamental to any programmer wishing to further their knowledge in this field, did not address all of the areas which the questions answered. For example, the questions focusing on Strings. Whilst String manipulation was used throughout multiple answers, it was never formally addressed in this paper. This applies to other key patterns such as insertion sort, red-black trees etc. The reason this paper does not cover more topic areas is because of the time constraint for the project.
-%\par It would have been extremely useful to have a numerical representation of how similar a solution was to the original pattern it is based off. This was explored by us, but we were unable to produce this numerical value. This was because we could not justify a way to classify similarity, as we found similarity was hard to define. One might want to base the similarity on the length of the code, as pieces of code which have similar length might be closely related, another person might base it purely off of the logic involved, but not take into account the length of it, meaning the solution could be correct and employ the algorithm to some extent but it would be too far removed from the original algorithm then.
-
+ \par This paper does have its limitations. As mentioned previously the approach to solve the questions can be improved. The topics which were covered are only a selection of algorithms, there are many more to be studied. For example, the questions focusing on Insertion Sort were never formally addressed in this paper. The reason this paper does not cover more topic areas is because of the time constraint for the project.
+ \par With regards to future works adding to this project, it would be imperative to design and build an automatic validator. This validator tool would be used to validate the code generated for a problem, and return which standard algorithm the solution is similar to. The validator could build on the idea of the control flow graphs which counts the additions and deletions required to transform one piece of code into another. 
+ To better understand the questions asked in interviews, any future works should encompass more areas of algorithms. 
+ \par Overall this paper delivers a report that shows the importance and usefulness of learning the fundamental algorithms.
 \bibliography{mybib}
 \bibliographystyle{ieeetr}
 
