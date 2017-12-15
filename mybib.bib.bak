@@ -217,7 +217,7 @@
 @Book{softwaretesting,
   title     = {Software Testing Principles and Practice},
   publisher = {China Machine Press},
-  year      = {2016},
+  year      = {2013},
   author    = {Dr.Stephen Brown Dr.Joe Timoney Dr.Thoa Pham Tom Lysaght Deshi Ye},
   editor    = {Maynooth University},
 }

@@ -1,19 +1,23 @@
-\documentclass[10pt,twocolumn]{IEEEtran}
+\documentclass[10pt,twocolumn,hidelinks]{IEEEtran}
 
-\usepackage[linesnumbered,lined,boxed,commentsnumbered, noend, noline]{algorithm2e}
+\usepackage[lined,boxed,commentsnumbered]{algorithm2e}
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{soul}
 \usepackage{supertabular}
 \usepackage{tabularx}
 \usepackage{ caption, floatrow, makecell, booktabs}%
+\usepackage{hyperref}
+\setcounter{tocdepth}{1}
+\usepackage{pdfpages}
 
 \newcommand{\hlc}[2][yellow]{{%
     \colorlet{foo}{#1}%
     \sethlcolor{foo}\hl{#2}}%
 }
 
-\title{Analyzing Algorithmic Patterns Based on Real Coding Interview Questions}
+
+\title{Analysing Algorithmic Patterns Based on Real Coding Interview Questions}
 \author{\IEEEauthorblockN{Ian Dempsey,\\
 Computer Science Department,\\
 Maynooth University,\\
@@ -24,7 +28,11 @@ Email: ian.dempsey.2013@mumail.ie}
 %\label{sec: | fig: | } -> use to give something a specific label. This allows it to be referenced later
 %\ref{___} -> to refernce a previously labeled area
 \begin{document}
-
+\tableofcontents
+\addtocontents{toc}{~\hfill\textbf{Page}\par}
+\listoffigures
+\listoftables
+\newpage
 \maketitle
 \pagenumbering{gobble}
 \newpage
@@ -37,53 +45,61 @@ This paper aims to analyse and produce a report based off real world interview q
 \par
 Nowadays interviews for jobs in the I.T industry are becoming more complex and demanding on the applicant. As this section of the working industry is usually quite technical, it is quite common for the applicants to have to perform some form of technical test. These tests normally involve several questions that are based on a wide variety of topics in programming. These questions are used to test potential employees on whether they have strong analytical and critical assessment skills. The technical tests also allow the employer to see how many standard algorithms the candidate knows, and can use. However, it is difficult to master all the different types of algorithms and their intricacies. 
 \par The purpose of this paper is to study the relationship between the classical and well known algorithms, and the interview questions which are commonly asked.  This paper aims to give guidance to people who want to study the interview questions, but also learn a core set of common ideas which will help them solve multiple problems. This would therefore allow them to save time as they prepare for the interview.
-\par This paper presents a comprehensive report summarising the similarities between interview questions and standard algorithms taught in any programming course. This distinguishes our work from interview preparation books which focus on the problem-solving skills, simply showing the reader a solution to a single problem, and not reinforcing material they would already be familiar with. This paper's goal is to show people that understanding the fundamentals of several common algorithms will allow them to be able to solve a wide array of problems. It is also the purpose of this paper that a beginner of programming or a fresh graduate can use this paper as guidance to show them how much time is needed for preparatory work before they have the interview.  
+\par This paper presents a comprehensive report summarising the similarities between interview questions and standard algorithms taught in a standard programming course. This distinguishes our work from interview preparation books which focus on the problem-solving skills, simply showing the reader a solution to a single problem, and not reinforcing material they would already be familiar with. 
+\par The contribution of this paper can be summarised as the following: 
+\begin{itemize}
+\item Mastering the fundamental algorithms can cover a wide range of real world interview questions. 
+\item We identify patterns that are closely related to these standard algorithms. 
+\item We believe this paper can be used as a guidance for fresh graudtaes which can prepare them for real world interview questions.  
+\end{itemize}
   %The questions themselves have a wide range of difficulty, from easier ones which focus on in basics of programming- e.g., array indexing, sorting algorithms, up to harder questions which really push candidates- e.g., dynamic programming, graphs. This area of interviewing is known as \textit{whiteboarding}, and has become quite common, it has led to some books being published which compile together numerous questions which are popular for interviewers to ask\cite{mcdowell2015cracking}.The focus in this paper is not the ability to solve as many quetions as possible to give to the applicants to study, but to try and discover patterns in problems which are similar, and then classify these patterns based off of pre-established patterns that candidates would be used to. This classification will then be able to help applicants and fellow programmers to learn how to see the patterns in problems quicker and be able to apply them to multiple problems, where they need only alter specific areas of code to solve the target problem. %
-\section{Technical Background}
+\section{Background}
 \par Nowadays, in general, there are a lot of online repositories for interview questions and interview related material. Websites such as hackerrank.com, glassdoor.ie, geeksforgeeks.org, and leetcode.com all offer information on what questions are common during interviews for different companies. They also offer ways to test potential solutions to some of the given questions. 
-\par For this paper we chose to use leetcode.com\cite{leet1}, as this website comes with a huge amount of online material that is generally taken from previously asked interview questions. Companies also use sites similar to leetcode when they are building up a bank of questions to pose to candidates. This was important in our decision for the repository, as it meant we were using a platform which was regularly updated. LeetCode itself also has some built-in features which greatly appealed to us. The website has an online discussion forum for each question, allowing the community to discuss solutions, issues, and the questions themselves. LeetCode also host their own weekly coding competitions which allow users to gain more experience and confidence in coding problems. One of the unique main features this online judge website has in comparison to others is a section for a user to perform a mock interview. This mock interview is under the time constraint of a normal real-world interview, this was a pre-eminent for us in choosing our online judge. The online editor that is used by leetcode also allows a user to select from a multitude of programming languages, as shown in Figure \ref{fig:langUI} below. For the purpose of this paper the language that was chosen was java. The reason for this is because it is a language most people learn first. However, any choice of programming language would be just as acceptable, as we present pseudocode throughout the paper which can be used by any major programming language.  
+\par For this paper we chose to use leetcode.com\cite{leet1}, as this website comes with a huge amount of online material that is generally taken from previously asked interview questions. Companies also use sites similar to leetcode when they are building up a bank of questions to pose to candidates. This was important in our decision for the repository, as it meant we were using a platform which was regularly updated. LeetCode itself also has some built-in features which greatly appealed to us. The website has an online discussion forum for each question, allowing the community to discuss solutions, issues, and the questions themselves. LeetCode also host their own weekly coding competitions which allow users to gain more experience and confidence in coding problems. One of the unique main features this online judge website has in comparison to others is a section for a user to perform a mock interview. This mock interview is under the time constraint of a normal real-world interview, this was a pre-eminent for us in choosing our online judge. The online editor that is used by leetcode also allows a user to select from a multitude of programming languages, as shown in Figure \ref{fig:langUI} below.
+\par We chose Java for this project. The reason for this is because Java is widely used. However, our approach is applicable in other programming languages.  
 \par The user interface of LeetCode is basic and accessible to use. The main page which lists all the problems, offers its users the option to filter questions by difficulty, which company has asked it before, what area the questions focuses on and much more. As seen in Figure \ref{fig:homepage}, we have chosen to focus on questions which are tagged as being related to trees. 
 \begin{figure}[h]
-\includegraphics[width=0.5\textwidth]{homepageUI.png}
+\includegraphics[scale=0.4]{homepageUI.png}
 \caption{Homepage}
 \label{fig:homepage}
 \end{figure}
 
 A user simply chooses the question which they wish to attempt, and is promptly brought to the problem's specific screen, as seen in Figure \ref{fig:problemPage}. On this screen there is a general description of the problem and a few examples for more clarification. This page also contains the online editor that the user will operate to attempt the problem. The online editor is intuitive to understand, and as stated has a variety of options for the user to choose from. 
 \begin{figure}[h]
-\includegraphics[width=0.5\textwidth]{problemPage.png}
+\includegraphics[scale=0.4]{problemPage.png}
 \caption{Problem Specific Page}
 \label{fig:problemPage}
 \end{figure}
 
 \begin{figure}[h]
-\includegraphics[width=0.5\textwidth]{languageUI.png}
+\includegraphics[scale=0.4]{languageUI.png}
 \caption{Online editor with options displayed}
 \label{fig:langUI}
 \end{figure}   
 The user will attempt to solve the problem they have selected, and they will then want to submit their answer and see if it is correct. They perform this by clicking the submit solution button underneath the editor. Leetcode allows a user to submit their code and be informed almost instantly if they are correct or not. There are two possible outcomes once the user clicks the submit button. Either it is accepted and leetcode returns an accepted result with suggestions for the next question a user could attempt, shown in Figure \ref{fig:accepted}, or their answer failed a certain testcase or even their code failed to compile and run, shown in Figure \ref{fig:fail}. In the case of failure, leetcode will report where an error is in the code by referencing the line.  
 \begin{figure}[h]
-\includegraphics[width=0.5\textwidth]{accepted.png}
+\includegraphics[scale=0.4]{accepted.png}
 \caption{User solution passes all testcases}
 \label{fig:accepted}
 \end{figure}  
 \begin{figure}[h]
-\includegraphics[width=0.5\textwidth]{failure.png}
+\includegraphics[scale=0.4]{failure.png}
 \caption{User solution failing submission}
 \label{fig:fail}
 \end{figure}    
 
 \section{Problem Statement}
 \label{label:problemstmt}
-In order to fulfill the goal of this paper, this paper will answer the following research questions:
-\begin{enumerate}
-\item What algorithms to choose, and what categories are these algorithms associated with. 
-\item How do these algorithms relate to the classic algorithms and how similar are they.
-\item How easy is it for a person to indentify the pattern of the algorithm.
-\end{enumerate}
+We formulate the problem statement of this paper into the following three research questions:
+\begin{itemize}
+\item \textbf{RQ1: }What algorithms to choose, and what categories are these algorithms associated with. 
+\item \textbf{RQ2: }How do these algorithms relate to the classic algorithms and how similar are they.
+\item \textbf{RQ3: }How easy is it for a person to indentify the pattern of the algorithm.
+\end{itemize}
 
 \section{The Solution}
-To answer question one above, we had to perform some information gathering. Many companies choose similarly styled questions for their technical tests, so we gathered information from forums, such as glassdoor.ie \cite{glassdoor}, and websites which discussed experiences people had at interviews. We also read through the main categories listed in books which prepare people for interviews, such as Cracking the Coding Interview \cite{mcdowell2015cracking}. These discussions listed the questions people were asked, and by what companies. The website geeksforgeeks.org has a list of the top interview questions that a user should study prior to an interview \cite{geeksalgos}. Therefore, this paper focuses on the following areas:
+To answer RQ1, we first collect some useful information. For example many companies took their questions from online repositiories such as Glassdoor \cite{glassdoor}, and websites which discussed experiences people had at interviews. We also read through some interviewing preparing books. These books typically list a range of topics covered in interviews, such as Cracking the Coding Interview coveres x y z\cite{mcdowell2015cracking}. Further there are many website publish top real world interview questions. This is based on the user interview experience. For example geeksforgeeks has a list of the top interview questions that a user should study prior to an interview, example:... \cite{geeksalgos}. For those reason, this paper focuses on the following algorithms:
+%make this a table.
 \begin{itemize}
 \item Sorting Algorithms
 \item Searching Algorithms
@@ -91,23 +107,11 @@ To answer question one above, we had to perform some information gathering. Many
 \item Trees
 \item Dynamic Programming
 \end{itemize}
-In each of these areas we categorised them into some key patterns. These are patterns or types of the above listed algorithms which commonly appeared. These include, but are not limited to:
-\begin{itemize}
-\item Palindrome
-\item Merge Sort
-\item Binary Search
-\item Tree Traversal
-\item Breadth-First Search
-\item Depth-First Search
-\label{itm:patterns}
-\end{itemize} 
-\par Leetcode has over six hundred questions, which is impossible to answer in such a short period of time. So, a representative amount of this tota was selected. They were selected based on reputation, if they were asked in interviews, and the pass rate of the question. Relating back to Figure \ref{fig:homepage}, it can be seen that questions can be filtered.
-\par With regards to question two above, in order to find the most similar algorithm, we first compared the ideas of the classical algorithm and the solution to the question we were solving. It is possible to have multiple algorithms apply to a problem. We implemented the easiest solution which is the first which came to our minds. This is because one normally has limited time in an interview, and this means that a person would build on an idea they initially discover after they understand the question being asked. The candidate would not have enough time to explore multiple solutions to a problem under the interview conditions. 
-\par To try and obtain a numerical representation of similarity between the standard algorithm and the solution we created, we decided to count how many edit operations we would require to transform one piece of code into another. These edit operations are defined as: 
-\begin{itemize}
-\item Adding code
-\item Deleting code
-\end{itemize}
+In each of these areas we categorised them into seven key patterns (see Table \ref{tab:classicalAlgos}). These are patterns or types of the above listed algorithms which commonly appeared.
+ 
+\par Among the many websites and interview books, we discovered Leetcode is possibly the bets resource for preparing for interviews. Therefore we select around fourty questions. Those fourty questions are representative of the five areas that this paper forcuses on \ref{tab:fiveareas}.They were selected based on reputation, if they were asked in interviews, and the pass rate of the question. Relating back to Figure \ref{fig:homepage}, it can be seen that questions can be filtered. Leetcode has over six hundred questions, which is impossible to answer in such a short period of time.
+\par With regards to RQ2, in order to find the most similar algorithm, we first compared the ideas of the classical algorithm and the solution to the question we were solving. It is possible to have multiple algorithms apply to a problem. We implemented the easiest solution which is the first which came to our minds. This is because one normally has limited time in an interview, and this means that a person would build on an idea they initially discover after they understand the question being asked. The candidate would not have enough time to explore multiple solutions to a problem under the interview conditions. 
+\par To try and obtain a numerical representation of similarity between the standard algorithm and the solution we created, we decided to count how many edit operations we require to transform one piece of code into another and these edits are categorised into two operations, adding and deleting code.
 As this would be a considerable task to perform by hand, we used an online difference calculator called DiffChecker \cite{diff} to get the differences between the two source files, A and B. DiffChecker returns the number of edit operations, additions and deletions, required to transform one piece of code into the other. Then we went through the listed changes manually, we did this to verify the changes that DiffChecker suggested to us were required to make the two pieces of code identical in logical terms.This process was not automatic and therefore needed to be improved. 
 \par We also looked into using tools for plagiarism checking such as Turnitin and Moss \cite{Schleimer:2003:WLA:872757.872770}. Moss is a powerful tool for detecting plagiarism. Moss is described as an automatic system for determining the similarity of programs \cite{mosswebsite}. The tool itself is heavily focused on finding plagiarised pieces of code from given sources. Even though there were benefits of using Moss, as documented by other users \cite{MossBowyer}, we decided not to use it. This was for a few reasons, mainly that the process was quite laborious, as we needed to send off each file to compare with a base file. 
 \par Finally it was decided that the use of control flow graphs would be beneficial to obtaining a numerical value for the similarity between pieces of code. The use of control flow graphs is explained later on in the section \ref{label:CFG}.
@@ -117,30 +121,30 @@ Palindromes are extremely useful for searching. As Palindromes are meant to be t
 Algorithm \ref{fig:pal} is a general algorithm for solving the palindrome problem which is a common problem in java and other languages. This approach can be used to solve numerous other problems by altering the inside of the loop.
 \IncMargin{1em}
 \begin{algorithm}
-	\SetAlgoLined
+	%\SetAlgoLined
+	\LinesNumbered
 	\SetKwInOut{Input}{Input}
 	\SetKwInOut{Output}{Output}
 	\Input{Given input of characters, S}
 	\Output{Boolean}
-	$leftIndex  \longleftarrow $S[0]\;
-	$rightIndex \longleftarrow $S.length-1\;
-	\While{leftIndex $<$ rightIndex}{
-	
-	compare leftIndex with rightIndex\;
-	\If{leftIndex !=rightIndex}{
-		return false\;
+	$leftIndex  \longleftarrow $S[0]\\
+	$rightIndex \longleftarrow $S.length-1\\
+	\While{leftIndex $<$ rightIndex}{	
+		compare leftIndex with rightIndex \\
+		\If{leftIndex !=rightIndex}{
+			return false \\
+		}
+	 	leftIndex++ \\
+		rightIndex++\\
 	}
-	 leftIndex++\;
-	rightIndex++\;
-}
-return true\;
+\Return true
 \caption{The Palindrome Algorithm}
 \label{fig:pal}
 \end{algorithm}\DecMargin{1em}
  \textbf{ID 1} TwoSum is one example where the Palindrome algorithm was used to solve the question. This question is described as: \textit{''Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the same element twice.''} Algorithm \ref{fig:twosum} is the solution accepted by LeetCode. In this pseudocode we have highlighted any differences in blue, this is the same for all the following answers.
 \IncMargin{1em}
 \begin{algorithm}
-	\SetAlgoLined
+	\LinesNumbered
 	\SetKwInOut{Input}{Input}
 	\SetKwInOut{Output}{Output}
 	\Input{Array of integers nums, target S}
@@ -167,7 +171,7 @@ Merge Sort is a very powerful algorithm. It is more efficient than most styles o
 Merge Sort uses the idea of divide and conquer, this means the list to be sorted should be divided up into equal parts first, then these new smaller parts should be sorted individually before recreating the full list. Algorithms \ref{fig:mergesort} and \ref{fig:merge} show this.
 \IncMargin{1em}
 \begin{algorithm}
-	\SetAlgoLined
+	\LinesNumbered
 	\SetKwInOut{Input}{Input}
 	\SetKwInOut{Output}{Output}
 	\Input{List of unsorted data A, int left, int right}
@@ -184,24 +188,17 @@ Merge Sort uses the idea of divide and conquer, this means the list to be sorted
 
 \IncMargin{1em}
 \begin{algorithm}
-	\SetAlgoLined
+	\LinesNumbered
 	\SetKwInOut{Input}{Input}
 	\SetKwInOut{Output}{Output}
 	\Input{List of unsorted data A, int left, int mid, int right}
-	\Output{Sorted List}
- 	$n1 \longleftarrow $mid - left + 1\;
- 	$n2 \longleftarrow $right - mid\;
- 	$temp1[] \longleftarrow $[n1]\; 
- 	$temp2[]\longleftarrow $[n2]\;
+	\Output{Sorted List A}
+ 	$n1 \longleftarrow $mid - left + 1 ; $n2 \longleftarrow $right - mid\;
+ 	$temp1[] \longleftarrow $[n1]  ; $temp2[]\longleftarrow $[n2]\;
  	\tcc*[h]{Copy data into each temparray}
- 	\For{$i\leftarrow 1$ \KwTo $n1$}{
-		copy
-	}
-	\For{$i\leftarrow 1$ \KwTo $n2$}{
-		copy
-	}
-	$i,j \longleftarrow $0\;
-	$k \longleftarrow $left\;
+ 	\For{$i\leftarrow 1$ \KwTo $n1$}{copy}
+	\For{$i\leftarrow 1$ \KwTo $n2$}{copy}
+	$i \longleftarrow $0 ; $j \longleftarrow $0 ; $k \longleftarrow $left\;
 	\While{$i < n1$ \&\& $j < n2$}{
 	\If{$temp1[i] <= temp2[j]$ }{
 		$A[k] = temp1[i]$\;
@@ -210,7 +207,6 @@ Merge Sort uses the idea of divide and conquer, this means the list to be sorted
 	\Else{
 		$A[k] = temp2[j]$\;
 		$j++$\;
-	
 		}
 		$k++$\;
 	}
@@ -224,7 +220,7 @@ Merge Sort uses the idea of divide and conquer, this means the list to be sorted
 		$j++$\;
 		$k++$\;
 	}
-	return A\;
+	\Return A\;
 
 	
 \caption{merge(). The merge method for Merge Sort}
@@ -235,15 +231,15 @@ Merge Sort uses the idea of divide and conquer, this means the list to be sorted
 The question is defined as: \textit{'' Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.''} Algorithms \ref{fig:mergeK} and \ref{fig:mergeK2} is the solution to this question.
 \IncMargin{1em}
 \begin{algorithm}
-	\SetAlgoLined
+	\LinesNumbered
 	\SetKwInOut{Input}{Input}
 	\SetKwInOut{Output}{Output}
 	\Input{ListNode[]A, int left, int right}
-	\Output{Sorted List}
+	\Output{Sorted List[] A}
  	\eIf{ left == right}{ return A[left]\;}
   	{$mid \longleftarrow $(left+right)/2\;
-  	$ListNode $ \hlc[cyan!50]{l1}$ \leftarrow recMergeSort(A,left,mid)$\;
-  	$ListNode $ \hlc[cyan!50]{l2}$ \leftarrow recMergeSort(A,mid+1,right)$\;
+  	 \hlc[cyan!50]{$l1 \leftarrow recMergeSort(A,left,mid)$\;}
+  	\hlc[cyan!50]{$l2 \leftarrow recMergeSort(A,mid+1,right)$\;}
   	\hlc[cyan!50]{merge(l1,l2)}\tcc*[h]{See Algorithm \ref{fig:mergeK2}}\; 
   	}
 \caption{recMergeSort() function Merge K Sorted Lists}
@@ -252,7 +248,7 @@ The question is defined as: \textit{'' Merge k sorted linked lists and return it
 
 \IncMargin{1em}
 \begin{algorithm}
-	\SetAlgoLined
+	\LinesNumbered
 	\SetKwInOut{Input}{Input}
 	\SetKwInOut{Output}{Output}
 	\Input{ListNode l1, ListNode l2}
@@ -277,6 +273,7 @@ The question is defined as: \textit{'' Merge k sorted linked lists and return it
 Binary Search is a rapid algorithm for locating data. It has a time complexity of $O(log{n})$ and is used when working with sorted arrays. The algorithm is also used when using binary search trees. In this section the examples are shown with arrays. This algorithm compares the target value to the middle value of the array. If the target is less than this middle value, then the upper half is eliminated as the target cannot lie in this section and the search continues on the remaining half until the search is successful or not. Algorithm \ref{fig:binary} shows the standard binary search algorithm.
 \IncMargin{1em}
 \begin{algorithm}
+\LinesNumbered
 	\SetAlgoLined
 	\SetKwInOut{Input}{Input}
 	\SetKwInOut{Output}{Output}
@@ -304,12 +301,13 @@ Binary Search is a rapid algorithm for locating data. It has a time complexity o
 \textbf{ID 69} \textit{Sqrt(x)}, is just one example of binary search being employed to solve a question. This question is described as: \textit{''Implement int sqrt(int x). Compute and return the square root of x. x is guaranteed to be a non-negative integer.} Algorithm \ref{fig:sqrt} is the solution to this problem. 
 \IncMargin{1em}
 \begin{algorithm}
+\LinesNumbered
 	\SetAlgoLined
 	\SetKwInOut{Input}{Input}
 	\SetKwInOut{Output}{Output}
 	\Input{Int x}
 	\Output{Int y}
-	\If{\hlc[cyan!50]{x $==$ 0}}{\hlc[cyan!50]{ return 0\;}}
+	\If{\hlc[cyan!50]{x $==$ 0}}{ \Return \hlc[cyan!50]{0}}
 	$left \longleftarrow $1\;
 	$right \longleftarrow $x/2\;
 	\While{true}{
@@ -318,8 +316,8 @@ Binary Search is a rapid algorithm for locating data. It has a time complexity o
 			right $=$ mid-1\;
 		}
 		\Else{
-		\If{\hlc[cyan!50]{mid+1 $>$ x/(mid+1)}}{
-			\hlc[cyan!50]{return mid\;}
+		\If{\hlc[cyan!50]{$mid+1 > x/(mid+1)$}}{
+			\Return \hlc[cyan!50]{mid;}
 			}
 			\hlc[cyan!50]{left $=$ mid+1\;}
 		}
@@ -380,7 +378,6 @@ return current\;
 \\
 \IncMargin{1em}
 \begin{algorithm}
-	\SetAlgoLined
 	\SetKwFunction{postOrder}{postOrder}
 	\Indm\postOrder{$Node localRoot$}
 	\\
@@ -415,7 +412,7 @@ As highlighted in Algorithm \ref{fig:maxdepth}, the key difference is inside the
 \subsubsection{Breadth-First Search}
 This is a special way to visit the nodes in a tree, the ordering in this traversal pattern is to visit the root node, then move onto the children of the root node, printing each child in turn. It then will repeat this for each child of these nodes. Figure \ref{fig:breadth} shows the nodes in numerical order of visitation when using Breadth-First Search. \\
 \begin{figure}[h]
-\includegraphics[width=0.6\textwidth]{bfs.png}
+\includegraphics[scale=0.5]{bfs.png}
 \caption{Breadth-First Search}
 \label{fig:breadth}
 \end{figure}
@@ -423,7 +420,7 @@ This is a special way to visit the nodes in a tree, the ordering in this travers
 \subsubsection{Depth-First Search}
 This is a second way of visiting nodes in a tree. This pattern involves starting at the root node, then going to the left most child, then repeating this movement until the traversal reaches a leaf node (a node which has no children), then it will move back up one node and try to visit the next child node of this current node. It repeats this until the traversal finds no unvisited node. Figure \ref{fig:depth} shows the nodes in numerical order of visitation when using Depth-First Search. 
 \begin{figure}[h]
-\includegraphics[width=0.6\textwidth]{dfs.png}
+\includegraphics[scale=0.5]{dfs.png}
 \caption{Depth-First Search}
 \label{fig:depth}
 \end{figure}
@@ -659,7 +656,7 @@ The issue which we personally came across was when we tried to understand the wa
 This did not make it any clearer as to which way the subtrees should be structured. It was simple to understand that the biggest number in the subarray should be the next number in the tree and then work down in a descending order from the root node. What was hard to understand was why the two was the right child of the three, and yet zero was to the left of five, where it was to be expected. This confusion caused a delay in the solution to this question being completed. 
 \subsection{Control Flow Graphs}
 \label{label:CFG}
-As mentioned previously, it was decided that control flow graphs \cite{softwaretesting} would be the best way to evaluate the similarity between the code of the fundamental pattern’s, and the answer for the questions. To evaluate the similarity between the pieces of code, the number of edit operations required to transform one piece of code into another was used. These edits were previously listed in section \ref{label:problemstmt}. Adding or deleting a node was counted as one operation, whilst adding or deleting any edges between nodes was also counted as one operation. The reason that control flow graphs were chosen is due to them being relatively simple to create and understand. They show the natural flow of the program and this allows for easy evaluation of similarity to a standard pattern.
+As mentioned previously, it was decided that control flow graphs would be the best way to evaluate the similarity between the code of the fundamental pattern’s, and the answer for the questions \cite{softwaretesting}. To evaluate the similarity between the pieces of code, the number of edit operations required to transform one piece of code into another was used. These edits were previously listed in section \ref{label:problemstmt}. Adding or deleting a node was counted as one operation, whilst adding or deleting any edges between nodes was also counted as one operation. The reason that control flow graphs were chosen is due to them being relatively simple to create and understand. They show the natural flow of the program and this allows for easy evaluation of similarity to a standard pattern.
 \par After creating the CFG for both the standard algorithm and the solution to some answer, both CFGs were compared. The number of additions and deletions of the graph was totalled to give a number. It was decided that if this number was below ten, these two pieces of code were similar. Anything above ten was regarded as being dissimilar. In this paper an example has been included which demonstrates this between the palindrome algorithm displayed in Algorithm \ref{fig:pal} and the TwoSum algorithm displayed in Algorithm \ref{fig:twosum}. Both algorithms' CFGs have been included in Figures \ref{fig:cfgpal} and \ref{fig:cfgtwosum}. 
  \begin{figure}[h]
 \includegraphics[width=0.6\textwidth]{CFGPalindrome.png}
@@ -699,7 +696,23 @@ The negatives of this approach were that this manual style required a lot of hum
  \par With regards to future works adding to this project, it would be imperative to design and build an automatic validator. This validator tool would be used to validate the code generated for a problem, and return which standard algorithm the solution is similar to. The validator could build on the idea of the control flow graphs which counts the additions and deletions required to transform one piece of code into another. 
  To better understand the questions asked in interviews, any future works should encompass more areas of algorithms. 
  \par Overall this paper delivers a report that shows the importance and usefulness of learning the fundamental algorithms.
+ 
+
 \bibliography{mybib}
 \bibliographystyle{ieeetr}
 
+
+\clearpage
+ \appendix
+\section{Source Code}
+\subsection{Source Code}
+\label{whatever}
+\par Please see full source code in the \textit{supporting} folder.  
+%\input{appendixA} % filename in curly brackets
+\section{Control Flow Graphs}
+\subsection{Control Flow Graphs}
+\par Please see the control flow graphs subfolder inside the \textit{supporting} folder. 
+\label{whatever}
+%\input{appendixB} % filename in curly brackets**
+ 
 \end{document}
