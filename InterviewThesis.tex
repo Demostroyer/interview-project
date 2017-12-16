@@ -55,7 +55,7 @@ Nowadays interviews for jobs in the I.T industry are becoming more complex and d
   %The questions themselves have a wide range of difficulty, from easier ones which focus on in basics of programming- e.g., array indexing, sorting algorithms, up to harder questions which really push candidates- e.g., dynamic programming, graphs. This area of interviewing is known as \textit{whiteboarding}, and has become quite common, it has led to some books being published which compile together numerous questions which are popular for interviewers to ask\cite{mcdowell2015cracking}.The focus in this paper is not the ability to solve as many quetions as possible to give to the applicants to study, but to try and discover patterns in problems which are similar, and then classify these patterns based off of pre-established patterns that candidates would be used to. This classification will then be able to help applicants and fellow programmers to learn how to see the patterns in problems quicker and be able to apply them to multiple problems, where they need only alter specific areas of code to solve the target problem. %
 \section{Background}
 \par Nowadays, in general, there are a lot of online repositories for interview questions and interview related material. Websites such as hackerrank.com, glassdoor.ie, geeksforgeeks.org, and leetcode.com all offer information on what questions are common during interviews for different companies. They also offer ways to test potential solutions to some of the given questions. 
-\par For this paper we chose to use leetcode.com\cite{leet1}, as this website comes with a huge amount of online material that is generally taken from previously asked interview questions. Companies also use sites similar to leetcode when they are building up a bank of questions to pose to candidates. This was important in our decision for the repository, as it meant we were using a platform which was regularly updated. LeetCode itself also has some built-in features which greatly appealed to us. The website has an online discussion forum for each question, allowing the community to discuss solutions, issues, and the questions themselves. LeetCode also host their own weekly coding competitions which allow users to gain more experience and confidence in coding problems. One of the unique main features this online judge website has in comparison to others is a section for a user to perform a mock interview. This mock interview is under the time constraint of a normal real-world interview, this was a pre-eminent for us in choosing our online judge. The online editor that is used by leetcode also allows a user to select from a multitude of programming languages, as shown in Figure \ref{fig:langUI} below.
+\par For this paper we choose to use leetcode.com\cite{leet1}, as this website comes with a huge amount of online material that is taken from previously asked interview questions. Companies also use sites similar to LeetCode when they are building up a bank of questions to pose to candidates. This was important in our decision for the repository, as it meant we were using a platform which was regularly updated. LeetCode itself also has some built-in features which greatly appealed to us. The website has an online discussion forum for each question, allowing the community to discuss solutions, issues, and the questions themselves. LeetCode also host their own weekly coding competitions which allow users to gain more experience and confidence in coding problems. One of the unique main features this online judge website has in comparison to others is a section for a user to perform a mock interview. This mock interview is under the time constraint of a normal real-world interview, this was a pre-eminent for us in choosing our online judge. The online editor that is used by LeetCode also allows a user to select from a multitude of programming languages, as shown in Figure \ref{fig:langUI} below.
 \par We chose Java for this project. The reason for this is because Java is widely used. However, our approach is applicable in other programming languages.  
 \par The user interface of LeetCode is basic and accessible to use. The main page which lists all the problems, offers its users the option to filter questions by difficulty, which company has asked it before, what area the questions focuses on and much more. As seen in Figure \ref{fig:homepage}, we have chosen to focus on questions which are tagged as being related to trees. 
 \begin{figure}[h]
@@ -76,7 +76,7 @@ A user simply chooses the question which they wish to attempt, and is promptly b
 \caption{Online editor with options displayed}
 \label{fig:langUI}
 \end{figure}   
-The user will attempt to solve the problem they have selected, and they will then want to submit their answer and see if it is correct. They perform this by clicking the submit solution button underneath the editor. Leetcode allows a user to submit their code and be informed almost instantly if they are correct or not. There are two possible outcomes once the user clicks the submit button. Either it is accepted and leetcode returns an accepted result with suggestions for the next question a user could attempt, shown in Figure \ref{fig:accepted}, or their answer failed a certain testcase or even their code failed to compile and run, shown in Figure \ref{fig:fail}. In the case of failure, leetcode will report where an error is in the code by referencing the line.  
+The user will attempt to solve the problem they have selected, and they will then want to submit their answer and see if it is correct. They perform this by clicking the submit solution button underneath the editor. LeetCode allows a user to submit their code and be informed almost instantly if they are correct or not. There are two possible outcomes once the user clicks the submit button. Either it is accepted and LeetCode returns an accepted result with suggestions for the next question a user could attempt, shown in Figure \ref{fig:accepted}, or their answer failed a certain testcase or even their code failed to compile and run, shown in Figure \ref{fig:fail}. In the case of failure, LeetCode will report where an error is in the code by referencing the line.  
 \begin{figure}[h]
 \includegraphics[scale=0.4]{accepted.png}
 \caption{User solution passes all testcases}
@@ -98,7 +98,7 @@ We formulate the problem statement of this paper into the following three resear
 \end{itemize}
 
 \section{The Solution}
-To answer RQ1, we first collect some useful information. For example many companies took their questions from online repositiories such as Glassdoor \cite{glassdoor}, and websites which discussed experiences people had at interviews. We also read through some interviewing preparing books. These books typically list a range of topics covered in interviews, such as Cracking the Coding Interview covers Binary Search, Dynamic Programming and Graph Traversal \cite{mcdowell2015cracking}. Further many websites publish the top real world interview questions. This is based on the user interview experience. For example geeksforgeeks has a list of the top interview questions that a user should study prior to an interview, for example Linked Lists, Binary Search Trees and Sorting \cite{geeksalgos}. For these reasons, this paper focuses on the following algorithms:
+To answer RQ1, we first collect some useful information. For example, many companies took their questions from online repositories such as LeetCode, and websites which discussed experiences people had at interviews, such as GlassDoor \cite{glassdoor}. We also read through some interviewing preparing books. These books typically list a range of topics covered in interviews, such as Cracking the Coding Interview covers Binary Search, Dynamic Programming and Graph Traversal \cite{mcdowell2015cracking}. Further many websites publish the top real-world interview questions. This is based on the user interview experience. For example, GeeksforGeeks has a list of the top interview questions that a user should study prior to an interview, for example Linked Lists, Binary Search Trees and Sorting \cite{geeksalgos}. For these reasons, this paper focuses on the following algorithms:
 
 \begin{table}[h]
 \centering
@@ -115,13 +115,14 @@ To answer RQ1, we first collect some useful information. For example many compan
 \end{table}
 In each of these areas we categorise them into seven key patterns (see Table \ref{tab:classicalAlgos}). These are patterns or types of the above listed algorithms which commonly appeared.
  
-\par Among the many websites and interview books, we discovered Leetcode is possibly the bets resource for preparing for interviews. Therefore we select around fourty questions. Those fourty questions are representative of the five areas that this paper forcuses on \ref{tab:fiveareas}.They were selected based on reputation, if they were asked in interviews, and the pass rate of the question. Relating back to Figure \ref{fig:homepage}, it can be seen that questions can be filtered. Leetcode has over six hundred questions, which is impossible to answer in such a short period of time.
-\par With regards to RQ2, in order to find the most similar algorithm, we first compared the ideas of the classical algorithm and the solution to the question we were solving. It is possible to have multiple algorithms apply to a problem. We implemented the easiest solution which is the first which came to our minds. This is because one normally has limited time in an interview, and this means that a person would build on an idea they initially discover after they understand the question being asked. The candidate would not have enough time to explore multiple solutions to a problem under the interview conditions. 
+\par Among the many websites and interview books, we discovered Leetcode is possibly the best resource for preparing for interviews. Therefore, we select around forty questions. These forty questions are representative of the five areas that this paper focuses on \ref{tab:fiveareas}. They are selected based on reputation, if they were asked in interviews, and the pass rate of the question. Relating back to Figure \ref{fig:homepage}, it can be seen that questions can be filtered. Leetcode has over six hundred questions, which is impossible to answer in such a short period of time.
+\par With regards to RQ2, in order to find the most similar algorithm, we first compare the ideas of the classical algorithm and the solution to the question we were solving. It is possible to have multiple algorithms apply to a problem. We implement the easiest solution which is the first which comes to our minds. This is because one normally has limited time in an interview, and this means that a person builds on an idea they initially discover after they understand the question being asked. The candidate does not have enough time to explore multiple solutions to a problem under the interview conditions. 
 \par To try and obtain a numerical representation of similarity between the standard algorithm and the solution we created, we decided to count how many edit operations we require to transform one piece of code into another and these edits are categorised into two operations, adding and deleting code.
 As this would be a considerable task to perform by hand, we used an online difference calculator called DiffChecker \cite{diff} to get the differences between the two source files, A and B. DiffChecker returns the number of edit operations, additions and deletions, required to transform one piece of code into the other. Then we went through the listed changes manually, we did this to verify the changes that DiffChecker suggested to us were required to make the two pieces of code identical in logical terms.This process was not automatic and therefore needed to be improved. 
 \par We also looked into using tools for plagiarism checking such as Turnitin and Moss \cite{Schleimer:2003:WLA:872757.872770}. Moss is a powerful tool for detecting plagiarism. Moss is described as an automatic system for determining the similarity of programs \cite{mosswebsite}. The tool itself is heavily focused on finding plagiarised pieces of code from given sources. Even though there were benefits of using Moss, as documented by other users \cite{MossBowyer}, we decided not to use it. This was for a few reasons, mainly that the process was quite laborious, as we needed to send off each file to compare with a base file. 
 \par Finally it was decided that the use of control flow graphs would be beneficial to obtaining a numerical value for the similarity between pieces of code. The use of control flow graphs is explained later on in the section \ref{label:CFG}.
 \par We have listed the aforementioned patterns in the following section, along with sample questions which are similar to the classical algorithms. We picked only a few to represent all of the questions due to the page limit. Please see Table \ref{tab:tabSols} for more detail.
+\par We now present the identified algorithms in Table \ref{tab:classicalAlgos} in the following section. 
 \subsection{Palindrome}
 Palindromes are extremely useful for searching. As Palindromes are meant to be the same in both directions, one can easily discover if the input is an actual palindrome. This is helpful for searching because one can search and find the odd character out, or the unique piece of data in some text. This style of algorithm is also space efficient, they normally have a space analysis of O(n/2) as the algorithm works over two elements of the input at a time. The basic approach of a Palindrome algorithm is to work inwards with both pointers starting at either end of the input and constantly moving towards one another and comparing if the elements are the same.\\  
 Algorithm \ref{fig:pal} is a general algorithm for solving the palindrome problem which is a common problem in java and other languages. This approach can be used to solve numerous other problems by altering the inside of the loop.
@@ -251,17 +252,17 @@ The question is defined as: \textit{'' Merge k sorted linked lists and return it
 	\Input{ListNode l1, ListNode l2}
 	\Output{Sorted List}
 	\If{\hlc[cyan!50]{l1 == null}}{
-		\hlc[cyan!50]{return l2}
+		\Return \hlc[cyan!50]{$l2$}
 	}
 	\If{\hlc[cyan!50]{l2 == null}}{
-		\hlc[cyan!50]{return l1}
+		\Return \hlc[cyan!50]{$l1$}
 	}
 	\If{\hlc[cyan!50]{$l1.val < l2.val$}}{
-		\hlc[cyan!50]{l1.next = merge(l1.next,l2)}\\
-		\hlc[cyan!50]{return l1}
+		\hlc[cyan!50]{$l1.next = merge(l1.next,l2)$}\\
+		\Return \hlc[cyan!50]{$l1$}
 	}
-	\hlc[cyan!50]{l2.next = merge(l1,l2.next)}\\
-	\hlc[cyan!50]{return l2}
+	\hlc[cyan!50]{$l2.next = merge(l1,l2.next)$}\\
+	\Return \hlc[cyan!50]{$l2$}
 \caption{merge() function for \textbf{ID 23}}
 \label{fig:mergeK2}
 \end{algorithm}\DecMargin{1em}
@@ -306,7 +307,7 @@ Binary Search is a rapid algorithm for locating data. It has a time complexity o
 	\If{\hlc[cyan!50]{x $==$ 0}}{ \Return \hlc[cyan!50]{0}}
 	$left \longleftarrow 1$ ; $right \longleftarrow x/2$\\
 	\While{true}{
-		$mid \longleftarrow $left + (right - left)/2\\
+		$mid \longleftarrow left + (right - left)/2$\\
 		\If{\hlc[cyan!50]{mid $>$ x/mid}}{
 			$right = mid-1$
 		}
@@ -328,15 +329,14 @@ Binary Search is a rapid algorithm for locating data. It has a time complexity o
 	\SetKwInOut{Output}{Output}
 	\Input{Int n}
 	\Output{Number of full steps completed}
-	$low\longleftarrow $1\;
-	$high \longleftarrow $\hlc[cyan!50]{n}\;
+	$low\longleftarrow $1 ; $high \longleftarrow $\hlc[cyan!50]{n}\\
 	\While{low $<=$ high}{
-		$mid \longleftarrow $low + (high - low)/2\;
+		$mid \longleftarrow low + (high - low)/2$\\
 		\If{\hlc[cyan!50]{mid $*$ (mid+1L) $<=$2L$*$n }}{
-			low $=$ mid+1\;
+			$low = mid+1$\\
 		}
 		\Else{
-			high = mid -1\;
+			$high = mid -1$\\
 	}
 }\Return \hlc[cyan!50]{high}\;
 \caption{Arranging Coins}
@@ -358,12 +358,12 @@ Algorithm \ref{fig:nodesearch} is an example of how one might search for a parti
 	\Input{Given a key to search for}
 	\Output{The desired Node, or null}
 	$Node current \longleftarrow root$\;
-	\While{current.data is not key}{
-		\If{current is null}{\Return $null$}
-		\eIf{current.data $>$ key}{
-			move left on the tree\\
+	\While{$current.data is not key$}{
+		\If{$current is null$}{\Return $null$}
+		\eIf{$current.data > key$}{
+			$move$ $left$ $on$ $the$ $tree$\\
 		}{
-		move right on the tree\\
+		$move$ $right$ $on$ $the$ $tree$\\
 		}
 	}
 \Return $current$\;
@@ -396,11 +396,11 @@ Algorithm \ref{fig:nodesearch} is an example of how one might search for a parti
 	\Indm\maxDepth{$TreeNode$ $localRoot$}\\
 		\If{\hlc[cyan!50]{localRoot $==$ null}}{\Return \hlc[cyan!50]{0\;}}
 		\Else{
-		\hlc[cyan!50]{int ldepth $=$}\maxDepth(localRoot leftChild)\\
-		\hlc[cyan!50]{int rdepth $=$}\maxDepth(localRoot rightChild)\\
+		\hlc[cyan!50]{$int ldepth $}=$\maxDepth(localRoot leftChild)$\\
+		\hlc[cyan!50]{$int rdepth $}=$\maxDepth(localRoot rightChild)$\\
 		\If{\hlc[cyan!50]{ldepth $>$ rdepth}}{
-		\Return  \hlc[cyan!50]{ldepth+1\;}
-		}\Else{ \Return \hlc[cyan!50]{ rdepth+1\;}}
+		\Return  \hlc[cyan!50]{$ldepth+1$\\}
+		}\Else{ \Return \hlc[cyan!50]{$ rdepth+1$\\}}
 		}
 \caption{Leetcode Q104 Max. Depth of Binary Tree}
 \label{fig:maxdepth}
