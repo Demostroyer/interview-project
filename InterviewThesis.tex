@@ -50,7 +50,7 @@ Nowadays interviews for jobs in the I.T industry are becoming more complex and d
 \begin{itemize}
 \item Mastering the fundamental algorithms can cover a wide range of real world interview questions. 
 \item We identify patterns that are closely related to these standard algorithms. 
-\item We believe this paper can be used as a guidance for fresh graudtaes which can prepare them for real world interview questions.  
+\item We believe this paper can be used as a guidance for fresh graduates which can prepare them for real world interview questions.  
 \end{itemize}
   %The questions themselves have a wide range of difficulty, from easier ones which focus on in basics of programming- e.g., array indexing, sorting algorithms, up to harder questions which really push candidates- e.g., dynamic programming, graphs. This area of interviewing is known as \textit{whiteboarding}, and has become quite common, it has led to some books being published which compile together numerous questions which are popular for interviewers to ask\cite{mcdowell2015cracking}.The focus in this paper is not the ability to solve as many quetions as possible to give to the applicants to study, but to try and discover patterns in problems which are similar, and then classify these patterns based off of pre-established patterns that candidates would be used to. This classification will then be able to help applicants and fellow programmers to learn how to see the patterns in problems quicker and be able to apply them to multiple problems, where they need only alter specific areas of code to solve the target problem. %
 \section{Background}
@@ -98,16 +98,22 @@ We formulate the problem statement of this paper into the following three resear
 \end{itemize}
 
 \section{The Solution}
-To answer RQ1, we first collect some useful information. For example many companies took their questions from online repositiories such as Glassdoor \cite{glassdoor}, and websites which discussed experiences people had at interviews. We also read through some interviewing preparing books. These books typically list a range of topics covered in interviews, such as Cracking the Coding Interview coveres x y z\cite{mcdowell2015cracking}. Further there are many website publish top real world interview questions. This is based on the user interview experience. For example geeksforgeeks has a list of the top interview questions that a user should study prior to an interview, example:... \cite{geeksalgos}. For those reason, this paper focuses on the following algorithms:
-%make this a table.
-\begin{itemize}
-\item Sorting Algorithms
-\item Searching Algorithms
-\item Graphs
-\item Trees
-\item Dynamic Programming
-\end{itemize}
-In each of these areas we categorised them into seven key patterns (see Table \ref{tab:classicalAlgos}). These are patterns or types of the above listed algorithms which commonly appeared.
+To answer RQ1, we first collect some useful information. For example many companies took their questions from online repositiories such as Glassdoor \cite{glassdoor}, and websites which discussed experiences people had at interviews. We also read through some interviewing preparing books. These books typically list a range of topics covered in interviews, such as Cracking the Coding Interview covers Binary Search, Dynamic Programming and Graph Traversal \cite{mcdowell2015cracking}. Further many websites publish the top real world interview questions. This is based on the user interview experience. For example geeksforgeeks has a list of the top interview questions that a user should study prior to an interview, for example Linked Lists, Binary Search Trees and Sorting \cite{geeksalgos}. For these reasons, this paper focuses on the following algorithms:
+
+\begin{table}[h]
+\centering
+	\begin{tabular}{| c | } \hline
+		   Algorithms \\ \hline
+		Sorting Algorithms\\ \hline
+		Searching Algorithms\\ \hline
+		Graphs  \\ \hline
+		Trees  \\ \hline
+		Dynamic Programming \\ \hline
+	\end{tabular}
+	\caption{Algorithms chosen for this project}
+	\label{tab:fiveareas}
+\end{table}
+In each of these areas we categorise them into seven key patterns (see Table \ref{tab:classicalAlgos}). These are patterns or types of the above listed algorithms which commonly appeared.
  
 \par Among the many websites and interview books, we discovered Leetcode is possibly the bets resource for preparing for interviews. Therefore we select around fourty questions. Those fourty questions are representative of the five areas that this paper forcuses on \ref{tab:fiveareas}.They were selected based on reputation, if they were asked in interviews, and the pass rate of the question. Relating back to Figure \ref{fig:homepage}, it can be seen that questions can be filtered. Leetcode has over six hundred questions, which is impossible to answer in such a short period of time.
 \par With regards to RQ2, in order to find the most similar algorithm, we first compared the ideas of the classical algorithm and the solution to the question we were solving. It is possible to have multiple algorithms apply to a problem. We implemented the easiest solution which is the first which came to our minds. This is because one normally has limited time in an interview, and this means that a person would build on an idea they initially discover after they understand the question being asked. The candidate would not have enough time to explore multiple solutions to a problem under the interview conditions. 
