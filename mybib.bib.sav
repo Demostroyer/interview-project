@@ -123,7 +123,7 @@
 
 @Misc{diff,
   author       = {DiffChecker},
-  howpublished = {w},
+  howpublished = {www.diffchecker.com},
   month        = nov,
   year         = {2017},
   abstract     = {Used to try and get a numerical number for similarity between pieces of code},
@@ -198,13 +198,6 @@
   url       = {https://books.google.ie/books?id=uuHAAgAAQBAJ},
 }
 
-@Online{pramp,
-  author       = {Pramp, I.},
-  howpublished = {Online},
-  year         = {2017},
-  url          = {https://www.pramp.com/#/},
-}
-
 @Book{aziz2012elements,
   title     = {Elements of Programming Interviews: The Insiders' Guide},
   publisher = {ElementsOfProgrammingInterviews.com},
@@ -212,6 +205,33 @@
   author    = {Aziz, A. and Lee, T.H. and Prakash, A.},
   isbn      = {9781479274833},
   url       = {https://books.google.ie/books?id=y6FLBQAAQBAJ},
+}
+
+@Book{softwaretesting,
+  title     = {Software Testing Principles and Practice},
+  publisher = {China Machine Press},
+  year      = {2013},
+  author    = {Dr.Stephen Brown Dr.Joe Timoney Dr.Thoa Pham Tom Lysaght Deshi Ye},
+  editor    = {Maynooth University},
+}
+
+@Article{Karp:1987,
+  author     = {Karp, Richard M. and Rabin, Michael O.},
+  title      = {Efficient Randomized Pattern-matching Algorithms},
+  journal    = {IBM J. Res. Dev.},
+  year       = {1987},
+  volume     = {31},
+  number     = {2},
+  pages      = {249--260},
+  month      = mar,
+  issn       = {0018-8646},
+  acmid      = {1012171},
+  address    = {Riverton, NJ, USA},
+  doi        = {10.1147/rd.312.0249},
+  issue_date = {March 1987},
+  numpages   = {12},
+  publisher  = {IBM Corp.},
+  url        = {http://dx.doi.org/10.1147/rd.312.0249},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
