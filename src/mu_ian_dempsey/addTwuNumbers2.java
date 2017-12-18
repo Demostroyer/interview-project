@@ -25,8 +25,8 @@ public class addTwuNumbers2 {
     
 	public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         int carry = 0;
-       ListNode p, dummy = new ListNode(0);
-       p = dummy;
+       ListNode l3, temp = new ListNode(0);
+       l3 = temp;
        while (l1 != null || l2 != null || carry != 0) {
         if (l1 != null) {
            carry += l1.val;
@@ -39,18 +39,18 @@ public class addTwuNumbers2 {
            //this is done in the case where a number is bigger than the other. the biggest pair would be 9+9, 
            //so mod by 10, leaving 8, this 8 is put in at the respected position in the list. 
            //Then carry the 1 forward to the next bases
-        p.next = new ListNode(carry%10);
+        l3.next = new ListNode(carry%10);
            //this is the equivalent of doing carry/10
        if(carry >=10){
            carry=1;
        }else{
            carry=0;
        }
-       //mpve on p so i am not overwriting the values in the same node!
-       p = p.next;
+       //mpve on l3 so i am not overwriting the values in the same node!
+       l3 = l3.next;
    }
        //just keep returning the variable holding the values. 
-   return dummy.next;
+   return temp.next;
 
    }
 }

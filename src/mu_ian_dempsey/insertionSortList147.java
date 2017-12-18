@@ -9,12 +9,12 @@ package mu_ian_dempsey;
  *  5.Else clause: it is at the head, so need to set the head to be this inserted node. Need global access to the head node. Or pass is in a parameter everytiime I call the method, which makes sense actually.
  *  6.Return head.next.
  * So this is the right idea, but it only works for lists of size 2. 
- * New idea: Seen in method sortList();
+ * New idea:
  *1) Create an empty sorted (or result) list
  *2) Traverse the given list, do following for every node.
  * a) Insert current node in sorted way in sorted or result list.
  *3) Change head of given linked list to head of sorted (or result) list.
- *In my solution the new empty list is called helper.
+ *In my solution the new empty list is called temp.
  */
 public class insertionSortList147 {
 	
@@ -32,13 +32,13 @@ public class insertionSortList147 {
 		
 	}	
 	
-    public ListNode sortList(ListNode head) {
+    public ListNode insertionSortList(ListNode head) {
 		if( head == null ){
 			return head;
 		}
-		ListNode helper = new ListNode(0); //new starter of the sorted list
+		ListNode temp = new ListNode(0); //new starter of the sorted list
 		ListNode cur = head; //the node to be inserted, it is initially the head of the list
-		ListNode pre = helper; //insert node between pre and pre.next,could also be between pre and cur.
+		ListNode pre = temp; //insert node between pre and pre.next,could also be between pre and cur.
 		ListNode next = null; //the next node to be inserted, tracks the value of the next node in the list
 		//not the end of input list
 		while( cur != null ){//this will fire as long as next is never null, which means that cur won't be null
@@ -50,11 +50,11 @@ public class insertionSortList147 {
 			//insert between pre and pre.next, this is where the important steps happen
 			cur.next = pre.next;//so the next value of cur will depend on how big pre is, pre being the SORTED list
 			pre.next = cur;//we then set the next node in pre to be cur, this will always insert in the right place, as pre's value depends on the inner while loop above
-			pre = helper;//reset the value of pre to helper, so it is back to 0 everytime.
+			pre = temp;//reset the value of pre to temp, so it is back to 0 everytime.
 			cur = next;//and update cur, so moving along in the list itself.
 		}
 		
-		return helper.next;//return helper.next so to skip over the 0 which would be at the beginning of the helper list. 
+		return temp.next;//return temp.next so to skip over the 0 which would be at the beginning of the temp list. 
 	}
     
 	/*
