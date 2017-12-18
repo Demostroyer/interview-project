@@ -13,9 +13,10 @@ Compare to the equivalent position in the str(maybe use an array so it is easy t
 If pattern is empty, and str !=empty then false. Visa versa.
 Need to make i Integer, this was found out from a lot of trial and error. 
 @author: Ian Dempsey
+Credit Stephan PochMann on LeetCode for the if stmt inside the for loop. This was were I was stuck.
 Pattern found: No real pattern in it.
-Time Analysis: O(n *	 m)-> depends on the input given
-Space Analysis: O() - > check with Hao
+Time Analysis: O(n *m)-> depends on the input given
+Space Analysis: O(n)
 */
 public class wordPattern290 {
 	    public boolean wordPattern(String pattern, String str) {
