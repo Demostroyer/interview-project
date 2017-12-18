@@ -105,7 +105,7 @@
 @Online{pramp,
   author       = {Pramp,Inc},
   title        = {Pramp},
-  howpublished = {Online},
+  howpublished = {https://www.pramp.com},
   abstract     = {This site provides mock interview scenarios for programming interviews.},
   owner        = {Pramp,Inc.},
   url          = {https://www.pramp.com},
@@ -247,7 +247,7 @@
   url      = {https://doi.org/10.1007/s10664-017-9564-7},
 }
 
-@InProceedings{C,
+@InProceedings{Chilowicz,
   author    = {M. Chilowicz and E. Duris and G. Roussel},
   title     = {Syntax tree fingerprinting for source code similarity detection},
   booktitle = {2009 IEEE 17th International Conference on Program Comprehension},
