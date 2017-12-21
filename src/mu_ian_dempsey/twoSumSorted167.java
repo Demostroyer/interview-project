@@ -1,6 +1,7 @@
 package mu_ian_dempsey;
 /**
- * This is the twoSumSSorted Q on leetcode.com, number 167
+ * Q167. Description: Given an array of integers that is already sorted in ascending order, 
+ * find two numbers such that they add up to a specific target number.
  * This is very similar to the previously answered twoSum Q, 
  * main difference is that this one is not using zero-based indexing.
  * And also that this will be working on sorted arrays. 

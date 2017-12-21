@@ -3,7 +3,7 @@ package mu_ian_dempsey;
 import java.util.Arrays;
 
 /**
- * This is leetcode Q 654. Nearly Complete. 
+ * This is leetcode Q 654.  
  * Definition for a binary tree node.
  * public class TreeNode {
  *     int val;

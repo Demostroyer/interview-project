@@ -2,6 +2,7 @@ package mu_ian_dempsey;
 
 import java.util.Stack;
 /**
+ * Q230. Description: Given a binary search tree, write a function kthSmallest to find the kth smallest element in it.
  *Can build on the answer from 94. Only difference is that there is no need for the List. 
  *Also, need to perform some decrement on k everytime a move is made. 
  *Need to go left AND right. May need to even go right from the root after traversing the entire left subtree, 

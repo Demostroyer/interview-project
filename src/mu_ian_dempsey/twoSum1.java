@@ -28,7 +28,7 @@ public class twoSum1 {
 		int target=7;
 		int[] pair=new int[2];
 		pair=twoSum(numArray,target);
-		System.out.println("index " +pair[0]+" "+ pair[1] );
+		System.out.println("Index: " +pair[0]+" "+ pair[1] );
 		
 	}
 	

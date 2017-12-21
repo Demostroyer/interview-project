@@ -25,7 +25,7 @@ import java.util.List;
  */
 public class palindromePairs336 {
 	
-	public List<List<Integer>> palindromePairs(String[] words) {
+	public static List<List<Integer>> palindromePairs(String[] words) {
         //base check, if words is empty, return null
 		if(words.length==0) 
 			return null;
@@ -55,9 +55,12 @@ public class palindromePairs336 {
     	return result;
 	}
 	//the private helper method: it checks if something is a palindrome	
-	private boolean palindromeCheck(String words,String words2){
+	private static boolean palindromeCheck(String words,String words2){
 		//first concatenate them 
 		String tester = words+words2;
+		//need to be making everything lowercase, just to be certain!
+		tester=tester.toLowerCase();
+		//System.out.println(tester);
 		int lower =0 ;//start at beginning
 		int upper = tester.length()-1;//start at end        
 		while(lower<upper){//now go thru and test if it is a palindrome, condition: if they cross then we have a palindrome!
@@ -71,4 +74,9 @@ public class palindromePairs336 {
 		return true;//if we make it out of the while loop, then we know it is a palindrome! So return it to the main method above
 	}
 
+	public static void main(String ... args) {
+		String[] words = {"john","LeahcIm","nhoJ","michael"};
+		System.out.println("Answer is: "+ palindromePairs(words));
+	}
+	
 }

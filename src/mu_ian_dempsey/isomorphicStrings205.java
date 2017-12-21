@@ -4,25 +4,34 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Leetcode Q205.
-*Using a map is really useful here. -> Allows only one mapping between letters. 
-*If another tries to exist with either the key or value mapping to some other, then it is not an isomorphic pair of words.
-*Use it to store the value associated between the two strings, String s is our keys, String t is our values. 
-*Can check if they are already in the map.
-*If so we then check if the current key from s, is equal to the value we are currently looking at in t.
-*if they are equal, then we just keep looping through the two strings. 
-*if it is not equal then we return false. As this shows they are not isomorphic.
-*If the current key has not been inserted into the map yet, then we have to insert it. 
-*Note: check if the value from t is in the map already, if so return false. 
-*else just use .put(s,t).
-*@author Ian Dempsey
-*Pattern here: Map manipulation
-*Time Anaylsis: O(n*m) -> it depends on the size of the input. n is string s, m is string t.
-*Space Analysis: O(n) -> defined by the size of the input for the size of the Map.
+ *Leetcode Q205. Description: Given two strings s and t, determine if they are isomorphic.
+ *Two strings are isomorphic if the characters in s can be replaced to get t.
+ *Using a map is really useful here. -> Allows only one mapping between letters. 
+ *If another tries to exist with either the key or value mapping to some other, then it is not an isomorphic pair of words.
+ *Use it to store the value associated between the two strings, String s is our keys, String t is our values. 
+ *Can check if they are already in the map.
+ *If so we then check if the current key from s, is equal to the value we are currently looking at in t.
+ *if they are equal, then we just keep looping through the two strings. 
+ *if it is not equal then we return false. As this shows they are not isomorphic.
+ *If the current key has not been inserted into the map yet, then we have to insert it. 
+ *Note: check if the value from t is in the map already, if so return false. 
+ *else just use .put(s,t).
+ *@author Ian Dempsey
+ *Pattern here: Map manipulation
+ *Time Anaylsis: O(n*m) -> it depends on the size of the input. n is string s, m is string t.
+ *Space Analysis: O(n) -> defined by the size of the input for the size of the Map.
 */
 
 public class isomorphicStrings205 {
-	       public boolean isIsomorphic(String s, String t) {
+	
+	public static void main(String...args) {
+		String word1 ="egg";
+		String word2="add";
+		
+		System.out.println("Are they isomorphic? " + isIsomorphic(word1,word2));
+	}
+	
+	       public static boolean isIsomorphic(String s, String t) {
 	        if(s == null || s.length() <= 1) 
 	        	return true;//some base cases to take care of
 	            //map to store them as <K,V> pairs. 

@@ -1,5 +1,9 @@
 package mu_ian_dempsey;
 /**
+ * Q441. Description:
+ * You have a total of n coins that you want to form in a staircase shape, 
+ * where every k-th row must have exactly k coins.
+ * Given n, find the total number of full staircase rows that can be formed.
  * I have two solutions listed below. The first uses basic Math. It utilises a pattern that I discovered
  * whilst I was studying the examples given for the question. 
  * The second solution uses Binary Search. I found a second solution for this as I was not happy with the 
@@ -44,7 +48,7 @@ public class arrangingCoins441 {
     Time Analysis: O(1)
     Space Analysis: O(1)
     */
-    public int arrangeCoins(int n){
+    public static int arrangeCoins(int n){
         int low=1;
         int high=n;
         //This is being done iteratively
@@ -54,5 +58,9 @@ public class arrangingCoins441 {
             else high =mid-1;//The case where we need to discard the right hand side. 
         }
         return high;//Once low is bigger than/equal to high, we have found the number of steps possible, so return it. 
+    }
+    
+    public static void main(String ...args) {
+    	System.out.println("Answer is: " + arrangeCoins(8));
     }
 }

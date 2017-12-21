@@ -1,20 +1,21 @@
 package mu_ian_dempsey;
 /**
-*Using a stack is the best way to do this
-*Pattern here will be some form of palindrome.
-*Idea is simple:
-*Scan through the input string, ignore all characters which are NOT a  (){}[]
-*Everytime come across an open bracket, push it onto the stack. Everytime you come across a closing bracket, pop
-*off of the stack and compare the two brackets. If they are equal, keep moving on. 
-*If they are not equal, then set a boolean bariable to false and return it.
-*I can have a helper method that is called isPaired(). It takes in the two potential matching brackets. 
-*Then just returns if the stmt of say: open==( && close == ), is true. Repeat for all 3 types. 
-*@author Ian Dempsey
-*@Date 06/11/17
-*Pattern: Stack manipulation. Palindrome possibly. 
-*Time Analysis: O(n)->because the insertion and removal off of the stack is fast.  
-*Space Analysis: Depends on the string inputted, so it is O(n).
-* 
+ * Q20. Description:Given a string containing just the characters '(', ')', '{', '}', '[' and ']', 
+ * determine if the input string is valid.
+ *Using a stack is the best way to do this
+ *Pattern here will be some form of palindrome.
+ *Idea:
+ *Scan through the input string, ignore all characters which are NOT a  (){}[]
+ *Everytime come across an open bracket, push it onto the stack. Everytime you come across a closing bracket, pop
+ *off of the stack and compare the two brackets. If they are equal, keep moving on. 
+ *If they are not equal, then set a boolean bariable to false and return it.
+ *I can have a helper method that is called isPaired(). It takes in the two potential matching brackets. 
+ *Then just returns if the stmt of say: open==( && close == ), is true. Repeat for all 3 types. 
+ *@author Ian Dempsey
+ *06/11/17
+ *Pattern: Stack manipulation. Palindrome possibly. 
+ *Time Analysis: O(n)->because the insertion and removal off of the stack is fast.  
+ *Space Analysis: Depends on the string inputted, so it is O(n).
 */
 
 import java.util.Stack;

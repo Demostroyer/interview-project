@@ -13,8 +13,13 @@ Space Analysis: O(n) -> depends on the size of the array
 Pattern found: Basic linear search   
 */
 public class SearchInsertPosition35 {
+	public static void main(String...args) {
+		int[]nums= {1,2,3,4,5};
+		int target=4;
+		System.out.println("Index target was found at: " + searchInsert(nums,target));
+	}
 
-    public int searchInsert(int[] nums, int target) {
+    public static int searchInsert(int[] nums, int target) {
         int index=0;
        int i=0;
         while(i<nums.length){

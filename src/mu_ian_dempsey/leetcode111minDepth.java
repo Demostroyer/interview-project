@@ -4,7 +4,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * This is leetcode Q 111.
+ * This is leetcode Q 111. Description:
+ * Given a binary tree, find its minimum depth.
  *Condition to be a leaf node is: focusNode.left == null AND focusNode.right==null.
  *I can actually use BFS. 
  *Idea here being that the first instance of a leaf node I come across on the tree IS the shortest path. 
@@ -22,16 +23,6 @@ import java.util.Queue;
  */
 public class leetcode111minDepth {
 	public static void main(String... args) {
-		TreeNode tree = new TreeNode();
-		tree.insert(10);
-		tree.insert(2);
-		tree.insert(12);
-		tree.insert(11);
-		tree.insert(5);
-		tree.insert(13);
-		tree.insert(15);
-		System.out.println("The minimum depth of tree is: " );
-		System.out.println(minDepth(tree.root));
 	}
     public static int minDepth(TreeNode root) {
             //first check if root is null, return 0 if so

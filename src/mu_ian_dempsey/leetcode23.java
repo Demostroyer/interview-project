@@ -9,16 +9,17 @@
  * }
  */
 /*
-*   I can use merge sort to solve this problem. Just break down the big lists into its individual parts. 
-	Then can simply build it back up! Will need to mess with my own mergesort method though.
-	I can use the mergeTwoLists solution somewhat for the merging part, but it will be a little bit different. 
-	For efficiency check if the list given is null straight away. If not just call recMergeSort
-	Then continue like normal for mergeSort! 
-	@author Ian Dempsey
-	@date 10/10/2017	
-	Pattern:Merge Sort
-	Time Analysis: O(nlogn) -> Using mergesort so it is going to be this complexity. 
-	Space Analysis: O(n) -> Depends on the size of the list given.  
+ *Q23. Description: Merge k sorted linked lists and return it as one sorted list.
+ *I can use merge sort to solve this problem. Just break down the big lists into its individual parts. 
+ *Then can simply build it back up! Will need to mess with my own mergesort method though.
+ *I can use the mergeTwoLists solution somewhat for the merging part, but it will be a little bit different. 
+ *For efficiency check if the list given is null straight away. If not just call recMergeSort
+ *Then continue like normal for mergeSort! 
+ *@author Ian Dempsey
+ *date 10/10/2017	
+ *Pattern:Merge Sort
+ *Time Analysis: O(nlogn) -> Using mergesort so it is going to be this complexity. 
+ *Space Analysis: O(n) -> Depends on the size of the list given.  
 */
 public class leetcode23 {
 

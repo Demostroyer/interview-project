@@ -1,6 +1,6 @@
 package mu_ian_dempsey;
 /**
- *Leetcode Q114.
+ *Leetcode Q114. Description: Given a binary tree, flatten it to a linked list in-place.
  *The solution is a pre-order traversal of the tree
  *So root, left subtree, then right subtree
  *Note: this Q does not actually require a linked list to be returned. 

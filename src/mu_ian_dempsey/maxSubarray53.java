@@ -1,7 +1,11 @@
 package mu_ian_dempsey;
 
 /**
-*Leetcode Q 53. 
+*Leetcode Q 53.  Description :
+*Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
+*For example, given the array [-2,1,-3,4,-1,2,1,-5,4],
+*the contiguous subarray [4,-1,2,1] has the largest sum = 6.
+*
 *Idea: have two vars to store to the current sum, and the max number. 
 *Loop through the entire array A. 
 *sum is the returned value after calling max on, sum+A[i] -> so the sum plus the current index in A, and A[i -> just the value in A alone. 
@@ -11,8 +15,12 @@ package mu_ian_dempsey;
 *@
 */
 public class maxSubarray53 {
+	public static void main(String...args) {
+		int[] A = {-2,1,-3,4,-1,2,1,-5,4};
+		System.out.println("Largest sum is: " + maxSubArray(A));
+	}
 
-	     public int maxSubArray(int[] A) {
+	     public static int maxSubArray(int[] A) {
 	       int newsum=A[0];//create the two vars holding the sum, and the max total found from the subarray
 	       int max=A[0];
 	       for(int i=1;i<A.length;i++){//go thru the array A

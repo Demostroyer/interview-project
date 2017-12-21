@@ -1,6 +1,8 @@
 package mu_ian_dempsey;
 /**
- * This is the main class for leetcode Q 21. 
+ * This is the main class for leetcode Q 21. Description:
+ * Merge two sorted linked lists and return it as a new list. 
+ * The new list should be made by splicing together the nodes of the first two lists.
  * My idea: create the third node. Then have a while loop that will check if one of the lists is empty
  * Inside this have a few conditionals, so say if the first list is empty, then add second list to the new list
  * Don't forget to move on the second list then. Repeat this for the opposite case. 

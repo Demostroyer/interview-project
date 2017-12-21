@@ -6,8 +6,12 @@ package mu_ian_dempsey;
  *
  */
 public class powerOfFour342 {
+	public static void main(String...args) {
+		int n =12;
+		System.out.println("Is " + n + " a power of four? " + isPowerOfFour(n));
+	}
 	
-    public boolean isPowerOfFour(int n) {
+    public static boolean isPowerOfFour(int n) {
         if(n<1){return false;}//negative numbers are not allowed
     //want to check if n is actually a number that has 4 as a factor, ie: 1,4,16,64,256 are correct answers as 4^0,4^1,4^2,4^3,4^4 are these
         //numbers respectfully. 

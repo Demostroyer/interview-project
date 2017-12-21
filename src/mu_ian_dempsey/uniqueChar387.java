@@ -1,6 +1,7 @@
 package mu_ian_dempsey;
 /**
  * This is leetcode Question 387.
+ * Find the first non repeating character in a given String.
  * My idea to find the first non repeating unique character is: Create an array of chars from the input String
  * then have a second int array that will store all of the frequencies of each letter in the array of chars. 
  * Go through the array of chars, and for each letter increment the corresponding position in the array of ints. 
@@ -17,13 +18,15 @@ public class uniqueChar387 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String leetcode="iiaannp";
-		System.out.println("The unique character first found was : "+ (char)firstUniqueChar(leetcode));
-		String c = "c";
-		char[] first=c.toCharArray();
-		for(char ch: first) {
-			System.out.println((int)ch);
-			}
+		String leetcode="iiaannppl";
+		int index=firstUniqueChar(leetcode);
+		System.out.println("The unique character first found was at index : "+index );
+		char[]leetcode1=leetcode.toCharArray();
+		try {
+		System.out.println("This character was " + leetcode1[index] );
+		}catch(IndexOutOfBoundsException e){
+			System.out.println("There was no unique character.");
+		}
 	}
 	
 	public static int firstUniqueChar(String s) {

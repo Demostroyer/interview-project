@@ -14,8 +14,13 @@ package mu_ian_dempsey;
  */
 
 public class lengthOfLastWord58 {
+	
+	public static void main(String ...args) {
+		String s = "Hi how are you today";
+		System.out.println("Answer is: " + lengthOfLastWord(s));
+	}
 
-    public int lengthOfLastWord(String s) {
+    public static int lengthOfLastWord(String s) {
         s=s.trim();
         String[] words = s.split(" ");//create an array where it is split on all spaces
         String last=words[words.length-1];//create a string to hold the last word.

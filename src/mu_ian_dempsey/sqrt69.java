@@ -23,8 +23,7 @@ package mu_ian_dempsey;
 public class sqrt69 {
 	public static void main(String...args) {
 		int answer=mySqrt(144);
-		int a=answer;
-		
+		System.out.println("Answer is : " + answer);
 	}
     public static int mySqrt(int x) {
         if(x==0) return 0;//base case

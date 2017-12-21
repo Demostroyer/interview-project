@@ -1,5 +1,6 @@
 package mu_ian_dempsey;
 /**
+ * Q147. Description: Sort a linked list using insertion sort.
  *Check if is is empty, or one element only.
  * Need a helper method to perform the insertion part.
  *  1.Have current be a node that is th node to be inserted at first, also previous node that would be null initially.

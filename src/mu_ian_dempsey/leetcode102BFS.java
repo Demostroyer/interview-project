@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 /*
- * Leetcode Q 102.
+ * Leetcode Q 102. Description: Given a binary tree, return the level order traversal of its nodes' values.
  *This is simply BFS. I can use a Queue system to perform this! It will be altered though 
  *1) Create an empty queue q
  *2) temp_node = root //start from root
@@ -30,8 +30,6 @@ import java.util.Queue;
 public class leetcode102BFS {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 	}
  
 

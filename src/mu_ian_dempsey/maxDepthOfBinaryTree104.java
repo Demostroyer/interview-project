@@ -1,7 +1,7 @@
 package mu_ian_dempsey;
 /**
- * This is for leetcode Q: 104
- * Please note: I have added in some more functions to the TreeNode class than what is provided by LeetCode.com themself.
+ * This is for leetcode Q: 104 Description: 
+ * Given a binary tree, find its maximum depth.
  * Idea:  1. Check if the given node to start is empty, therefore return 0. 
  * 2. Else, going to recursively go down both sides of the given tree UNTIL it is null. 
  *  Then back propagate the values to 2 ints storing both results for the left and right subtrees. 
@@ -17,12 +17,7 @@ package mu_ian_dempsey;
 public class maxDepthOfBinaryTree104 {
 
 	public static void main(String[] args) {
-		TreeNode tree = new TreeNode();
-		tree.insert(10);
-		tree.insert(12);
-		tree.insert(2);
-		int depth =depth(tree.root);//must give the tree.root when calling this method or else will only be a value of 1
-		System.out.println(depth);
+
 	}
 	/* Compute the "depth" of a tree -- the number of
     nodes along the longest path from the root node

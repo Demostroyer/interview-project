@@ -7,6 +7,8 @@ package mu_ian_dempsey;
  *     TreeNode right;
  *     TreeNode(int x) { val = x; }
  * }
+ * Q669. Description: Given a binary search tree and the lowest and highest boundaries as L and R, 
+ * trim the tree so that all its elements lies in [L, R] (R >= L).
  *So if we ever get to a node that has a val outside of the two given limits(L, R), we know that the tree is either left of it in the case of
  *R and right of it in the case of L. Just need to keep on calling the function recursively when this happens. With the root being passed in 
  *as the updated root which is either moved left(if it voilated R) and vice versa. 
