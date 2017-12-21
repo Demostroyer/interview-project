@@ -1,3 +1,0 @@
-The MergeSort pattern area needs work tbh. Needs to have one example included of it included to show how it is based off of the original pattern. 
-Need to do the conclusion again.
-Need to do the abstract, -> this comes from the combo of conclusion and introduction though. 
