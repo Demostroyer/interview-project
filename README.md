@@ -17,3 +17,6 @@ Appendix B inside this folder contains every Control Flow Graph that was designe
 Appendix C contains every image used in the paper, besides the Control Flow Graphs. 
 
 Inside the Supporting folder there is a README.txt. This contains all of the relevant information for the Appendices, and how best to run and compile the code for this project. 
+
+# License 
+All source code is under MIT License which you can find [here](https://github.com/Demostroyer/interview-project/blob/master/LICENSE)
