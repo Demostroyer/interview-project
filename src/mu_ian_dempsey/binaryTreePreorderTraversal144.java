@@ -9,7 +9,7 @@ import java.util.List;
 *This can be utilised to follow the order of Preorder: root->left subtree->right subtree.
 *By initially adding the root using add() i can then just use the addAll() function once on each subtree.
 *@author Ian Dempsey
-*date:22/1/2017
+*date:22/1/2018
 *Pattern: Tree Traversal
 *Time analysis: O(n)
 */
